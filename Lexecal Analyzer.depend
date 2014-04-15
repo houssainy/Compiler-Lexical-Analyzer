@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1397397427 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/main.cpp
+1397573861 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/main.cpp
 	<iostream>
 
 1397571111 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Graph.cpp
@@ -7,19 +7,28 @@
 
 1397571111 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Graph.h
 
-1397571189 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Edge.cpp
+1397575713 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Edge.cpp
 	"Edge.h"
 
-1397571188 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Edge.h
+1397575724 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Edge.h
+	<iostream>
 
 1397571160 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Node.cpp
 	"Node.h"
 
-1397571160 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Node.h
+1397574939 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Node.h
+	<vector>
+	"Edge.h"
+	<iostream>
 
 1397571889 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/Automata.cpp
 	"Automata.h"
 
 1397573228 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/Automata.h
 	"../graph_package/Graph.h"
+
+1397573257 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.cpp
+	"TokenManager.h"
+
+1397573257 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.h
 
