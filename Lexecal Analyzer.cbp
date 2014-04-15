@@ -32,9 +32,17 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="include/Graph.h" />
+		<Unit filename="graph_package/Edge.cpp" />
+		<Unit filename="graph_package/Edge.h" />
+		<Unit filename="graph_package/Graph.cpp" />
+		<Unit filename="graph_package/Graph.h" />
+		<Unit filename="graph_package/Node.cpp" />
+		<Unit filename="graph_package/Node.h" />
+		<Unit filename="lexical_analyzer_package/Automata.cpp" />
+		<Unit filename="lexical_analyzer_package/Automata.h" />
+		<Unit filename="lexical_analyzer_package/TokenManager.cpp" />
+		<Unit filename="lexical_analyzer_package/TokenManager.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/Graph.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
