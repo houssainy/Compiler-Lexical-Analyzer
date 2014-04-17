@@ -12,6 +12,7 @@ class NFA_Generator : public Automata
     public:
         NFA_Generator();
         Graph* getAutomata();
+
         virtual ~NFA_Generator();
     protected:
     private:

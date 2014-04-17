@@ -40,6 +40,8 @@
 		<Unit filename="graph_package/Node.h" />
 		<Unit filename="lexical_analyzer_package/Automata.cpp" />
 		<Unit filename="lexical_analyzer_package/Automata.h" />
+		<Unit filename="lexical_analyzer_package/NFA_Generator.cpp" />
+		<Unit filename="lexical_analyzer_package/NFA_Generator.h" />
 		<Unit filename="lexical_analyzer_package/TokenManager.cpp" />
 		<Unit filename="lexical_analyzer_package/TokenManager.h" />
 		<Unit filename="main.cpp" />
