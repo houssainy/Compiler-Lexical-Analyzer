@@ -1,7 +1,10 @@
 #ifndef SIMPSONGRAPHBUILDER_H
 #define SIMPSONGRAPHBUILDER_H
 
+#include "../graph_package/Graph.h"
+#include <iostream>
 
+using namespace std;
 class SimpsonGraphBuilder
 {
     public:

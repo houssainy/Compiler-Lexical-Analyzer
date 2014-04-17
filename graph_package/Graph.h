@@ -6,6 +6,7 @@
 class Graph
 {
     public:
+        Graph(Node* start);
         Graph();
 
         void set_start_node(Node* start_node);
@@ -19,6 +20,8 @@ class Graph
     private:
         Node * start_node;
         Node * end_node;
+
+
 };
 
 #endif // GRAPH_H

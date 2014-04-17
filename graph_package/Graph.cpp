@@ -1,8 +1,9 @@
 #include "Graph.h"
 
-Graph::Graph()
+Graph::Graph(Node* start_node)
 {
     //ctor
+    this->start_node=start_node;
 }
 
 /**
