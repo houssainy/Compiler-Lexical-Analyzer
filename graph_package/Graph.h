@@ -7,16 +7,20 @@ class Graph
 {
     public:
         Graph(Node* start);
-         Node * get_start_node();
+        Graph();
+
+        void set_start_node(Node* start_node);
+        Node * get_start_node();
+
+        void set_end_node(Node* end_node);
         Node * get_end_node();
+
         virtual ~Graph();
     protected:
     private:
-     int get_node_num();
-    int increas_node_number();
         Node * start_node;
         Node * end_node;
-    int node_num ;
+
 
 };
 
