@@ -8,7 +8,10 @@ class Graph
     public:
         Graph();
 
+        void set_start_node(Node* start_node);
         Node * get_start_node();
+
+        void set_end_node(Node* end_node);
         Node * get_end_node();
 
         virtual ~Graph();
