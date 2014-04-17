@@ -6,7 +6,7 @@
 #include <iostream>
 
 using namespace std;
-
+//TEEEEEEEEEEEEEEEEEEEEEEEST
 class NFA_Generator : public Automata
 {
     public:
