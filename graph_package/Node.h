@@ -18,12 +18,14 @@ class Node
         void set_acceptance_state(bool is_acceptance);
         bool is_acceptance_node();
 
+
         virtual ~Node();
     protected:
     private:
         int name;
         bool is_acceptance;
         vector<Edge> *children;
+
 };
 
 #endif // NODE_H

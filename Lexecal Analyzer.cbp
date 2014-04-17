@@ -5,6 +5,7 @@
 		<Option title="Lexecal Analyzer" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
+		<Option virtualFolders="graph_package/;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/Lexecal Analyzer" prefix_auto="1" extension_auto="1" />
@@ -13,6 +14,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="lexical_analyzer_package" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +24,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="lexical_analyzer_package" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,7 +35,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="graph_package/Edge.cpp" />
+		<Unit filename="graph_package/Edge.cpp">
+			<Option virtualFolder="graph_package/" />
+		</Unit>
 		<Unit filename="graph_package/Edge.h" />
 		<Unit filename="graph_package/Graph.cpp" />
 		<Unit filename="graph_package/Graph.h" />
@@ -40,6 +45,8 @@
 		<Unit filename="graph_package/Node.h" />
 		<Unit filename="lexical_analyzer_package/Automata.cpp" />
 		<Unit filename="lexical_analyzer_package/Automata.h" />
+		<Unit filename="lexical_analyzer_package/NFA_Generator.cpp" />
+		<Unit filename="lexical_analyzer_package/NFA_Generator.h" />
 		<Unit filename="lexical_analyzer_package/TokenManager.cpp" />
 		<Unit filename="lexical_analyzer_package/TokenManager.h" />
 		<Unit filename="main.cpp" />

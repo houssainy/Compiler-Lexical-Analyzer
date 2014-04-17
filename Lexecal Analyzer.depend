@@ -32,3 +32,41 @@
 
 1397573257 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.h
 
+1397656982 source:/home/administrator/Desktop/compiler project/graph_package/Edge.cpp
+	"Edge.h"
+
+1397656982 /home/administrator/Desktop/compiler project/graph_package/Edge.h
+	<iostream>
+
+1397656982 source:/home/administrator/Desktop/compiler project/graph_package/Graph.cpp
+	"Graph.h"
+
+1397656982 /home/administrator/Desktop/compiler project/graph_package/Graph.h
+
+1397656982 source:/home/administrator/Desktop/compiler project/graph_package/Node.cpp
+	"Node.h"
+
+1397656982 /home/administrator/Desktop/compiler project/graph_package/Node.h
+	<vector>
+	"Edge.h"
+	<iostream>
+
+1397656982 source:/home/administrator/Desktop/compiler project/lexical_analyzer_package/Automata.cpp
+	"Automata.h"
+
+1397656982 /home/administrator/Desktop/compiler project/lexical_analyzer_package/Automata.h
+	"../graph_package/Graph.h"
+
+1397656982 source:/home/administrator/Desktop/compiler project/lexical_analyzer_package/TokenManager.cpp
+	"TokenManager.h"
+
+1397656982 /home/administrator/Desktop/compiler project/lexical_analyzer_package/TokenManager.h
+
+1397657071 source:/home/administrator/Desktop/compiler project/main.cpp
+	<iostream>
+
+1397750990 source:/home/administrator/Desktop/compiler project/src/NFA_Generator.cpp
+	"NFA_Generator.h"
+
+1397754399 /home/administrator/Desktop/compiler project/include/NFA_Generator.h
+
