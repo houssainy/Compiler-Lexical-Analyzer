@@ -6,12 +6,13 @@
 #include <iostream>
 
 using namespace std;
-
+//TEEEEEEEEEEEEEEEEEEEEEEEST
 class NFA_Generator : public Automata
 {
     public:
         NFA_Generator(string file_name);
         Graph* getAutomata();
+
         virtual ~NFA_Generator();
     protected:
     private:

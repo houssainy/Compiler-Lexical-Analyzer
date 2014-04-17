@@ -1,11 +1,13 @@
 # depslib dependency file v1.0
-1397573861 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/main.cpp
+1397652319 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/main.cpp
 	<iostream>
 
 1397571111 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Graph.cpp
 	"Graph.h"
 
-1397571111 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Graph.h
+1397731090 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Graph.h
+	<vector>
+	"Node.h"
 
 1397654345 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Edge.cpp
 	"Edge.h"
@@ -32,6 +34,7 @@
 
 1397573257 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.h
 
+<<<<<<< HEAD
 1397656982 source:/home/administrator/Desktop/compiler project/graph_package/Edge.cpp
 	"Edge.h"
 
@@ -70,3 +73,12 @@
 
 1397754399 /home/administrator/Desktop/compiler project/include/NFA_Generator.h
 
+=======
+1397654513 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/NFA_Generator.cpp
+	"NFA_Generator.h"
+
+1397730848 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/NFA_Generator.h
+	"Automata.h"
+	<iostream>
+
+>>>>>>> 8be92e392b4a9d586f2cd8a0c072c784361759e5

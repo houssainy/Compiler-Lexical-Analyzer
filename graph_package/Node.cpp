@@ -33,13 +33,7 @@ void Node::set_acceptance_state(bool is_acceptance){
 bool Node::is_acceptance_node(){
     return is_acceptance;
 }
-/**
-* return the Node number
-**/
- int Node:: get_node_num(){
- return this->node_num;
- }
-        void increas_node_number();
+
 Node::~Node()
 {
     //dtor
