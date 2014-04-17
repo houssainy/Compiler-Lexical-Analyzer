@@ -17,7 +17,8 @@ class NFA_Generator : public Automata
         virtual ~NFA_Generator();
     protected:
     private:
-        Graph* setAutomata(Graph* graph);
+        void setAutomata(Graph* graph);
+
         Graph* read_from_file(string file_name);
 
         SimpsonGraphBuilder graph_builder;
@@ -27,9 +28,7 @@ class NFA_Generator : public Automata
         vector <string> *reguler_exp;
         vector <string> *reguler_difi;
         string file_name;
-
-
-
 };
 
 #endif // NFA_GENERATOR_H
+
