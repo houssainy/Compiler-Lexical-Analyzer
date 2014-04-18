@@ -1,7 +1,7 @@
 #include "Edge.h"
 
 //Constructor
-Edge::Edge(Node* start_node , Node* end_node , string value )
+Edge::Edge(Node* start_node , Node* end_node , char value )
 {
     //ctor
         this->value = value;
@@ -12,7 +12,7 @@ Edge::Edge(Node* start_node , Node* end_node , string value )
 /**
 *   return the value of the edge
 **/
-string Edge::get_value(){
+char Edge::get_value(){
     return value;
 }
 

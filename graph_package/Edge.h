@@ -10,16 +10,16 @@ class Node;
 class Edge
 {
     public:
-        Edge(Node* start_node , Node* end_node , string value );
+        Edge(Node* start_node , Node* end_node , char value );
 
-        string get_value();
+        char get_value();
         Node* get_start_Node();
         Node* get_end_node();
 
         virtual ~Edge();
     protected:
     private:
-        string value;
+        char value;
         Node *start_node;
         Node *end_node;
 };

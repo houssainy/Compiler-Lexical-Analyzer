@@ -32,3 +32,49 @@
 
 1397573257 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.h
 
+1397845490 source:/home/bushra/Documents/ll/graph_package/Edge.cpp
+	"Edge.h"
+
+1397845475 /home/bushra/Documents/ll/graph_package/Edge.h
+	<iostream>
+
+1397843946 source:/home/bushra/Documents/ll/graph_package/Graph.cpp
+	"Graph.h"
+
+1397820893 /home/bushra/Documents/ll/graph_package/Graph.h
+	"Node.h"
+
+1397845532 source:/home/bushra/Documents/ll/graph_package/Node.cpp
+	"Node.h"
+
+1397845560 /home/bushra/Documents/ll/graph_package/Node.h
+	<vector>
+	"Edge.h"
+	<iostream>
+
+1397586184 source:/home/bushra/Documents/ll/lexical_analyzer_package/Automata.cpp
+	"Automata.h"
+
+1397586184 /home/bushra/Documents/ll/lexical_analyzer_package/Automata.h
+	"../graph_package/Graph.h"
+
+1397838772 source:/home/bushra/Documents/ll/lexical_analyzer_package/TokenManager.cpp
+	"TokenManager.h"
+	<string.h>
+	<fstream>
+
+1397846688 /home/bushra/Documents/ll/lexical_analyzer_package/TokenManager.h
+	"Automata.h"
+	"../graph_package/Node.h"
+	"../graph_package/Graph.h"
+	<fstream>
+	<list>
+
+1397843644 source:/home/bushra/Documents/ll/main.cpp
+	<iostream>
+	<fstream>
+	<string.h>
+	"lexical_analyzer_package/TokenManager.h"
+	"graph_package/Graph.h"
+	"graph_package/Node.h"
+

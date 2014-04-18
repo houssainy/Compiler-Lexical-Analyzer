@@ -15,7 +15,7 @@ vector<Edge>* Node::get_children(){
 /**
 *   Add new ourward edge to the given node and value
 **/
-void Node::add_child(Node* end_node, string value){
+void Node::add_child(Node* end_node, char value){
     Edge *e = new Edge(this, end_node , value);
     children->push_back(*e);
 }
