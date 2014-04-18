@@ -1,3 +1,4 @@
+
 #ifndef NFA_GENERATOR_H
 #define NFA_GENERATOR_H
 
@@ -16,6 +17,7 @@ class NFA_Generator : public Automata
 
         virtual ~NFA_Generator();
     protected:
+
     private:
         void setAutomata(Graph* graph);
 
@@ -27,7 +29,9 @@ class NFA_Generator : public Automata
         vector<string> *get_reguler_difi();
         vector <string> *reguler_exp;
         vector <string> *reguler_difi;
+
         string file_name;
+
 };
 
 #endif // NFA_GENERATOR_H

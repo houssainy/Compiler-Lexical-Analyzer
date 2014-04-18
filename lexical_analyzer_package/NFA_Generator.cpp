@@ -2,7 +2,9 @@
 
 NFA_Generator::NFA_Generator(string file_name)
 {
+
     this->file_name=file_name;
+
     //ctor
 }
 void NFA_Generator::setAutomata(Graph* graph){
