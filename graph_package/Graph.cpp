@@ -6,6 +6,10 @@ Graph::Graph(Node* start_node)
     this->start_node=start_node;
 }
 
+Graph::Graph(){
+
+}
+
 /**
 *   Set start node
 **/
