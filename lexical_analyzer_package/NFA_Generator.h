@@ -1,15 +1,26 @@
+
 #ifndef NFA_GENERATOR_H
 #define NFA_GENERATOR_H
 
-class NFA_Generator
+#include "Automata.h"
+#include "SimpsonGraphBuilder.h"
+
+#include <iostream>
+
+using namespace std;
+
+class NFA_Generator : public Automata
 {
+    public:
         NFA_Generator(string file_name);
         Graph* getAutomata();
 
         virtual ~NFA_Generator();
     protected:
+
     private:
-        Graph* setAutomata(Graph* graph);
+        void setAutomata(Graph* graph);
+
         Graph* read_from_file(string file_name);
 
         SimpsonGraphBuilder graph_builder;
@@ -18,8 +29,10 @@ class NFA_Generator
         vector<string> *get_reguler_difi();
         vector <string> *reguler_exp;
         vector <string> *reguler_difi;
+
         string file_name;
 
 };
 
 #endif // NFA_GENERATOR_H
+

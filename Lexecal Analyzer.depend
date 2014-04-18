@@ -22,9 +22,9 @@
 	"Edge.h"
 	<iostream>
 
-1397774602 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/Automata.cpp
+1397776889 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/Automata.cpp
 
-1397774574 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/Automata.h
+1397776880 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/Automata.h
 	"../graph_package/Graph.h"
 
 1397573257 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.cpp
@@ -72,10 +72,10 @@
 
 1397754399 /home/administrator/Desktop/compiler project/include/NFA_Generator.h
 
-1397774531 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/NFA_Generator.cpp
+1397778056 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/NFA_Generator.cpp
 	"NFA_Generator.h"
 
-1397774628 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/NFA_Generator.h
+1397778098 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/NFA_Generator.h
 	"Automata.h"
 	"SimpsonGraphBuilder.h"
 	<iostream>
@@ -89,6 +89,7 @@
 1397772238 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/SimpsonGraphBuilder.cpp
 	"SimpsonGraphBuilder.h"
 
+<<<<<<< HEAD
 1397656982 source:/home/administrator/Desktop/compilerProject/graph_package/Edge.cpp
 	"Edge.h"
 
@@ -126,3 +127,12 @@
 	"../graph_package/Graph.h"
 	<iostream>
 
+=======
+1397777379 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/test_class.cpp
+	"test_class.h"
+
+1397777387 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/test_class.h
+	"Automata.h"
+	"SimpsonGraphBuilder.h"
+
+>>>>>>> 482fa8a491bdad718137cf39286807163fc498cb
