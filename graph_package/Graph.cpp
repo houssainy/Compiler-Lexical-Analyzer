@@ -1,5 +1,6 @@
 #include "Graph.h"
 
+
 Graph::Graph(Node* start_node)
 {
     //ctor

@@ -1,10 +1,22 @@
 #include <iostream>
+
 #include "test_package/TestSimpsonGraphBuilder.h"
+
+#include <fstream>
+#include <string.h>
+#include "lexical_analyzer_package/TokenManager.h"
+#include "graph_package/Graph.h"
+#include "graph_package/Node.h"
+
 
 using namespace std;
 
 int main()
 {
+    /**
+    *  ***************** Simposn't Test  **********************
+    *                       Houssainy
+    */
     TestSimpsonGraphBuilder test_builder;
     cout << "*******************************" << endl;
     cout << "Start of the test:" << endl;
@@ -27,5 +39,35 @@ int main()
     cout << "5) Positive Clousure Operation:" << endl;
     cout << (test_builder.test_positive_clousure_op()? "Passed" : "Failed")<< endl;
     cout << "-------------------------------" << endl;
+    /**
+    *  ***************** END OF TEST  **********************
+    */
+
+    /**
+    *   ***************** BUSHRA **********************
+    **/
+    char inputChar ;
+    TokenManager token;
+    ifstream inputFile ("p.txt");
+    ofstream errorsFile;
+
+    if(inputFile)
+    {
+        do
+        {
+            inputFile >> noskipws >> inputChar ;
+            cout << inputChar;
+            token.GenToken(inputChar);
+        }while(! inputFile.eof());
+        inputFile.close();
+    }
+    else
+    {
+        cout<< "Unable to open file";
+    }
+    /**
+    *   ***************** END BUSHRA **********************
+    **/
     return 0;
-}
+
+};
