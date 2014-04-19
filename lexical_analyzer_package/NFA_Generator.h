@@ -33,6 +33,7 @@ class NFA_Generator : public Automata
          stack <string> operation;
 
         string file_name;
+        ///////////////////////try bas
 
 };
 
