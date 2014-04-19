@@ -18,6 +18,8 @@ Graph* SimpsonGraphBuilder::init_graph(string value){
     graph->set_start_node(start_node);
     graph->set_end_node(end_node);
 
+    graph->set_graph_size(2);
+
     return graph;
 }
 /**
@@ -32,6 +34,13 @@ Graph* SimpsonGraphBuilder::and_operation(Graph* g1 , Graph* g2){
 
         graph->set_start_node(g1->get_start_node());
         graph->set_end_node(g2->get_end_node());
+
+        int graph_size = g1->get_graph_size() + g2->get_graph_size();
+        graph->set_graph_size(graph_size);
+
+        //Destroy unused pointers
+        delete g1;
+        delete g2;
 
         return graph;
 }
@@ -57,6 +66,14 @@ Graph* SimpsonGraphBuilder::or_operation(Graph* g1 , Graph* g2){
     graph->set_start_node(start_node);
     graph->set_end_node(end_node);
 
+    //Graph size
+    int graph_size = g1->get_graph_size() + g2->get_graph_size() + 2;
+    graph->set_graph_size(graph_size);
+
+    //Destroy unused pointers
+    delete g1;
+    delete g2;
+
     return graph;
 }
 
@@ -78,6 +95,14 @@ Graph* SimpsonGraphBuilder::clousure_operation(Graph* g1){
     // Add the start and end nodes to the graph
     graph->set_start_node(start_node);
     graph->set_end_node(g1->get_end_node());
+
+    //Graph Size
+    int graph_size = g1->get_graph_size() + 1;
+    graph->set_graph_size(graph_size);
+
+    //Destroy unused pointers
+    delete g1;
+
     return graph;
 }
 /**
@@ -97,6 +122,13 @@ Graph* SimpsonGraphBuilder::positive_clousure_operation(Graph* g1){
     // Add the start and end nodes to the graph
     graph->set_start_node(g1->get_start_node());
     graph->set_end_node(end_node);
+
+    //GRaph Size
+    int graph_size = g1->get_graph_size() + 1;
+    graph->set_graph_size(graph_size);
+
+    //Destroy unused pointers
+    delete g1;
 
     return graph;
 }

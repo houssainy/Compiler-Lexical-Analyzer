@@ -33,13 +33,22 @@ class TestSimpsonGraphBuilder
             if( end_node != g->get_end_node() )
                 return false;
 
+            if( g->get_graph_size() != 2)
+                return false;
             return true;
         }
 
         bool test_or_op(){
             Graph* g1 = builder.init_graph("A");
             Graph* g2 = builder.init_graph("B");
+
+            cout<< "Graph1 Size:" <<endl;
+            cout<< g1->get_graph_size() << endl;
+
+            cout<< "Graph2 Size:" <<endl;
+            cout<< g2->get_graph_size() << endl;
             Graph* g = builder.or_operation(g1,g2);
+
 
             Node * start_node = g->get_start_node();
             Node * end_node = g->get_end_node();
@@ -100,7 +109,10 @@ class TestSimpsonGraphBuilder
 
             if( temp_it->get_end_node() != end_node )
                 return false;
-
+            cout<< "Graph Size:" <<endl;
+            cout<< g->get_graph_size() << endl;
+            if( g->get_graph_size() != 6 )
+                return false;
             return true;
         }
 

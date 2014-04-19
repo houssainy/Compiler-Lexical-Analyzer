@@ -1,18 +1,13 @@
 #include "NFA_Generator.h"
 
-NFA_Generator::NFA_Generator(string file_name)
+NFA_Generator::NFA_Generator(string file_path)
 {
-
-    this->file_name=file_name;
-
     //ctor
-}
-void NFA_Generator::setAutomata(Graph* graph){
-    Node start_node= Node();
-    //start_node->add_child(graph.get_start_node())
+    this->file_path = file_path;
 }
 
 Graph* NFA_Generator::getAutomata(){
+
     return NULL;
 }
 

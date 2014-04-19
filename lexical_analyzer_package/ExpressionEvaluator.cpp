@@ -9,6 +9,7 @@ ExpressionEvaluator::ExpressionEvaluator(SimpsonGraphBuilder *builder)
 Graph *ExpressionEvaluator::evaluate(string expr /*, hash map*/){
     return NULL;
 }
+
 ExpressionEvaluator::~ExpressionEvaluator()
 {
     //dtor
