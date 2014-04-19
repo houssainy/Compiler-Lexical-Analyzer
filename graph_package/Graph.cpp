@@ -4,10 +4,12 @@ Graph::Graph(Node* start_node)
 {
     //ctor
     this->start_node=start_node;
+    end_node = new Node();
 }
 
 Graph::Graph(){
-
+    start_node = new Node();
+    end_node = new Node();
 }
 
 /**

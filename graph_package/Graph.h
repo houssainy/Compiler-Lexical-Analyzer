@@ -18,8 +18,8 @@ class Graph
         virtual ~Graph();
     protected:
     private:
-        Node * start_node;
-        Node * end_node;
+        Node *start_node;
+        Node *end_node;
 
 
 };
