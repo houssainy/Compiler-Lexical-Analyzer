@@ -32,6 +32,8 @@ class NFA_Generator : public Automata
 
         string file_name;
 
+        /*Hash map regExpmap*/
+
 };
 
 #endif // NFA_GENERATOR_H
