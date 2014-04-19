@@ -29,6 +29,8 @@ class NFA_Generator : public Automata
         vector<string> *get_reguler_difi();
         vector <string> *reguler_exp;
         vector <string> *reguler_difi;
+         stack <string> operand;
+         stack <string> operation;
 
         string file_name;
 

@@ -32,7 +32,7 @@
 
 1397573257 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.h
 
-1397573257 D
+1397772238 D
 
 1397656982 source:/home/administrator/Desktop/compiler project/graph_package/Edge.cpp
 	"Edge.h"
@@ -89,7 +89,6 @@
 1397772238 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/SimpsonGraphBuilder.cpp
 	"SimpsonGraphBuilder.h"
 
-<<<<<<< HEAD
 1397656982 source:/home/administrator/Desktop/compilerProject/graph_package/Edge.cpp
 	"Edge.h"
 
@@ -107,7 +106,7 @@
 1397776030 source:/home/administrator/Desktop/compilerProject/graph_package/Graph.cpp
 	"Graph.h"
 
-1397776030 /home/administrator/Desktop/compilerProject/graph_package/Graph.h
+1397853701 /home/administrator/Desktop/compilerProject/graph_package/Graph.h
 	"Node.h"
 
 1397776030 /home/administrator/Desktop/compilerProject/graph_package/Node.h
@@ -115,7 +114,7 @@
 	"Edge.h"
 	<iostream>
 
-1397776030 source:/home/administrator/Desktop/compilerProject/graph_package/Node.cpp
+1397864616 source:/home/administrator/Desktop/compilerProject/graph_package/Node.cpp
 	"Node.h"
 
 1397776030 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/Automata.cpp
@@ -127,7 +126,8 @@
 	"../graph_package/Graph.h"
 	<iostream>
 
-=======
+1397776030 
+
 1397777379 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/test_class.cpp
 	"test_class.h"
 
@@ -135,4 +135,18 @@
 	"Automata.h"
 	"SimpsonGraphBuilder.h"
 
->>>>>>> 482fa8a491bdad718137cf39286807163fc498cb
+1397777387 fa8a491bdad718137cf39286807163fc498cb
+
+1397865881 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/NFA_Generator.cpp
+	"NFA_Generator.h"
+	"strings.h"
+	<stdio.h>
+
+1397863862 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/NFA_Generator.h
+	"Automata.h"
+	"SimpsonGraphBuilder.h"
+	<iostream>
+
+1397778778 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/Automata.h
+	"../graph_package/Graph.h"
+
