@@ -41,12 +41,6 @@ class TestSimpsonGraphBuilder
         bool test_or_op(){
             Graph* g1 = builder.init_graph("A");
             Graph* g2 = builder.init_graph("B");
-
-            cout<< "Graph1 Size:" <<endl;
-            cout<< g1->get_graph_size() << endl;
-
-            cout<< "Graph2 Size:" <<endl;
-            cout<< g2->get_graph_size() << endl;
             Graph* g = builder.or_operation(g1,g2);
 
 
@@ -109,8 +103,7 @@ class TestSimpsonGraphBuilder
 
             if( temp_it->get_end_node() != end_node )
                 return false;
-            cout<< "Graph Size:" <<endl;
-            cout<< g->get_graph_size() << endl;
+
             if( g->get_graph_size() != 6 )
                 return false;
             return true;
@@ -150,6 +143,9 @@ class TestSimpsonGraphBuilder
             it = children->begin();
 
             if( it->get_end_node() != end_node )
+                return false;
+
+            if(g->get_graph_size() != 4)
                 return false;
             return true;
         }
@@ -193,6 +189,8 @@ class TestSimpsonGraphBuilder
             if(temp_it->get_end_node() != g1->get_end_node())
                 return false;
 
+            if( g->get_graph_size() != 3)
+                return false;
             return true;
         }
 
@@ -228,6 +226,9 @@ class TestSimpsonGraphBuilder
             if( temp_it->get_value() != "\L")
                 return false;
             if(temp_it->get_end_node() != end_node)
+                return false;
+
+            if( g->get_graph_size() != 3)
                 return false;
             return true;
         }
