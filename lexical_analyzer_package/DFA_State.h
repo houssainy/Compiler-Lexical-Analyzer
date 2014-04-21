@@ -22,6 +22,7 @@ protected:
 
 private:
 
+    bool isEmpty;
     bool isFinal;
     vector <bool> states;
     int Number;
