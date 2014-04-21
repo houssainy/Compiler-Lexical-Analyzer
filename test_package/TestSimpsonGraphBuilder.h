@@ -33,6 +33,8 @@ class TestSimpsonGraphBuilder
             if( end_node != g->get_end_node() )
                 return false;
 
+            if( g->get_graph_size() != 2)
+                return false;
             return true;
         }
 
@@ -40,6 +42,7 @@ class TestSimpsonGraphBuilder
             Graph* g1 = builder.init_graph("A");
             Graph* g2 = builder.init_graph("B");
             Graph* g = builder.or_operation(g1,g2);
+
 
             Node * start_node = g->get_start_node();
             Node * end_node = g->get_end_node();
@@ -101,6 +104,8 @@ class TestSimpsonGraphBuilder
             if( temp_it->get_end_node() != end_node )
                 return false;
 
+            if( g->get_graph_size() != 6 )
+                return false;
             return true;
         }
 
@@ -138,6 +143,9 @@ class TestSimpsonGraphBuilder
             it = children->begin();
 
             if( it->get_end_node() != end_node )
+                return false;
+
+            if(g->get_graph_size() != 4)
                 return false;
             return true;
         }
@@ -181,6 +189,8 @@ class TestSimpsonGraphBuilder
             if(temp_it->get_end_node() != g1->get_end_node())
                 return false;
 
+            if( g->get_graph_size() != 3)
+                return false;
             return true;
         }
 
@@ -216,6 +226,9 @@ class TestSimpsonGraphBuilder
             if( temp_it->get_value() != "\L")
                 return false;
             if(temp_it->get_end_node() != end_node)
+                return false;
+
+            if( g->get_graph_size() != 3)
                 return false;
             return true;
         }

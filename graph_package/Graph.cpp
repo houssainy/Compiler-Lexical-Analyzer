@@ -41,6 +41,19 @@ Node * Graph::get_end_node(){
     return end_node;
 }
 
+/**
+*   set graph size
+**/
+void Graph::set_graph_size(int graph_size){
+    this->graph_size = graph_size;
+}
+
+/**
+*   Number of nodes in this graph
+**/
+int Graph::get_graph_size(){
+    return graph_size;
+}
 Graph::~Graph()
 {
     //dtor
