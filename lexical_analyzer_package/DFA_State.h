@@ -9,9 +9,9 @@ class DFA_State
 {
 public:
 
-    DFA_State(int size ,bool isFinal,int Number );
+    DFA_State(int size ,int Number );
 
-    void set_state (int stateNumber);
+    void set_state (int stateNumber,bool isFinal);
     vector <bool> get_state ();
     bool is_final ();
     int get_state_number ();

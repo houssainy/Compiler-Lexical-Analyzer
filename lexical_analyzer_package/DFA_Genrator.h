@@ -14,7 +14,6 @@ class DFA_Genrator
 
         DFA_Genrator(vector < vector < int > > nfa , vector < vector <int > > eClouser,vector <string> input,vector<bool> finalState);
         vector < vector < DFA_State > > Get_DFA ();
-
         virtual ~DFA_Genrator();
 
     protected:

@@ -2,18 +2,21 @@
 
 
 //Constructor
-DFA_State::DFA_State(int size ,bool isFinal, int Number)
+DFA_State::DFA_State(int size , int Number)
 {
     //ctor
     this->isFinal=isFinal;
     for (int i =0; i<size; i++)
         this->states.push_back(false);
     this->Number=Number;
-    this->ise
+    this->isEmpty = true;
 }
 
-void DFA_State::set_state (int stateNumber)
+void DFA_State::set_state (int stateNumber,bool isFinal)
 {
+    isEmpty = false;
+    if (!this->isFinal)
+        this->isFinal = isFinal;
     states.at(stateNumber) = true;
 }
 
