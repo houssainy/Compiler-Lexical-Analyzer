@@ -7,16 +7,17 @@
 #include "lexical_analyzer_package/TokenManager.h"
 #include "graph_package/Graph.h"
 #include "graph_package/Node.h"
+#include "lexical_analyzer_package/NFA_Generator.h"
 
 using namespace std;
 
 int main()
 {
-
     /**
     *  ***************** Simposn't Test  **********************
     *                       Houssainy
     */
+    /** Test Graph Builder **/
     TestSimpsonGraphBuilder test_builder;
     cout << "*******************************" << endl;
     cout << "Start of the test:" << endl;
@@ -39,6 +40,14 @@ int main()
     cout << "5) Positive Clousure Operation:" << endl;
     cout << (test_builder.test_positive_clousure_op()? "Passed" : "Failed")<< endl;
     cout << "-------------------------------" << endl;
+
+    /** Test Read File **/
+    NFA_Generator gen("grammarInput.txt");
+    Graph *g = gen.getAutomata();
+    if( g->get_graph_size() == 22)
+        cout << "Passed" << endl;
+    else
+        cout << "Failed" << endl;
     /**
     *  ***************** END OF TEST  **********************
     */

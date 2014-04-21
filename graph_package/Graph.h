@@ -24,7 +24,7 @@ class Graph
         Node *start_node;
         Node *end_node;
 
-        int graph_size;
+        int graph_size = -1;
 
 
 };

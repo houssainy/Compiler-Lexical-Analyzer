@@ -26,8 +26,12 @@ class NFA_Generator : public Automata
         string file_path;
         SimpsonGraphBuilder graph_builder;
 
-        /*Hash map regExpmap*/
-        unordered_map<string,Graph*> reg_ex_map;
+        // Hash map to hold all the builded graphs to be able to check
+        // if the graph is built before or not in keywords case or regular expression case
+        unordered_map<string,Graph*> language_map;
+
+        Graph *get_language_graph();
+
 };
 
 #endif // NFA_GENERATOR_H
