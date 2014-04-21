@@ -54,6 +54,8 @@
 		<Unit filename="lexical_analyzer_package/SimpsonGraphBuilder.h" />
 		<Unit filename="lexical_analyzer_package/TokenManager.cpp" />
 		<Unit filename="lexical_analyzer_package/TokenManager.h" />
+		<Unit filename="lexical_analyzer_package/TransitionTable.cpp" />
+		<Unit filename="lexical_analyzer_package/TransitionTable.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="test_package/TestSimpsonGraphBuilder.cpp" />
 		<Unit filename="test_package/TestSimpsonGraphBuilder.h" />
