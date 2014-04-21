@@ -19,6 +19,7 @@ public:
     bool is_final (int state );
     string type (int state );
 
+
     virtual ~TransitionTable();
 protected:
 

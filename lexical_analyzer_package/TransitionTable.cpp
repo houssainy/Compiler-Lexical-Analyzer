@@ -32,14 +32,14 @@ bool TransitionTable::is_final (int state )
 {
     if (state < finalState.size())
         return finalState[state];
-    return -1;
+    return false;
 }
 
 string TransitionTable::type (int state )
 {
     if (state < tokenType.size())
         return tokenType[state];
-    return NULL;
+    return "";
 }
 
 TransitionTable::~TransitionTable()
