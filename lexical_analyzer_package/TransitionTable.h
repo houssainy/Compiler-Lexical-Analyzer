@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 using namespace std;
 
@@ -10,19 +11,20 @@ class TransitionTable
 {
 public:
     TransitionTable( vector < vector <int> > MDFA ,
-                     vector <string> input,
+                     unordered_map <string,int> input,
                      vector <bool> finalState ,
                      vector <string> tokenType );
     vector < vector <int> > Get_MDFA ();
-    vector < string > Get_Input ();
+    int Get_Input (string input);
     bool is_final (int state );
     string type (int state );
+
     virtual ~TransitionTable();
 protected:
 
 private:
     vector < vector <int> > MDFA ;
-    vector <string> input;
+    unordered_map <string,int> input_map;
     vector <bool> finalState ;
     vector <string> tokenType ;
 };
