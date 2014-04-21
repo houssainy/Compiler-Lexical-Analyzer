@@ -44,6 +44,7 @@ int main()
     /** Test Read File **/
     NFA_Generator gen("grammarInput.txt");
     Graph *g = gen.getAutomata();
+    cout<<g->get_graph_size() << endl;
     if( g->get_graph_size() == 22)
         cout << "Passed" << endl;
     else

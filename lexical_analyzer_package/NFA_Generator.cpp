@@ -19,12 +19,14 @@ Graph* NFA_Generator::getAutomata(){
 
             if( line.empty()) // Empty line
                 continue;
+            else if(line[0] == ' '|| line[0] == '\t')
+                continue;
             else if( line[0] == '{'){ // Key words
                 Graph *graph = NULL;
 
                 // move on the line and construct a graph for each key word
                 for(int i = 1 ; i < line.length() ; i++){
-                    if(line[i] == ' ') {// white space
+                    if(line[i] == ' '|| line[i] == '\t') {// white space
                         if( graph == NULL ) // White space in the begining of the line like "{ int....}"
                             continue;
 
@@ -63,11 +65,11 @@ Graph* NFA_Generator::getAutomata(){
 
                 delete graph;
             }else if(line[0] == '['){
-                Graph * temp_graph;
+                Graph * temp_graph = NULL;
 
                 // move on the line and construct a graph for each punctuation
                 for(int i = 1 ; i < line.length() ; i++){
-                    if(line[i] == ' ') // white space
+                    if(line[i] == ' '|| line[i] == '\t') // white space
                         continue;
                     else if( line[i] == ']') // end of punctuations
                         break;
@@ -88,6 +90,7 @@ Graph* NFA_Generator::getAutomata(){
                         }else // Add new
                             language_map.insert(pair<string,Graph*>("punctuation", temp_graph));
 
+                        temp_graph = NULL;
                     }
 
                 }
