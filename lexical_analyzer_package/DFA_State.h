@@ -15,6 +15,8 @@ public:
     vector <bool> get_state ();
     bool is_final ();
     int get_state_number ();
+    vector <int> get_States_Number ();
+    bool is_Empty ();
 
     virtual ~DFA_State();
 
@@ -26,6 +28,7 @@ private:
     bool isFinal;
     vector <bool> states;
     int Number;
+    vector <int> statesNumber;
 };
 
 #endif // DFA_STATE_H
