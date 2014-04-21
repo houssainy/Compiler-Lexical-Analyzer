@@ -92,11 +92,44 @@ Graph* NFA_Generator::getAutomata(){
 
                         temp_graph = NULL;
                     }
-
                 }
 
                 delete temp_graph;
             }else{ // Regular Expression or Definition
+                string exp_name;
+                int i = 0;
+                while(i < line.length() && (line[i] == ' ' || line[i] == '\t') )// skip white spaces in the beggining of the file
+                    i++;
+
+                while(i < line.length() && (line[i] == ' ' || line[i] == '\t' || line[i] =='=' || line[i] == ':') )//build exp_name
+                    exp_name = string(exp_name + line[i++]);
+
+
+                while(i < line.length() && (line[i] == ' ' || line[i] == '\t' || line[i] =='=' || line[i] == ':' ) )// skip white spaces after exp name
+                    i++;
+
+                if( line[i] < line.length() && (line[i] == '='|| line[i] = ':' )){
+                    unordered_map<string, Grpaph*> exp_graphs;
+                    string exp_string;
+                    string temp_string;
+                    char index_char = 'a';
+
+                    for(; i < line.length() ; i++ ){
+                        if( line[i] == ' ' || line[i] == '\t'){
+                            if( temp_string.empty() ){
+
+                            }
+                            while(i < line.length() && (line[i] == ' ' || line[i] == '\t') )// skip white spaces
+                                i++;
+
+                        }else{
+                            temp_string = string(temp_string + line[i]);
+                        }
+                    }
+                }else{
+                    cout<< "Grammar Error!" << endl;
+                    continue;
+                }
 
             }
         }

@@ -13,6 +13,20 @@ using namespace std;
 
 int main()
 {
+
+    unordered_map<string , int> mymap;
+    mymap.insert(pair<string,int>("a", 0));
+    mymap.insert(pair<string,int>("b", 1));
+
+    unordered_map<string,int>::const_iterator it = mymap.find("a");
+
+    if( it == mymap.end()){
+        cout<<"Not found" <<endl;
+    }else{
+        cout<<it->first<<endl;
+        cout<< it->second <<endl;
+    }
+
     /**
     *  ***************** Simposn't Test  **********************
     *                       Houssainy
