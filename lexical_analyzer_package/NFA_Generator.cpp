@@ -108,8 +108,8 @@ Graph* NFA_Generator::getAutomata(){
                 while(i < line.length() && (line[i] == ' ' || line[i] == '\t' || line[i] =='=' || line[i] == ':' ) )// skip white spaces after exp name
                     i++;
 
-                if( line[i] < line.length() && (line[i] == '='|| line[i] = ':' )){
-                    unordered_map<string, Grpaph*> exp_graphs;
+                if( line[i] < line.length() && (line[i] == '='|| line[i] == ':' )){
+                  //  unordered_map<string, Grpaph*> exp_graphs;
                     string exp_string;
                     string temp_string;
                     char index_char = 'a';
