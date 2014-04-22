@@ -24,12 +24,16 @@ DFA_Minimization::DFA_Minimization(vector < vector < DFA_State > > DFA ,vector <
       *loop at MSets and split sets unitl no change can happen
       */
 
-    while (isChanged){
+    while (isChanged)
+    {
         //convert isChanged to false to detect if there new change in MSets or not
         isChanged= false ;
-        vector < set > tempVector ;
+        for (int i =0 ; i<MSets.size(); i++)
+        {
+            vector < set > tempVector ;
+            set currentSet = MSets[i];
 
-
+        }
 
 
     }
