@@ -4,7 +4,7 @@
 
 #include "Automata.h"
 #include "SimpsonGraphBuilder.h"
-
+#include <stack>
 #include <iostream>
 
 using namespace std;
@@ -29,11 +29,12 @@ class NFA_Generator : public Automata
         vector<string> *get_reguler_difi();
         vector <string> *reguler_exp;
         vector <string> *reguler_difi;
-         stack <string> operand;
-         stack <string> operation;
+
 
         string file_name;
-        ///////////////////////try bas
+
+
+        /*Hash map regExpmap*/
 
 };
 

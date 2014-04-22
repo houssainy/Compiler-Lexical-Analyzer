@@ -9,14 +9,13 @@ class SimpsonGraphBuilder
 {
     public:
         SimpsonGraphBuilder();
-        virtual ~SimpsonGraphBuilder();
-    protected:
-    private:
-        Graph* build_graph_for_node(string value);
-        Graph* positive_clousure_operation(Graph* graph);
-        Graph* clousure_operation(Graph* graph);
+        Graph* init_graph(string value);
+        Graph* positive_clousure_operation(Graph* g1);
+        Graph* clousure_operation(Graph* g1);
         Graph* or_operation(Graph* g1 , Graph* g2);
         Graph* and_operation(Graph* g1 , Graph* g2);
+        virtual ~SimpsonGraphBuilder();
+    private:
 };
 
 #endif // SIMPSONGRAPHBUILDER_H
