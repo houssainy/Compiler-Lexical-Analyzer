@@ -1,0 +1,90 @@
+#include "DFA_Genrator.h"
+
+#include <DFA_State.h>
+
+
+
+DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int > > eClouser,vector <string> input,vector<bool> finalState)
+{
+    //ctor
+    int size = NFA.size ();
+
+    if (size == -1)
+        return;
+
+    int counter =0 ;
+    int stateindex=0;
+
+    DFA_State startState = DFA_State (size,stateindex);
+    // Add start node to DFA_State
+    startState.set_state(0,finalState[0]);
+    // Add EClouser of first State to DFA_State
+    for(int i =0 ; i<eClouser[0].size() ; i++)
+    {
+        int state = eClouser[0].at(i);
+        startState.set_state(state,finalState[state]);
+    }
+    stateindex++;
+    // Add start Node to newStates Vector
+    newStates.push_back(startState);
+    // Start while loop to add all new states
+
+    while (counter < newStates.size())
+    {
+        vector <DFA_State> row ;
+        DFA_State currentState = newStates.at(counter);
+        for (int i =0 ; i<input.size(); i++)
+        {
+            DFA_State element = DFA_State (size,stateindex);
+            vector <int> currentStateNumber = currentState.get_States_Number();
+            for (int j =0 ; j<currentStateNumber.size(); j++)
+            {
+                int tempState =  currentStateNumber[j];
+                element.set_state(NFA[tempState].at(i),finalState[tempState]);
+                for(int k =0 ; k<eClouser[NFA[tempState].at(i)].size() ; k++)
+                {
+                    int state = eClouser[NFA[tempState].at(i)].at(k);
+                    element.set_state(state,finalState[state]);
+                }
+            }
+            if (!element.is_Empty())
+            {
+                if (Compare(element))
+                {
+                    newStates.push_back(element);
+                    stateindex ++ ;
+                }
+            }else
+                row.push_back (element);
+
+
+
+        }
+        DFA.push_back(row);
+
+    }
+}
+
+
+vector < vector < DFA_State > > DFA_Genrator::Get_DFA ()
+{
+
+    return DFA;
+}
+
+bool DFA_Genrator::Compare (DFA_State state )
+{
+    vector <bool> bitmask = state.get_state();
+    for (int i =0 ; i<newStates.size(); i++)
+    {
+        vector <bool> tempbitmask = newStates[i].get_state();
+        if (bitmask==tempbitmask)
+            return true;
+    }
+    return true;
+}
+
+DFA_Genrator::~DFA_Genrator()
+{
+    //dtor
+}

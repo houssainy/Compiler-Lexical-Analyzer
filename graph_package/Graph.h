@@ -15,13 +15,14 @@ class Graph
 
         void set_end_node(Node* end_node);
         Node * get_end_node();
-
-
+        void set_graph_size(int graph_size);
+        int get_graph_size();
         virtual ~Graph();
     protected:
     private:
         Node *start_node;
         Node *end_node;
+        int graph_size = -1;
 
 
 

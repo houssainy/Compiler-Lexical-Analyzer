@@ -8,16 +8,34 @@
 #include "lexical_analyzer_package/ExpressionEvaluator.h"
 #include "graph_package/Graph.h"
 #include "graph_package/Node.h"
-
+#include "lexical_analyzer_package/NFA_Generator.h"
 
 using namespace std;
 
 int main()
 {/*
+=======
+{
+
+    unordered_map<string , int> mymap;
+    mymap.insert(pair<string,int>("a", 0));
+    mymap.insert(pair<string,int>("b", 1));
+
+    unordered_map<string,int>::const_iterator it = mymap.find("a");
+
+    if( it == mymap.end()){
+        cout<<"Not found" <<endl;
+    }else{
+        cout<<it->first<<endl;
+        cout<< it->second <<endl;
+    }
+
+>>>>>>> 3f6e0359d629e663f883a44726396dfbcf73b552
     /**
     *  ***************** Simposn't Test  **********************
     *                       Houssainy
     */
+    /** Test Graph Builder **/
     TestSimpsonGraphBuilder test_builder;
     cout << "*******************************" << endl;
     cout << "Start of the test:" << endl;
@@ -29,15 +47,12 @@ int main()
     cout << (test_builder.test_or_op()? "Passed" : "Failed")<< endl;
     cout << "-------------------------------" << endl;
 
-//<<<<<<< HEAD
-    //djkdk
 string str("Hello, can you find Ben?");
 string::size_type position = str.find("Ben");
 cout << "First occurrence of Ben was found at: " << position << endl;
     // test
     cout << "Hello world!" << endl;
-    //kkkkk
-//=======
+
     cout << "3) AND Operation:" << endl;
     cout << (test_builder.test_and_op()? "Passed" : "Failed")<< endl;
     cout << "-------------------------------" << endl;
@@ -49,6 +64,15 @@ cout << "First occurrence of Ben was found at: " << position << endl;
     cout << "5) Positive Clousure Operation:" << endl;
     cout << (test_builder.test_positive_clousure_op()? "Passed" : "Failed")<< endl;
     cout << "-------------------------------" << endl;
+
+    /** Test Read File **/
+    NFA_Generator gen("grammarInput.txt");
+    Graph *g = gen.getAutomata();
+    cout<<g->get_graph_size() << endl;
+    if( g->get_graph_size() == 22)
+        cout << "Passed" << endl;
+    else
+        cout << "Failed" << endl;
     /**
     *  ***************** END OF TEST  **********************
     */
@@ -81,7 +105,7 @@ cout << "First occurrence of Ben was found at: " << position << endl;
 
 
   /**
-    *   ***************** YASMINA **********************
+    *   ***************** TEST PostFiXConversion **********************
     **/
 
 ExpressionEvaluator expressionEvaluator;

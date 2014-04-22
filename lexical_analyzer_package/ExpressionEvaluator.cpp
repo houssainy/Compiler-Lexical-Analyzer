@@ -128,13 +128,8 @@ while(i<exp.length())
          element="";
        }
 
-       //element=element +""+operand.top();
-        //operand.pop();
        }
-      // element=element""+operation.top();
-      // operation.pop();
-      // operand.push(element);
-      // element="";
+
       operation.pop();
         i++;
   }
@@ -230,6 +225,7 @@ Graph *ExpressionEvaluator::evaluate(string expr,unordered_map <string,Graph*> g
 return operandG.top();
 
     }
+
 
 
 ExpressionEvaluator::~ExpressionEvaluator()
