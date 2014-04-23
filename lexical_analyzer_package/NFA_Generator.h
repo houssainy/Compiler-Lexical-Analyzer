@@ -27,24 +27,11 @@ class NFA_Generator : public Automata
         SimpsonGraphBuilder graph_builder;
         ExpressionEvaluator exp_eval = ExpressionEvaluator(&graph_builder);
 
-<<<<<<< HEAD
-        vector<string> *get_reguler_exp();
-        vector<string> *get_reguler_difi();
-        vector <string> *reguler_exp;
-        vector <string> *reguler_difi;
-
-
-        string file_name;
-
-
-        /*Hash map regExpmap*/
-=======
         // Hash map to hold all the builded graphs to be able to check
         // if the graph is built before or not in keywords case or regular expression case
         unordered_map<string,Graph*> language_map;
 
         Graph *get_language_graph();
->>>>>>> 3f6e0359d629e663f883a44726396dfbcf73b552
 
 };
 

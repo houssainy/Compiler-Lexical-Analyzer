@@ -11,15 +11,12 @@ class ExpressionEvaluator
 {
     public:
         ExpressionEvaluator(SimpsonGraphBuilder* builder);
-<<<<<<< HEAD
-        ExpressionEvaluator();
-        Graph *evaluate(string expr /*, hash map*/);
-=======
+
          ExpressionEvaluator();
          string post_fix_conversion(string exp);
-        Graph *evaluate(string expr ,unordered_map <string,Graph*> graphs);
+        Graph *evaluate(string expr ,unordered_map <string,Graph*> *graphs);
         bool is_operand(string type);
->>>>>>> 97fc01ae400ed38d849c4cdf8e1d620b09d7f37d
+
         virtual ~ExpressionEvaluator();
     protected:
     private:

@@ -163,22 +163,16 @@ while(i<exp.length())
    element=element+""+operation.top();
    operation.pop();
 
-<<<<<<< HEAD
-ExpressionEvaluator::ExpressionEvaluator(){}
 
-Graph *ExpressionEvaluator::evaluate(string expr /*, hash map*/){
-    return NULL;
-=======
   }
 
   }
 return element;
->>>>>>> 97fc01ae400ed38d849c4cdf8e1d620b09d7f37d
 }
 
 
 
-Graph *ExpressionEvaluator::evaluate(string expr,unordered_map <string,Graph*> graphs){
+Graph *ExpressionEvaluator::evaluate(string expr,unordered_map <string,Graph*> *graphs){
  string post_fix=post_fix_conversion(expr);
  unordered_map<string,Graph*>::const_iterator itr;
  Graph* g1,*g2;
@@ -194,7 +188,7 @@ Graph *ExpressionEvaluator::evaluate(string expr,unordered_map <string,Graph*> g
    (string(1 , expr_array[i])!=".")&&
    (string(1 , expr_array[i])!="|"))
     {
-   itr=graphs.find(string(1,expr_array[i]));
+   itr=graphs->find(string(1,expr_array[i]));
    operandG.push(itr->second);
     }else{
           if((!operationS.empty())&&(string(1 , expr_array[i])!="*")){

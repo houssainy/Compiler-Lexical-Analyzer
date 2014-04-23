@@ -7,12 +7,7 @@
 NFA_Generator::NFA_Generator(string file_path)
 {
     //ctor
-}
-
-void NFA_Generator::setAutomata(Graph* graph){
-    Node start_node= Node();
-    //start_node->add_child(graph.get_start_node())
-    this->file_path = file_path;
+        this->file_path = file_path;
     exp_eval = ExpressionEvaluator(&graph_builder);
 }
 
@@ -147,7 +142,7 @@ Graph* NFA_Generator::getAutomata(){
                                 temp_string = string(temp_string + line[i]);
                         }
                     }
-                    exp_eval.evaluate(exp_string);
+                    exp_eval.evaluate(exp_string , &exp_graphs);
                 }else{
                     cout<< "Grammar Error!" << endl;
                     continue;
