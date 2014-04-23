@@ -19,10 +19,12 @@ DFA_Minimization::DFA_Minimization(vector < vector < DFA_State > > DFA ,vector <
         if (newStates[i].is_final())
         {
             finite.states.push_back(stateNumber);
+            finite.mask.at(stateNumber)=true;
         }
         else
         {
             nonfinite.states.push_back(stateNumber);
+            nonfinite.mask.at(stateNumber)=true;
         }
     }
     MSets.push_back (finite);
@@ -49,14 +51,6 @@ DFA_Minimization::DFA_Minimization(vector < vector < DFA_State > > DFA ,vector <
 
 
 }
-
-/**statesSet DFA_Minimization::creat_set(){
-    statesSet states;
-    for(int i=0 ; i<initialStates; i++){
-        states.mask.push_back(false);
-    }
-    return states;
-}*/
 DFA_Minimization::~DFA_Minimization()
 {
     //dtor
