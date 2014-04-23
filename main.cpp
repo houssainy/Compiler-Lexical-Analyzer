@@ -1,10 +1,11 @@
 #include <iostream>
 
 #include "test_package/TestSimpsonGraphBuilder.h"
-
+#include <stack>
 #include <fstream>
 #include <string.h>
 #include "lexical_analyzer_package/TokenManager.h"
+#include "lexical_analyzer_package/ExpressionEvaluator.h"
 #include "graph_package/Graph.h"
 #include "graph_package/Node.h"
 #include "lexical_analyzer_package/NFA_Generator.h"
@@ -12,6 +13,8 @@
 using namespace std;
 
 int main()
+{/*
+=======
 {
 
     unordered_map<string , int> mymap;
@@ -27,6 +30,7 @@ int main()
         cout<< it->second <<endl;
     }
 
+>>>>>>> 3f6e0359d629e663f883a44726396dfbcf73b552
     /**
     *  ***************** Simposn't Test  **********************
     *                       Houssainy
@@ -42,6 +46,12 @@ int main()
     cout << "2) OR Operation:" << endl;
     cout << (test_builder.test_or_op()? "Passed" : "Failed")<< endl;
     cout << "-------------------------------" << endl;
+
+string str("Hello, can you find Ben?");
+string::size_type position = str.find("Ben");
+cout << "First occurrence of Ben was found at: " << position << endl;
+    // test
+    cout << "Hello world!" << endl;
 
     cout << "3) AND Operation:" << endl;
     cout << (test_builder.test_and_op()? "Passed" : "Failed")<< endl;
@@ -70,27 +80,88 @@ int main()
     /**
     *   ***************** BUSHRA **********************
     **/
+<<<<<<< HEAD
     string inputChar ;
     TokenManager token;
     ifstream inputFile ("p.txt");
+=======
+ char inputChar ;
+    int returnState;
+    string token_type;
+    vector<char> tokenSeq;
+>>>>>>> 757bf898fda5166e834537d94aac119f532f3dd4
 
+    TransitionTable t;
+    TokenManager token;
+    ifstream inputFile ;
+    ofstream outputFile, errorFile;
+    vector<string> symbol_table;
+    inputFile.open("p.txt");
     if(inputFile)
     {
+        token.TokenManager();
+        outputFile.open("output.txt");
+        if(!outputFile)
+            cout<< "Unable to open output file";
+        errorsFile.open("errorFile.txt");
+        if(!errorFile)
+            cout<< "Unable to open error file";
         do
         {
-            inputFile >> noskipws >> inputChar ;
-            cout << inputChar;
-            token.GenToken(inputChar);
-        }while(! inputFile.eof());
+            inputFile >> noskipws >> inputChar;
+            returnState = token.GetNextState(inputChar);
+            if(token.isToken)
+            {
+                token_type = t.type(token.seq[seq.size()]);
+                for (int i = 0 ; i < token.seq.size(); i++)
+                {
+                   outputFile << token.seq[i] ;
+                }
+                outputFile << "/t" << token_type << endl;
+
+                if(token_type == "Identifier")
+                    symbol_table.push_back(seq); /*test*/
+            }
+            if(token.isError)
+                errorsFile << inputChar << "/t" << returnState << endl;
+        } while(! inputFile.eof());
         inputFile.close();
+        outputFile.close();
+        errorFile.close();
     }
     else
     {
-        cout<< "Unable to open file";
+        cout<< "Unable to open input file";
     }
     /**
     *   ***************** END BUSHRA **********************
     **/
-    return 0;
+
+
+  /**
+    *   ***************** TEST PostFiXConversion **********************
+    **/
+
+ExpressionEvaluator expressionEvaluator;
+
+  string exp;
+
+  exp=expressionEvaluator.post_fix_conversion("A.B|C*");
+    cout <<"PostFixNotation of this Expression (A.B|C*) is "<< exp << endl;
+    cout << "--------------------------------------------------------" << endl;
+
+  exp=expressionEvaluator.post_fix_conversion("A.(B|C*|A*).B*");
+    cout <<"PostFixNotation of this Expression (A.(B|C*|A*).B*) is "<< exp << endl;
+    cout << "--------------------------------------------------------" << endl;
+
+  exp=expressionEvaluator.post_fix_conversion("A.(B|C)");
+    cout <<"PostFixNotation of this Expression (A.(B|C) is "<< exp <<  endl;
+    cout << "--------------------------------------------------------" << endl;
+
+ exp=expressionEvaluator.post_fix_conversion("A.(B|C)|A|C*.(A*.S*)");
+    cout <<"PostFixNotation of this Expression (A.(B|C)|A|C*.(A*.S*)) is "<< exp << endl;
+    cout << "-------------------------------------------------------" << endl;
+
+return 0;
 
 };

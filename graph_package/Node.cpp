@@ -17,7 +17,9 @@ vector<Edge>* Node::get_children(){
 **/
 void Node::add_child(Node* end_node, string value){
     Edge e(this,end_node , value);
+
     children.push_back(e);
+
 }
 
 /**

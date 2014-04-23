@@ -1,10 +1,12 @@
 # depslib dependency file v1.0
-1398082686 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/main.cpp
+1398247315 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/main.cpp
 	<iostream>
 	"test_package/TestSimpsonGraphBuilder.h"
+	<stack>
 	<fstream>
 	<string.h>
 	"lexical_analyzer_package/TokenManager.h"
+	"lexical_analyzer_package/ExpressionEvaluator.h"
 	"graph_package/Graph.h"
 	"graph_package/Node.h"
 	"lexical_analyzer_package/NFA_Generator.h"
@@ -12,7 +14,7 @@
 1397949446 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Graph.cpp
 	"Graph.h"
 
-1398051062 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Graph.h
+1398247315 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Graph.h
 	"Node.h"
 	"Node.h"
 
@@ -22,7 +24,7 @@
 1397942632 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Edge.h
 	<iostream>
 
-1397949065 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Node.cpp
+1398247315 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Node.cpp
 	"Node.h"
 
 1397949076 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Node.h
@@ -47,7 +49,15 @@
 	<fstream>
 	<list>
 
-1397917498 D
+1398099084 D
+
+1397917498 4e5a7c002f4833fc0c5b90886ef1979fe7756
+
+1398099084 e0359d629e663f883a44726396dfbcf73b552
+	"../lexical_analyzer_package/SimpsonGraphBuilder.h"
+	<vector>
+	"../graph_package/Edge.h"
+	<iostream>
 
 1397656982 source:/home/administrator/Desktop/compiler project/graph_package/Edge.cpp
 	"Edge.h"
@@ -106,16 +116,22 @@
 
 1397754399 /home/administrator/Desktop/compiler project/include/NFA_Generator.h
 
-1398099007 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/NFA_Generator.cpp
+1398247625 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/NFA_Generator.cpp
 	"NFA_Generator.h"
+	"strings.h"
+	<stdio.h>
+	<vector>
+	<iostream>
 
-1398083423 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/NFA_Generator.h
+1398247529 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/NFA_Generator.h
 	"Automata.h"
 	"SimpsonGraphBuilder.h"
+	<stack>
 	"../graph_package/Graph.h"
 	<fstream>
 	<iostream>
 	"unordered_map"
+	"ExpressionEvaluator.h"
 
 1397769802 92e392b4a9d586f2cd8a0c072c784361759e5
 
@@ -132,34 +148,50 @@
 1397656982 /home/administrator/Desktop/compilerProject/graph_package/Edge.h
 	<iostream>
 
-1397656982 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/TokenManager.cpp
+1397949598 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/TokenManager.cpp
 	"TokenManager.h"
+	<string.h>
+	<fstream>
 
-1397656982 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/TokenManager.h
+1397949598 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/TokenManager.h
+	"Automata.h"
+	"../graph_package/Node.h"
+	"../graph_package/Graph.h"
+	<fstream>
+	<list>
 
-1397657071 source:/home/administrator/Desktop/compilerProject/main.cpp
+1398193317 source:/home/administrator/Desktop/compilerProject/main.cpp
 	<iostream>
+	"test_package/TestSimpsonGraphBuilder.h"
+	<stack>
+	<fstream>
+	<string.h>
+	"lexical_analyzer_package/TokenManager.h"
+	"lexical_analyzer_package/ExpressionEvaluator.h"
+	"graph_package/Graph.h"
+	"graph_package/Node.h"
 
-1397776030 source:/home/administrator/Desktop/compilerProject/graph_package/Graph.cpp
+1397949598 source:/home/administrator/Desktop/compilerProject/graph_package/Graph.cpp
 	"Graph.h"
 
-1397776030 /home/administrator/Desktop/compilerProject/graph_package/Graph.h
+1398194476 /home/administrator/Desktop/compilerProject/graph_package/Graph.h
+	"Node.h"
 	"Node.h"
 
-1397776030 /home/administrator/Desktop/compilerProject/graph_package/Node.h
+1397949598 /home/administrator/Desktop/compilerProject/graph_package/Node.h
 	<vector>
 	"Edge.h"
 	<iostream>
 
-1397776030 source:/home/administrator/Desktop/compilerProject/graph_package/Node.cpp
+1397952246 source:/home/administrator/Desktop/compilerProject/graph_package/Node.cpp
 	"Node.h"
 
 1397776030 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/Automata.cpp
 
-1397776030 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/SimpsonGraphBuilder.cpp
+1397950740 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/SimpsonGraphBuilder.cpp
 	"SimpsonGraphBuilder.h"
 
-1397776030 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/SimpsonGraphBuilder.h
+1398194147 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/SimpsonGraphBuilder.h
 	"../graph_package/Graph.h"
 	<iostream>
 
@@ -172,10 +204,28 @@
 	"Automata.h"
 	"SimpsonGraphBuilder.h"
 
-1397840059 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/utilities_package/Util.h
+1397840059 fa8a491bdad718137cf39286807163fc498cb
+
+1397948184 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/NFA_Generator.cpp
+	"NFA_Generator.h"
+	"strings.h"
+	<stdio.h>
+	<vector>
 	<iostream>
 
-1397840059 fa8a491bdad718137cf39286807163fc498cb
+1397953634 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/NFA_Generator.h
+	"Automata.h"
+	"SimpsonGraphBuilder.h"
+	<stack>
+	<iostream>
+
+1397778778 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/Automata.h
+	"../graph_package/Graph.h"
+
+1397778778 package/Graph.h"
+
+1397840059 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/utilities_package/Util.h
+	<iostream>
 
 1397840059 347d0f8df4c3287965b8225db2a11f9e6a14e
 
@@ -214,12 +264,36 @@
 	"graph_package/Graph.h"
 	"graph_package/Node.h"
 
-1397949043 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/ExpressionEvaluator.cpp
+1398247781 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/ExpressionEvaluator.cpp
 	"ExpressionEvaluator.h"
+	"string.h"
+	<unordered_map>
+	<iostream>
 
-1397917498 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/ExpressionEvaluator.h
+1398247793 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/ExpressionEvaluator.h
+	<stack>
 	"SimpsonGraphBuilder.h"
 	"../graph_package/Graph.h"
+	<unordered_map>
+	<iostream>
+
+1398193238 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/ExpressionEvaluator.cpp
+	"ExpressionEvaluator.h"
+	"string.h"
+	<unordered_map>
+	<iostream>
+
+1398191305 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/ExpressionEvaluator.h
+	<stack>
+	"SimpsonGraphBuilder.h"
+	"../graph_package/Graph.h"
+	<unordered_map>
+	<iostream>
+
+1398194147 /home/administrator/Desktop/compilerProject/test_package/TestSimpsonGraphBuilder.h
+	"../lexical_analyzer_package/SimpsonGraphBuilder.h"
+	<vector>
+	"../graph_package/Edge.h"
 	<iostream>
 
 1398047263 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/graph_package/Edge.cpp
@@ -231,7 +305,7 @@
 1398096202 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/graph_package/Graph.cpp
 	"Graph.h"
 
-1398096202 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/graph_package/Graph.h
+1398250405 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/graph_package/Graph.h
 	"Node.h"
 	"Node.h"
 
@@ -240,33 +314,44 @@
 	"Edge.h"
 	<iostream>
 
-1398047263 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/graph_package/Node.cpp
+1398250405 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/graph_package/Node.cpp
 	"Node.h"
 
 1398047263 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/Automata.cpp
 
-1398096202 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/ExpressionEvaluator.cpp
+1398250405 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/ExpressionEvaluator.cpp
 	"ExpressionEvaluator.h"
+	"string.h"
+	<unordered_map>
+	<iostream>
 
-1398047263 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/ExpressionEvaluator.h
+1398250405 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/ExpressionEvaluator.h
+	<stack>
 	"SimpsonGraphBuilder.h"
 	"../graph_package/Graph.h"
+	<unordered_map>
 	<iostream>
 
 1398096202 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/SimpsonGraphBuilder.h
 	"../graph_package/Graph.h"
 	<iostream>
 
-1398111761 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/NFA_Generator.cpp
+1398250405 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/NFA_Generator.cpp
 	"NFA_Generator.h"
+	"strings.h"
+	<stdio.h>
+	<vector>
+	<iostream>
 
-1398096202 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/NFA_Generator.h
+1398250405 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/NFA_Generator.h
 	"Automata.h"
 	"SimpsonGraphBuilder.h"
+	<stack>
 	"../graph_package/Graph.h"
 	<fstream>
 	<iostream>
 	"unordered_map"
+	"ExpressionEvaluator.h"
 
 1398047263 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/Automata.h
 	"../graph_package/Graph.h"
@@ -298,10 +383,11 @@
 	"lexical_analyzer_package/NFA_Generator.h"
 
 1398096202 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/test_package/TestSimpsonGraphBuilder.h
-	"../lexical_analyzer_package/SimpsonGraphBuilder.h"
-	<vector>
-	"../graph_package/Edge.h"
-	<iostream>
+
+1397949598 source:/home/administrator/Desktop/compilerProject/test_package/TestSimpsonGraphBuilder.cpp
+	"TestSimpsonGraphBuilder.h"
+
+1397949598 onGraphBuilder.h"
 
 1398047263 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/test_package/TestSimpsonGraphBuilder.cpp
 	"TestSimpsonGraphBuilder.h"
@@ -357,10 +443,19 @@
 	<vector>
 	<unordered_map>
 
-1398245635 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/DFA_Minimization.cpp
+1398248237 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/DFA_Minimization.cpp
 	"DFA_Minimization.h"
 
-1398245778 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/DFA_Minimization.h
+1398245916 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/DFA_Minimization.h
+	<vector>
+	<DFA_State.h>
+
+1398247315 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/DFA_Minimization.cpp
+	"DFA_Minimization.h"
+
+1398247315 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/DFA_Minimization.h
+
+1398247315 bf898fda5166e834537d94aac119f532f3dd4
 	<vector>
 	<DFA_State.h>
 
