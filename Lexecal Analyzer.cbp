@@ -44,6 +44,8 @@
 		<Unit filename="lexical_analyzer_package/Automata.h" />
 		<Unit filename="lexical_analyzer_package/DFA_Genrator.cpp" />
 		<Unit filename="lexical_analyzer_package/DFA_Genrator.h" />
+		<Unit filename="lexical_analyzer_package/DFA_Minimization.cpp" />
+		<Unit filename="lexical_analyzer_package/DFA_Minimization.h" />
 		<Unit filename="lexical_analyzer_package/DFA_State.cpp" />
 		<Unit filename="lexical_analyzer_package/DFA_State.h" />
 		<Unit filename="lexical_analyzer_package/ExpressionEvaluator.cpp" />
