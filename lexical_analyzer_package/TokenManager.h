@@ -1,26 +1,27 @@
 #ifndef TOKENMANAGER_H
 #define TOKENMANAGER_H
-#include "Automata.h"
-#include "../graph_package/Node.h"
-#include "../graph_package/Graph.h"
-#include <fstream>
-#include <list>
+#include "TransitionTable.h"
 
-enum  cToken{Ident, Keyword, Number,Unkown, Punctuation, Operat} ;
 class TokenManager
 {
     public:
-        cToken currentToken;
-        ofstream outputFile;
-        vector<char> seq ;
-        Node* Ptr;
-        Graph graph;
-        void writeToOutput(vector<char> seq, cToken c);
-        void GenToken(char str);
         TokenManager();
+        vector<string> seq ;
+        bool isError ;
+        int GetNextState(string str);
+        void isToken(int state);
         virtual ~TokenManager();
+
     protected:
     private:
+        vector< vector<int> > transition_table;
+        TransitionTable transTable;
+        vector<string> store ;
+        int startNode;
+        int tempState;
+        int transTableIndex;
+        bool is_Token;
+        string type;
 };
 
 #endif // TOKENMANAGER_H

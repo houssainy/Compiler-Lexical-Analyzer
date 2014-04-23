@@ -80,24 +80,52 @@ cout << "First occurrence of Ben was found at: " << position << endl;
     /**
     *   ***************** BUSHRA **********************
     **/
-    char inputChar ;
-    TokenManager token;
-    ifstream inputFile ("p.txt");
-    ofstream errorsFile;
+ char inputChar ;
+    int returnState;
+    string token_type;
+    vector<char> tokenSeq;
 
+    TransitionTable t;
+    TokenManager token;
+    ifstream inputFile ;
+    ofstream outputFile, errorFile;
+    vector<string> symbol_table;
+    inputFile.open("p.txt");
     if(inputFile)
     {
+        token.TokenManager();
+        outputFile.open("output.txt");
+        if(!outputFile)
+            cout<< "Unable to open output file";
+        errorsFile.open("errorFile.txt");
+        if(!errorFile)
+            cout<< "Unable to open error file";
         do
         {
-            inputFile >> noskipws >> inputChar ;
-            cout << inputChar;
-            token.GenToken(inputChar);
-        }while(! inputFile.eof());
+            inputFile >> noskipws >> inputChar;
+            returnState = token.GetNextState(inputChar);
+            if(token.isToken)
+            {
+                token_type = t.type(token.seq[seq.size()]);
+                for (int i = 0 ; i < token.seq.size(); i++)
+                {
+                   outputFile << token.seq[i] ;
+                }
+                outputFile << "/t" << token_type << endl;
+
+                if(token_type == "Identifier")
+                    symbol_table.push_back(seq); /*test*/
+            }
+            if(token.isError)
+                errorsFile << inputChar << "/t" << returnState << endl;
+        } while(! inputFile.eof());
         inputFile.close();
+        outputFile.close();
+        errorFile.close();
     }
     else
     {
-        cout<< "Unable to open file";
+        cout<< "Unable to open input file";
     }
     /**
     *   ***************** END BUSHRA **********************
