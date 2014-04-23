@@ -26,7 +26,7 @@ class NFA_Generator : public Automata
     private:
         string file_path;
         SimpsonGraphBuilder graph_builder;
-        ExpressionEvaluator exp_eval;
+        ExpressionEvaluator exp_eval = ExpressionEvaluator(&graph_builder);
 
         // Hash map to hold all the builded graphs to be able to check
         // if the graph is built before or not in keywords case or regular expression case

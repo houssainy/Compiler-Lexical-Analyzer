@@ -124,7 +124,7 @@ Graph* NFA_Generator::getAutomata(){
                                 continue;
 
                             // create new graph
-                            exp_graphs.insert(pair<string,Graph*>( index_char, graph_builder.init_graph(exp_string)));
+                            exp_graphs.insert(pair<string,Graph*>( string(1,index_char), graph_builder.init_graph(exp_string)));
                             // Add the chosen char to the expression to be user in evaluation
                             exp_string = string(exp_string + index_char);
                             index_char++;

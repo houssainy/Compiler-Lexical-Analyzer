@@ -12,6 +12,7 @@ class ExpressionEvaluator
 {
     public:
         ExpressionEvaluator(SimpsonGraphBuilder* builder);
+        ExpressionEvaluator();
         Graph *evaluate(string expr /*, hash map*/);
         virtual ~ExpressionEvaluator();
     protected:
@@ -21,3 +22,4 @@ class ExpressionEvaluator
 };
 
 #endif // EXPRESSIONEVALUATOR_H
+

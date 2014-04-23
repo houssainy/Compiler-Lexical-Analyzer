@@ -6,6 +6,8 @@ ExpressionEvaluator::ExpressionEvaluator(SimpsonGraphBuilder *builder)
     this->builder = builder;
 }
 
+ExpressionEvaluator::ExpressionEvaluator(){}
+
 Graph *ExpressionEvaluator::evaluate(string expr /*, hash map*/){
     return NULL;
 }
