@@ -274,19 +274,20 @@
 1398096202 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/SimpsonGraphBuilder.cpp
 	"SimpsonGraphBuilder.h"
 
-1398047263 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/TokenManager.cpp
+1398172678 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/TokenManager.cpp
 	"TokenManager.h"
 	<string.h>
 	<fstream>
+	"TransitionTable.h"
 
-1398047263 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/TokenManager.h
+1398172566 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/TokenManager.h
 	"Automata.h"
 	"../graph_package/Node.h"
 	"../graph_package/Graph.h"
 	<fstream>
 	<list>
 
-1398096202 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/main.cpp
+1398172619 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/main.cpp
 	<iostream>
 	"test_package/TestSimpsonGraphBuilder.h"
 	<fstream>
@@ -355,4 +356,11 @@
 	<string>
 	<vector>
 	<unordered_map>
+
+1398245635 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/DFA_Minimization.cpp
+	"DFA_Minimization.h"
+
+1398245778 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/DFA_Minimization.h
+	<vector>
+	<DFA_State.h>
 

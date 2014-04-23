@@ -6,17 +6,16 @@
 #include <fstream>
 #include <list>
 
-enum  cToken{Ident, Keyword, Number,Unkown, Punctuation, Operat} ;
 class TokenManager
 {
     public:
-        cToken currentToken;
+        bool isToken ;
         ofstream outputFile;
-        vector<char> seq ;
-        Node* Ptr;
-        Graph graph;
-        void writeToOutput(vector<char> seq, cToken c);
-        void GenToken(char str);
+        ofstream errorFile ;
+        vector<char> seq;
+        void init();
+        void write_to_file(ofstream file , vector<char> seq, string type);
+        void GenToken(string str);
         TokenManager();
         virtual ~TokenManager();
     protected:

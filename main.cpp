@@ -70,10 +70,9 @@ int main()
     /**
     *   ***************** BUSHRA **********************
     **/
-    char inputChar ;
+    string inputChar ;
     TokenManager token;
     ifstream inputFile ("p.txt");
-    ofstream errorsFile;
 
     if(inputFile)
     {
