@@ -79,6 +79,9 @@ void NFA_Generator::handle_keyword_graph(string line){
 
             break;
         }else{ // character
+
+            input_map.insert(pair<char,int>(line[i], input_count++)); // Add new character to input map
+
             if( graph == NULL )// Build graph for first charachter
                 graph = graph_builder.init_graph(string(1,line[i]));
             else // concatenate old graph and new graph of the new character
@@ -105,6 +108,7 @@ void NFA_Generator::handle_punctuation_graph(string line){
         else{ // punctiation
 
             if( line[i] == '\\'){//case \( or \)
+                cout<< string(line , i , i+1) << endl;
                 temp_graph = graph_builder.init_graph(string(line , i , i+1));
                 i++;
             }else

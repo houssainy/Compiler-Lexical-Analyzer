@@ -30,6 +30,11 @@ class NFA_Generator : public Automata
         // Hash map to hold all the builded graphs to be able to check
         // if the graph is built before or not in keywords case or regular expression case
         unordered_map<string,Graph*> language_map;
+
+        //Map to hold all inputs and its mapping to column number in transition table
+        unordered_map<char,int> input_map;
+        int input_count = 0;
+
         void handle_keyword_graph(string line);
         void handle_punctuation_graph(string line);
         void handle_regular_exp_or_def_graph(string line);
