@@ -46,51 +46,58 @@ Graph* NFA_Generator::getAutomata(){
 *   Read keyword line from grammerfile and build its graph
 */
 void NFA_Generator::handle_keyword_graph(string line){
-    Graph *graph = NULL;
+    Graph *temp_graph = NULL;
 
     // move on the line and construct a graph for each key word
     for(int i = 1 ; i < line.length() ; i++){
         if(line[i] == ' '|| line[i] == '\t') {// white space
-            if( graph == NULL ) // White space in the begining of the line like "{ int....}"
+            if( temp_graph == NULL ) // White space in the begining of the line like "{ int....}"
                 continue;
 
+            // Set last node as acceptance state
+            temp_graph->get_end_node()->set_acceptance_state(true);
+
             if( language_map.find("key_word") != language_map.end() ){
 
                 //There is already graph for key words so update the graph only
                 Graph *old_graph = language_map.find("key_word")->second;
-                language_map["key_word"] = graph_builder.or_operation(old_graph,graph);
+                language_map["key_word"] = graph_builder.or_operation(old_graph,temp_graph);
 
             }else // Add new key word key
-                language_map.insert(pair<string,Graph*>("key_word", graph));
+                language_map.insert(pair<string,Graph*>("key_word", temp_graph));
 
-            graph = NULL; // To start new graph
+            temp_graph = NULL; // To start new graph
 
         }else if( line[i] == '}'){ // end of key words
-            if( graph == NULL)
+            if( temp_graph == NULL)
                 break;
+
+            // Set last node as acceptance state
+            temp_graph->get_end_node()->set_acceptance_state(true);
+
             if( language_map.find("key_word") != language_map.end() ){
 
                 //There is already graph for key words so update the graph only
                 Graph *old_graph = language_map.find("key_word")->second;
-                language_map["key_word"] = graph_builder.or_operation(old_graph,graph);
+                language_map["key_word"] = graph_builder.or_operation(old_graph,temp_graph);
 
             }else // Add new
-                language_map.insert(pair<string,Graph*>("key_word", graph));
+                language_map.insert(pair<string,Graph*>("key_word", temp_graph));
 
             break;
         }else{ // character
 
             input_map.insert(pair<char,int>(line[i], input_count++)); // Add new character to input map
 
-            if( graph == NULL )// Build graph for first charachter
-                graph = graph_builder.init_graph(string(1,line[i]));
+            if( temp_graph == NULL )// Build graph for first charachter
+                temp_graph = graph_builder.init_graph(string(1,line[i]));
             else // concatenate old graph and new graph of the new character
-                graph = graph_builder.and_operation(graph , graph_builder.init_graph(string(1,line[1])));
+                temp_graph = graph_builder.and_operation(temp_graph , graph_builder.init_graph(string(1,line[1])));
         }
 
     }
 
-    delete graph;
+    delete temp_graph;
 }
 
 /**
@@ -107,12 +114,16 @@ void NFA_Generator::handle_punctuation_graph(string line){
             break;
         else{ // punctiation
 
-            if( line[i] == '\\'){//case \( or \)
-                cout<< string(line , i , i+1) << endl;
-                temp_graph = graph_builder.init_graph(string(line , i , i+1));
-                i++;
+            if( line[i] == '\\' && i+1 < line.length() && (line[i+1] == ')' || line[i+1] == '(')){//case \( or \)
+                temp_graph = graph_builder.init_graph(string(1,line[i+1]));
+                i++; //skip ) or (
             }else
                 temp_graph = graph_builder.init_graph(string(1,line[i]));
+
+            // Set last node as acceptance state
+            temp_graph->get_end_node()->set_acceptance_state(true);
+            // Add new character to input map
+            input_map.insert(pair<char,int>(line[i], input_count++));
 
             if( language_map.find("punctuation") != language_map.end() ){
                 //There is already graph for punctuations so update the graph only
@@ -142,14 +153,14 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
         i++;
 
     //build exp_name
-    while(i < line.length() && (line[i] == ' ' || line[i] == '\t' || line[i] =='=' || line[i] == ':') )
+    while(i < line.length() && (line[i] == ' ' || line[i] == '\t' || line[i] !='=' || line[i] != ':') )
         exp_name = string(exp_name + line[i++]);
 
     // skip white spaces after exp name
-    while(i < line.length() && (line[i] == ' ' || line[i] == '\t' || line[i] =='=' || line[i] == ':' ) )
+    while(i < line.length() && (line[i] == ' ' || line[i] == '\t' || line[i] !='=' || line[i] != ':' ) )
         i++;
 
-    if( line[i] < line.length() && (line[i] == '='|| line[i] == ':' )){
+    if( i < line.length() && (line[i] == '='|| line[i] == ':' )){
         unordered_map<string, Graph*> exp_graphs;
         string exp_string;
         string temp_string;
@@ -160,22 +171,35 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
                 if( temp_string.empty() ) // Spaces
                     continue;
 
+                Graph* temp_graph;
+
+                if( language_map.find(temp_string) != language_map.end()){ // diffinition of predefined expression
+                    temp_graph = language_map.find(temp_string)->second;
+                }else // New input
+                    temp_graph = graph_builder.init_graph(temp_string);
+
                 // create new graph
-                exp_graphs.insert(pair<string,Graph*>( string(1,index_char), graph_builder.init_graph(exp_string)));
+                exp_graphs.insert(pair<string,Graph*>( string(1,index_char), temp_graph ));
                 // Add the chosen char to the expression to be user in evaluation
                 exp_string = string(exp_string + index_char);
                 index_char++;
 
                 temp_string = string("");
 
-            }else{
-                if( line[i] == '+' || line[i] == '*' || line[i] == '|' || line[i] == '.'){ // Operation
-                    exp_string = string(exp_string + line[i]);
-                }else// append character
-                    temp_string = string(temp_string + line[i]);
-            }
+                delete temp_graph;
+            }else if( line[i] == '+' || line[i] == '*' || line[i] == '|' || line[i] == '.'){ // Operation
+                exp_string = string(exp_string + line[i]);
+            }else// append character to temp_string to be used as name of key of the map
+                temp_string = string(temp_string + line[i]);
+
         }
-        exp_eval.evaluate(exp_string , &exp_graphs);
+        //Evaluate the expression
+        Graph* temp_graph = exp_eval.evaluate(exp_string , &exp_graphs);
+
+        // insert new reg expression or deffinition
+        language_map.insert(pair<string,Graph*>(exp_name, temp_graph));
+
+        delete temp_graph;
     }else
         cout<< "Grammar Error!" << endl;
 }
