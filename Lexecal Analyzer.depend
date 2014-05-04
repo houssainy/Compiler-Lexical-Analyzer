@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1398247315 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/main.cpp
+1398252821 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/main.cpp
 	<iostream>
 	"test_package/TestSimpsonGraphBuilder.h"
 	<stack>
@@ -37,17 +37,14 @@
 1397776880 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/Automata.h
 	"../graph_package/Graph.h"
 
-1397942948 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.cpp
+1399162992 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.cpp
 	"TokenManager.h"
 	<string.h>
+	"TransitionTable.h"
 	<fstream>
 
-1397942101 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.h
-	"Automata.h"
-	"../graph_package/Node.h"
-	"../graph_package/Graph.h"
-	<fstream>
-	<list>
+1399162990 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.h
+	"TransitionTable.h"
 
 1398096202 D
 

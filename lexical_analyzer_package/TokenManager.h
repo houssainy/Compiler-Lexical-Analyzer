@@ -5,17 +5,17 @@
 class TokenManager
 {
     public:
-        TokenManager();
-        vector<string> seq ;
+        TokenManager(TransitionTable *transTable);
+        vector<char> seq ;
         bool isError ;
-        int GetNextState(string str);
-        void isToken(int state);
+//        int GetNextState(char str);
+//        bool isToken(int state);
         virtual ~TokenManager();
 
     protected:
     private:
         vector< vector<int> > transition_table;
-        TransitionTable transTable;
+        TransitionTable *transTable;
         vector<string> store ;
         int startNode;
         int tempState;
