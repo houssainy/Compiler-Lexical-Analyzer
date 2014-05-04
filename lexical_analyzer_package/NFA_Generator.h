@@ -1,9 +1,9 @@
-
 #ifndef NFA_GENERATOR_H
 #define NFA_GENERATOR_H
+
 #include "Automata.h"
 #include "SimpsonGraphBuilder.h"
-#include <stack>
+
 #include "../graph_package/Graph.h"
 #include <fstream>
 #include <iostream>
@@ -30,6 +30,9 @@ class NFA_Generator : public Automata
         // Hash map to hold all the builded graphs to be able to check
         // if the graph is built before or not in keywords case or regular expression case
         unordered_map<string,Graph*> language_map;
+        void handle_keyword_graph(string line);
+        void handle_punctuation_graph(string line);
+        void handle_regular_exp_or_def_graph(string line);
 
         Graph *get_language_graph();
 
