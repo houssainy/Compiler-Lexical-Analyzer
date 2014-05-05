@@ -152,7 +152,7 @@
 	<fstream>
 	<list>
 
-1398193317 source:/home/administrator/Desktop/compilerProject/main.cpp
+1398194758 source:/home/administrator/Desktop/compilerProject/main.cpp
 	<iostream>
 	"test_package/TestSimpsonGraphBuilder.h"
 	<stack>
@@ -162,11 +162,12 @@
 	"lexical_analyzer_package/ExpressionEvaluator.h"
 	"graph_package/Graph.h"
 	"graph_package/Node.h"
+	"lexical_analyzer_package/NFA_Generator.h"
 
-1397949598 source:/home/administrator/Desktop/compilerProject/graph_package/Graph.cpp
+1398194147 source:/home/administrator/Desktop/compilerProject/graph_package/Graph.cpp
 	"Graph.h"
 
-1398194476 /home/administrator/Desktop/compilerProject/graph_package/Graph.h
+1398248240 /home/administrator/Desktop/compilerProject/graph_package/Graph.h
 	"Node.h"
 	"Node.h"
 
@@ -180,7 +181,7 @@
 
 1397776030 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/Automata.cpp
 
-1397950740 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/SimpsonGraphBuilder.cpp
+1398194147 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/SimpsonGraphBuilder.cpp
 	"SimpsonGraphBuilder.h"
 
 1398194147 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/SimpsonGraphBuilder.h
@@ -205,11 +206,14 @@
 	<vector>
 	<iostream>
 
-1397953634 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/NFA_Generator.h
+1398248327 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/NFA_Generator.h
 	"Automata.h"
 	"SimpsonGraphBuilder.h"
 	<stack>
+	"../graph_package/Graph.h"
+	<fstream>
 	<iostream>
+	"unordered_map"
 
 1397778778 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/Automata.h
 	"../graph_package/Graph.h"
@@ -264,7 +268,7 @@
 	"../graph_package/Graph.h"
 	<iostream>
 
-1398193238 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/ExpressionEvaluator.cpp
+1398194849 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/ExpressionEvaluator.cpp
 	"ExpressionEvaluator.h"
 	"string.h"
 	<unordered_map>
@@ -414,6 +418,36 @@
 	"TransitionTable.h"
 
 1398099084 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TransitionTable.h
+	<string>
+	<vector>
+	<unordered_map>
+
+1398194147 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/DFA_Genrator.cpp
+	"DFA_Genrator.h"
+	<DFA_State.h>
+
+1398194147 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/DFA_Genrator.h
+	<vector>
+	<iostream>
+	<DFA_State.h>
+
+1398194147 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/DFA_State.h
+	<vector>
+
+1398194147 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/DFA_Minimization.cpp
+	"DFA_Minimization.h"
+
+1398194147 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/DFA_Minimization.h
+	<vector>
+	<DFA_State.h>
+
+1398194147 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/DFA_State.cpp
+	"DFA_State.h"
+
+1398194147 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/TransitionTable.cpp
+	"TransitionTable.h"
+
+1398194147 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/TransitionTable.h
 	<string>
 	<vector>
 	<unordered_map>

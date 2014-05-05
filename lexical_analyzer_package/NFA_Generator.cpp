@@ -6,14 +6,14 @@
 
 NFA_Generator::NFA_Generator(string file_path)
 {
-    //ctor
+     this->file_path = file_path;
 }
 
-void NFA_Generator::setAutomata(Graph* graph){
+/* NFA_Generator::setAutomata(Graph* graph){
     Node start_node= Node();
     //start_node->add_child(graph.get_start_node())
     this->file_path = file_path;
-}
+}*/
 
 Graph* NFA_Generator::getAutomata(){
 
