@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1399164631 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/main.cpp
+1399301534 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/main.cpp
 	<iostream>
 	"test_package/TestSimpsonGraphBuilder.h"
 	<stack>
@@ -10,6 +10,7 @@
 	"graph_package/Graph.h"
 	"graph_package/Node.h"
 	"lexical_analyzer_package/NFA_Generator.h"
+	"TransitionTable.h"
 
 1397949446 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/graph_package/Graph.cpp
 	"Graph.h"
@@ -37,13 +38,13 @@
 1397776880 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/Automata.h
 	"../graph_package/Graph.h"
 
-1399162992 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.cpp
+1399295901 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.cpp
 	"TokenManager.h"
 	<string.h>
 	"TransitionTable.h"
 	<fstream>
 
-1399162990 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.h
+1399304497 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.h
 	"TransitionTable.h"
 
 1398096202 D
@@ -113,14 +114,14 @@
 
 1397754399 /home/administrator/Desktop/compiler project/include/NFA_Generator.h
 
-1399171286 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/NFA_Generator.cpp
+1399288649 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/NFA_Generator.cpp
 	"NFA_Generator.h"
 	"strings.h"
 	<stdio.h>
 	<vector>
 	<iostream>
 
-1399171085 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/NFA_Generator.h
+1399289310 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/NFA_Generator.h
 	"Automata.h"
 	"SimpsonGraphBuilder.h"
 	"../graph_package/Graph.h"

@@ -8,20 +8,26 @@ class TokenManager
         TokenManager(TransitionTable *transTable);
         vector<char> seq ;
         bool isError ;
-//        int GetNextState(char str);
-//        bool isToken(int state);
+        char discardChar ;
+        bool is_Token;
+        char is_Error();
+        int GetNextState(char str);
+        bool isToken(int state);
         virtual ~TokenManager();
 
     protected:
     private:
         vector< vector<int> > transition_table;
         TransitionTable *transTable;
-        vector<string> store ;
+        vector<char> store ;
+        vector<int> states;
         int startNode;
         int tempState;
+        int NextTempState ;
         int transTableIndex;
-        bool is_Token;
+
         string type;
+
 };
 
 #endif // TOKENMANAGER_H
