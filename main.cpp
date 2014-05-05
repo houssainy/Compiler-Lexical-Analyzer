@@ -9,6 +9,7 @@
 #include "graph_package/Graph.h"
 #include "graph_package/Node.h"
 #include "lexical_analyzer_package/NFA_Generator.h"
+#include "TransitionTable.h"
 
 using namespace std;
 
@@ -29,53 +30,53 @@ int main()
     /**
     *   ***************** BUSHRA **********************
     **/
-//    char inputChar ;
-//    int returnState;
-//    string token_type;
-//    vector<char> tokenSeq;
-//
-//    TransitionTable t;
-//    TokenManager token;
-//    ifstream inputFile ;
-//    ofstream outputFile, errorFile;
-//    vector<string> symbol_table;
-//    inputFile.open("p.txt");
-//    if(inputFile)
-//    {
-//        token.TokenManager();
-//        outputFile.open("output.txt");
-//        if(!outputFile)
-//            cout<< "Unable to open output file";
-//        errorsFile.open("errorFile.txt");
-//        if(!errorFile)
-//            cout<< "Unable to open error file";
-//        do
-//        {
-//            inputFile >> noskipws >> inputChar;
-//            returnState = token.GetNextState(inputChar);
-//            if(token.isToken)
-//            {
-//                token_type = t.type(token.seq[seq.size()]);
-//                for (int i = 0 ; i < token.seq.size(); i++)
-//                {
-//                   outputFile << token.seq[i] ;
-//                }
-//                outputFile << "/t" << token_type << endl;
-//
-//                if(token_type == "Identifier")
-//                    symbol_table.push_back(seq); /*test*/
-//            }
-//            if(token.isError)
-//                errorsFile << inputChar << "/t" << returnState << endl;
-//        } while(! inputFile.eof());
-//        inputFile.close();
-//        outputFile.close();
-//        errorFile.close();
-//    }
-//    else
-//    {
-//        cout<< "Unable to open input file";
-//    }
+    char inputChar ;
+    int returnState;
+    string token_type;
+    vector<char> tokenSeq;
+    TransitionTable *t;
+    TokenManager *token;
+    ifstream inputFile ;
+    ofstream outputFile;
+    ofstream errorFile ;
+    vector< vector<char> > symbol_table;
+    inputFile.open("p.txt");
+    if(inputFile)
+    {
+        token = new TokenManager(t);
+        outputFile.open("output.txt");
+        if(!outputFile)
+            cout<< "Unable to open output file";
+        errorFile.open("errorFile.txt");
+        if(!errorFile)
+            cout<< "Unable to open error file";
+        do
+        {
+            inputFile >> noskipws >> inputChar;
+            returnState = token->GetNextState(inputChar);
+            if(token->is_Token)
+            {
+                token_type = t->type(token->seq[token->seq.size()]);
+                for (int i = 0 ; i < token->seq.size(); i++)
+                {
+                   outputFile << token->seq[i] ;
+                }
+                outputFile << "/t" << token_type << endl;
+
+                if(token_type == "Identifier")
+                    symbol_table.push_back(token->seq); /*test*/
+            }
+            if(token->isError)
+                errorFile << token->is_Error() << "/t" << returnState << endl;
+        } while(! inputFile.eof());
+        inputFile.close();
+        outputFile.close();
+        errorFile.close();
+    }
+    else
+    {
+        cout<< "Unable to open input file";
+    }
     /**
     *   ***************** END BUSHRA **********************
     **/
