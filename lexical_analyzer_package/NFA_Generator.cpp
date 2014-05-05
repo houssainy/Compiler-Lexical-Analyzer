@@ -175,8 +175,20 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
 
                 if( language_map.find(temp_string) != language_map.end()){ // diffinition of predefined expression
                     temp_graph = language_map.find(temp_string)->second;
-                }else // New input
-                    temp_graph = graph_builder.init_graph(temp_string);
+                }else{ // New input
+
+                    if( temp_string.length() > 1){// e.g: a-z , 1-9
+//                        int j = 0;
+//                        temp_graph = graph_builder.init_graph(temp_string[j]);
+//
+//                        for(; j < temp_string.length() ; j++ )
+//                            temp_graph = graph_builder.or_operation(temp_graph , )
+                    }else{ // one char
+                        input_map.insert(pair<char,int>(temp_string[0], input_count++));
+                        temp_graph = graph_builder.init_graph(temp_string);
+                    }
+
+                }
 
                 // create new graph
                 exp_graphs.insert(pair<string,Graph*>( string(1,index_char), temp_graph ));
