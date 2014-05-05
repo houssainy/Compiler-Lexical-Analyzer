@@ -231,6 +231,7 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
 
                     temp_string = string("");
 
+                    temp_graph = NULL;
                     delete temp_graph;
                 }else
                     exp_string = string(exp_string + line[i]);
@@ -268,18 +269,17 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
                 index_char++;
 
                 temp_string = string("");
-
-                delete temp_graph;
         }
 
         //Evaluate the expression
-        Graph* temp_graph = exp_eval.evaluate(exp_string , &exp_graphs);
+        Graph* result_graph = exp_eval.evaluate(exp_string , &exp_graphs);
+        result_graph->get_end_node()->set_acceptance_state(true);
 
         // insert new reg expression or deffinition
-        language_map.insert(pair<string,Graph*>(exp_name, temp_graph));
+        language_map.insert(pair<string,Graph*>(exp_name, result_graph));
 
-        temp_graph = NULL;
-        delete temp_graph;
+        //result_graph = NULL;
+        delete result_graph;
     }else
         cout<< "Grammar Error!" << endl;
 }

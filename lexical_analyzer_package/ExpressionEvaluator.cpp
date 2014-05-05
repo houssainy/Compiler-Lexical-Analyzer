@@ -215,7 +215,7 @@ Graph *ExpressionEvaluator::evaluate(string expr,unordered_map <string,Graph*> *
     string element="";
     int i=0;
     strcpy(expr_array, post_fix.c_str());
-    stack <string> operationS;
+    //stack <string> operationS;
     stack<Graph *> operandG;
     for(i=0; i<post_fix.length(); i++)
     {
@@ -228,20 +228,20 @@ Graph *ExpressionEvaluator::evaluate(string expr,unordered_map <string,Graph*> *
             operandG.push(itr->second);
         }
         else
-        {
-            if((!operationS.empty())&&(string(1 , expr_array[i])=="*"))
+        {   //operationS.push(string(1 , expr_array[i]));
+            if((string(1 , expr_array[i])=="*"))
             {
                 g1=operandG.top();
                 operandG.pop();
                 operandG.push(builder->clousure_operation(g1));
             }
-            else if((!operationS.empty())&&(string(1 , expr_array[i])=="+"))
+            else if((string(1 , expr_array[i])=="+"))
             {
                 g1=operandG.top();
                 operandG.pop();
                 operandG.push(builder->positive_clousure_operation(g1));
             }
-            else if((!operationS.empty())&&(string(1 , expr_array[i])=="."))
+            else if((string(1 , expr_array[i])=="."))
             {
                 g1=operandG.top();
                 operandG.pop();
@@ -250,7 +250,7 @@ Graph *ExpressionEvaluator::evaluate(string expr,unordered_map <string,Graph*> *
                 operandG.push(builder->and_operation(g1,g2));
 
             }
-            else if((!operationS.empty())&&(string(1 , expr_array[i])=="|"))
+            else if((string(1 , expr_array[i])=="|"))
             {
 
                 g1=operandG.top();
