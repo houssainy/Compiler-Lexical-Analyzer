@@ -83,11 +83,11 @@ void NFA_Generator::handle_keyword_graph(string line){
 
             }else // Add new
                 language_map.insert(pair<string,Graph*>("key_word", temp_graph));
-
+            temp_graph = NULL;
             break;
         }else{ // character
-
-            input_map.insert(pair<char,int>(line[i], input_count++)); // Add new character to input map
+            if( input_map.find(line[i]) == input_map.end() ) // this character not added before
+                input_map.insert(pair<char,int>(line[i], input_count++)); // Add new character to input map
 
             if( temp_graph == NULL )// Build graph for first charachter
                 temp_graph = graph_builder.init_graph(string(1,line[i]));
@@ -114,7 +114,7 @@ void NFA_Generator::handle_punctuation_graph(string line){
             break;
         else{ // punctiation
 
-            if( line[i] == '\\' && i+1 < line.length() && (line[i+1] == ')' || line[i+1] == '(')){//case \( or \)
+            if( line[i] == 92 /* '\'*/ && i+1 < line.length() && (line[i+1] == ')' || line[i+1] == '(')){//case \( or \)
                 temp_graph = graph_builder.init_graph(string(1,line[i+1]));
                 i++; //skip ) or (
             }else
@@ -122,8 +122,10 @@ void NFA_Generator::handle_punctuation_graph(string line){
 
             // Set last node as acceptance state
             temp_graph->get_end_node()->set_acceptance_state(true);
+
             // Add new character to input map
-            input_map.insert(pair<char,int>(line[i], input_count++));
+            if( input_map.find(line[i]) == input_map.end() ) // this character not added before
+                input_map.insert(pair<char,int>(line[i], input_count++));
 
             if( language_map.find("punctuation") != language_map.end() ){
                 //There is already graph for punctuations so update the graph only
@@ -153,11 +155,11 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
         i++;
 
     //build exp_name
-    while(i < line.length() && (line[i] == ' ' || line[i] == '\t' || line[i] !='=' || line[i] != ':') )
+    while(i < line.length() && line[i] != ' ' && line[i] != '\t' && line[i] !='=' && line[i] != ':' )
         exp_name = string(exp_name + line[i++]);
 
     // skip white spaces after exp name
-    while(i < line.length() && (line[i] == ' ' || line[i] == '\t' || line[i] !='=' || line[i] != ':' ) )
+    while(i < line.length() && (line[i] == ' ' || line[i] == '\t') )
         i++;
 
     if( i < line.length() && (line[i] == '='|| line[i] == ':' )){
@@ -166,25 +168,25 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
         string temp_string;
         char index_char = 'a';
 
-        for(; i < line.length() ; i++ ){
-            if( line[i] == ' ' || line[i] == '\t'){
+        for(i=i+1 ; i < line.length() ; i++ ){
+            if( line[i] == ' ' || line[i] == '\t' ){
                 if( temp_string.empty() ) // Spaces
                     continue;
-
-                Graph* temp_graph;
+                                Graph* temp_graph;
 
                 if( language_map.find(temp_string) != language_map.end()){ // diffinition of predefined expression
                     temp_graph = language_map.find(temp_string)->second;
                 }else{ // New input
 
                     if( temp_string.length() > 1){// e.g: a-z , 1-9
-//                        int j = 0;
-//                        temp_graph = graph_builder.init_graph(temp_string[j]);
-//
-//                        for(; j < temp_string.length() ; j++ )
-//                            temp_graph = graph_builder.or_operation(temp_graph , )
+            //                        int j = 0;
+            //                        temp_graph = graph_builder.init_graph(temp_string[j]);
+            //
+            //                        for(; j < temp_string.length() ; j++ )
+            //                            temp_graph = graph_builder.or_operation(temp_graph , )
                     }else{ // one char
-                        input_map.insert(pair<char,int>(temp_string[0], input_count++));
+                        if( input_map.find(temp_string[0]) == input_map.end() ) // this character not added before
+                            input_map.insert(pair<char,int>(temp_string[0], input_count++));
                         temp_graph = graph_builder.init_graph(temp_string);
                     }
 
@@ -199,22 +201,89 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
                 temp_string = string("");
 
                 delete temp_graph;
-            }else if( line[i] == '+' || line[i] == '*' || line[i] == '|' || line[i] == '.'){ // Operation
-                exp_string = string(exp_string + line[i]);
+            }else if( line[i] == '+' || line[i] == '*' || line[i] == '|' || line[i] == '.' || line[i] == '(' || line[i] == ')' ){ // Operation
+                if( !temp_string.empty() ){
+                    Graph* temp_graph;
+
+                    if( language_map.find(temp_string) != language_map.end()){ // diffinition of predefined expression
+                        temp_graph = language_map.find(temp_string)->second;
+                    }else{ // New input
+
+                        if( temp_string.length() > 1){// e.g: a-z , 1-9
+                    //                        int j = 0;
+                    //                        temp_graph = graph_builder.init_graph(temp_string[j]);
+                    //
+                    //                        for(; j < temp_string.length() ; j++ )
+                    //                            temp_graph = graph_builder.or_operation(temp_graph , )
+                        }else{ // one char
+                            if( input_map.find(temp_string[0]) == input_map.end() ) // this character not added before
+                                input_map.insert(pair<char,int>(temp_string[0], input_count++));
+                            temp_graph = graph_builder.init_graph(temp_string);
+                        }
+
+                    }
+
+                    // create new graph
+                    exp_graphs.insert(pair<string,Graph*>( string(1,index_char), temp_graph ));
+                    // Add the chosen char to the expression to be user in evaluation
+                    exp_string = string(exp_string + index_char+ line[i]);
+                    index_char++;
+
+                    temp_string = string("");
+
+                    delete temp_graph;
+                }else
+                    exp_string = string(exp_string + line[i]);
+
+
             }else// append character to temp_string to be used as name of key of the map
                 temp_string = string(temp_string + line[i]);
-
         }
+
+        if( !temp_string.empty() ){
+                Graph* temp_graph;
+
+                if( language_map.find(temp_string) != language_map.end()){ // diffinition of predefined expression
+                    temp_graph = language_map.find(temp_string)->second;
+                }else{ // New input
+
+                    if( temp_string.length() > 1){// e.g: a-z , 1-9
+            //                        int j = 0;
+            //                        temp_graph = graph_builder.init_graph(temp_string[j]);
+            //
+            //                        for(; j < temp_string.length() ; j++ )
+            //                            temp_graph = graph_builder.or_operation(temp_graph , )
+                    }else{ // one char
+                        if( input_map.find(temp_string[0]) == input_map.end() ) // this character not added before
+                            input_map.insert(pair<char,int>(temp_string[0], input_count++));
+                        temp_graph = graph_builder.init_graph(temp_string);
+                    }
+
+                }
+
+                // create new graph
+                exp_graphs.insert(pair<string,Graph*>( string(1,index_char), temp_graph ));
+                // Add the chosen char to the expression to be user in evaluation
+                exp_string = string(exp_string + index_char);
+                index_char++;
+
+                temp_string = string("");
+
+                delete temp_graph;
+        }
+
         //Evaluate the expression
         Graph* temp_graph = exp_eval.evaluate(exp_string , &exp_graphs);
 
         // insert new reg expression or deffinition
         language_map.insert(pair<string,Graph*>(exp_name, temp_graph));
 
+        temp_graph = NULL;
         delete temp_graph;
     }else
         cout<< "Grammar Error!" << endl;
 }
+
 
 Graph *NFA_Generator::get_language_graph(){
     Graph * language_graph;

@@ -2,8 +2,13 @@
 #define TESTSIMPSONGRAPHBUILDER_H
 
 #include "../lexical_analyzer_package/SimpsonGraphBuilder.h"
+#include "../lexical_analyzer_package/NFA_Generator.h"
 #include <vector>
 #include "../graph_package/Edge.h"
+
+#include <stack>
+#include <fstream>
+#include <string.h>
 
 #include <iostream>
 
@@ -13,7 +18,14 @@ class TestSimpsonGraphBuilder
     public:
         TestSimpsonGraphBuilder();
 
-        bool test_init_graph(){
+        void start();
+
+        virtual ~TestSimpsonGraphBuilder();
+    protected:
+    private:
+        SimpsonGraphBuilder builder;
+
+                bool test_init_graph(){
 
             Graph* g = builder.init_graph("A");
             vector<Edge> *children = g->get_start_node()->get_children();
@@ -232,11 +244,6 @@ class TestSimpsonGraphBuilder
                 return false;
             return true;
         }
-
-        virtual ~TestSimpsonGraphBuilder();
-    protected:
-    private:
-        SimpsonGraphBuilder builder;
 };
 
 #endif // TESTSIMPSONGRAPHBUILDER_H

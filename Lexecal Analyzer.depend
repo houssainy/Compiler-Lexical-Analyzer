@@ -153,7 +153,7 @@
 1399289033 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/TokenManager.h
 	"TransitionTable.h"
 
-1399289033 source:/home/administrator/Desktop/compilerProject/main.cpp
+1399298323 source:/home/administrator/Desktop/compilerProject/main.cpp
 	<iostream>
 	"test_package/TestSimpsonGraphBuilder.h"
 	<stack>
@@ -177,7 +177,7 @@
 	"Edge.h"
 	<iostream>
 
-1397952246 source:/home/administrator/Desktop/compilerProject/graph_package/Node.cpp
+1399295728 source:/home/administrator/Desktop/compilerProject/graph_package/Node.cpp
 	"Node.h"
 
 1397776030 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/Automata.cpp
@@ -200,14 +200,14 @@
 
 1397840059 fa8a491bdad718137cf39286807163fc498cb
 
-1399289144 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/NFA_Generator.cpp
+1399301681 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/NFA_Generator.cpp
 	"NFA_Generator.h"
 	"strings.h"
 	<stdio.h>
 	<vector>
 	<iostream>
 
-1399291276 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/NFA_Generator.h
+1399298769 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/NFA_Generator.h
 	"Automata.h"
 	"SimpsonGraphBuilder.h"
 	"../graph_package/Graph.h"
@@ -274,7 +274,7 @@
 	<unordered_map>
 	<iostream>
 
-1399289033 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/ExpressionEvaluator.cpp
+1399302493 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/ExpressionEvaluator.cpp
 	"ExpressionEvaluator.h"
 	"string.h"
 	<unordered_map>
@@ -287,10 +287,14 @@
 	<unordered_map>
 	<iostream>
 
-1398194147 /home/administrator/Desktop/compilerProject/test_package/TestSimpsonGraphBuilder.h
+1399292562 /home/administrator/Desktop/compilerProject/test_package/TestSimpsonGraphBuilder.h
 	"../lexical_analyzer_package/SimpsonGraphBuilder.h"
+	"../lexical_analyzer_package/NFA_Generator.h"
 	<vector>
 	"../graph_package/Edge.h"
+	<stack>
+	<fstream>
+	<string.h>
 	<iostream>
 
 1398047263 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/graph_package/Edge.cpp
@@ -369,7 +373,7 @@
 
 1398096202 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/test_package/TestSimpsonGraphBuilder.h
 
-1397949598 source:/home/administrator/Desktop/compilerProject/test_package/TestSimpsonGraphBuilder.cpp
+1399292382 source:/home/administrator/Desktop/compilerProject/test_package/TestSimpsonGraphBuilder.cpp
 	"TestSimpsonGraphBuilder.h"
 
 1397949598 onGraphBuilder.h"
