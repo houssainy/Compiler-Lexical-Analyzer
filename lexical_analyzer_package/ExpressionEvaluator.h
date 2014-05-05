@@ -11,10 +11,12 @@ class ExpressionEvaluator
 {
     public:
         ExpressionEvaluator(SimpsonGraphBuilder* builder);
+
          ExpressionEvaluator();
          string post_fix_conversion(string exp);
-        Graph *evaluate(string expr ,unordered_map <string,Graph*> graphs);
+        Graph *evaluate(string expr ,unordered_map <string,Graph*> *graphs);
         bool is_operand(string type);
+
         virtual ~ExpressionEvaluator();
     protected:
     private:
@@ -26,3 +28,4 @@ class ExpressionEvaluator
 };
 
 #endif // EXPRESSIONEVALUATOR_H
+

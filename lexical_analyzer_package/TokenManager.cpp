@@ -1,108 +1,83 @@
 #include "TokenManager.h"
 #include <string.h>
+#include "TransitionTable.h"
 #include <fstream>
 
-void TokenManager::writeToOutput(vector<char> seq, cToken c)
-{
-    outputFile.open("output.txt");
-    for (int i = 0 ; i < seq.size(); i++)
-        outputFile << seq[i];
-    outputFile << c << "\t"<< endl;
-}
-void TokenManager::GenToken(char str)
-{
-  /* if (isalpha(str))
-    {
-        if (currentToken != Unkown && currentToken != Ident && currentToken != Keyword)
-        {
-            writeToOutput(seq,currentToken);
-            seq.clear();
-            Ptr = graph.get_start_node();
-            currentToken = Unkown;
-        }
-
-        vector<Edge>* temp = ((Node)*Ptr).get_children();
-        for(int i = 0; i < ((vector<Edge>)*temp).size() ; i++)
-        {
-            if (((vector<Edge>)*temp)[i].get_value()== str)
-            {
-                Ptr = ((vector<Edge>)*temp)[i].get_end_node();
-                seq.push_back(str);
-                if (  !((Node)*Ptr).is_acceptance_node())
-                    {currentToken = Ident;}
-                else {currentToken = Keyword;}
-
-            }
-            break;
-        }
-    }
-    if(isdigit(str))
-    {
-        if(currentToken  != Unkown || currentToken != Number)
-        {
-            writeToOutput(seq,currentToken);
-            seq.clear();
-            Ptr = graph.getStartNode();
-            currentToken = Unkown;
-        }
-        vector<Edge>* temp = ((Node)*Ptr).get_children();
-        Ptr = ((vector<Edge>)*temp)[5].get_end_node();
-        seq.push_back(str);
-        currentToken = Number;
-    }
-    if(isspace(str))
-    {
-        if(currentToken != Unkown)
-        {
-            writeToOutput(seq,currentToken);
-            seq.clear();
-            Ptr = graph.getStartNode();
-            currentToken = Unkown;
-        }
-    }
-    if (str == '+' || str == '-' || str == '=' || str == '*' || str == '<' || str == '>' ||   str == '/' || str == '!')
-    {
-        if(currentToken != Unkown && currentToken != Operat)
-        {
-            writeToOutput(seq,currentToken);
-            seq.clear();
-            Ptr = graph.getStartNode();
-            currentToken = Unkown;
-        }
-         vector<Edge>* temp = ((Node)*Ptr).get_children();
-        for(int i = 0; i < ((vector<Edge>)*temp).size() ; i++)
-        {
-             if (((vector<Edge>)*temp)[i].get_value()== str)
-                {
-                    Ptr =((vector<Edge>)*temp)[i].get_end_node();
-                    seq.push_back(str);
-                    if ( !((Node)*Ptr).is_acceptance_node())
-                        {currentToken = Unkown;} // error?
-                    else {currentToken = Operat;}
-                }
-                break;
-         }
-        if (str == '(' || str == ')' || str == '{' || str == '}' ||   str == ',' || str == ';')
-        {
-            if( currentToken != Unkown )
-            {
-               writeToOutput(seq,currentToken);
-                seq.clear();
-                Ptr = graph.getStartNode();
-                currentToken = Unkown;
-            }
-            vector<Edge>* temp = ((Node)*Ptr).get_children();
-            Ptr = ((vector<Edge>)*temp)[7].get_end_node();
-            seq.push_back(str);
-            currentToken = Punctuation;
-        }
-    }*/
-}
-
-TokenManager::TokenManager()
+TokenManager::TokenManager(TransitionTable *transTable)
 {
     //ctor
+    this->transTable = transTable;
+    transition_table = transTable->Get_MDFA();
+    startNode = transition_table[0][0];
+    is_Token = false;
+    isError = false;
 }
+
+//int TokenManager::GetNextState(char inputChar)
+//{
+//    if (inputChar == ' ' || inputChar == '/t' || inputChar == '/n')
+//    {
+//    is_Token = isToken(tempState);
+//        if(is_Token)/**tempState: the previous return*/
+//            {tempState = -1;}
+//        /*if not final state just skip and return the last tempState*/
+//        return tempState;
+//    }
+//        /************************** New Token ****************************/
+//    if (is_Token && tempState == -1)
+//    {
+//        tempState = startNode;
+//        is_Token = false;
+//        seq.clear();
+//    }
+//
+//    transTableIndex = transTable-> Get_Input(string(1,inputChar));
+//
+//        /*********** Input not Exist in our language alphabets*************/
+//    if (transTableIndex == -1)
+//    {
+//        isError = true;
+//        return -1;
+//    }
+//        /********************************************************************/
+//    if (tempState != -1 )
+//    {
+//        tempState = transition_table[tempState][transTableIndex];
+//        seq.push_back(inputChar);
+//    }
+//    else
+//    {
+//        int n  = seq.size();
+//        for (int i = 0 ; i < n ; i ++)
+//            store.push_front(seq[i]);
+//        seq.push_back(inputChar);
+//        while(store.size() != 0 )
+//        {
+//            for (int i = n ; i < 0; i--)
+//            {
+//                   tempState = GetNextState(store[i]);
+//                if (isToken(tempState)){is_Token = true; return tempState;}
+//                else store.pop_back()
+//            }
+//
+//            if ( store.size() == 0) {isError = true; seq.pop_front();}
+//            if(seq.size() == 0 ) {isError = true; }
+//        }
+//    }
+//
+//        /********************************************************************/
+//    return tempState;*/
+//}
+//
+//bool TokenManager:: isToken(int state)
+//{
+//    if (transTable.is_final(state))
+//        return true;
+//
+//    else
+//        return false;
+//}
+
 
 TokenManager::~TokenManager()
 {
