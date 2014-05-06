@@ -14,6 +14,7 @@ using namespace std;
 class TokenManager
 {
     public:
+/**<<<<<<< HEAD
         bool isToken ;
         ofstream outputFile;
         ofstream errorFile ;
@@ -23,21 +24,31 @@ class TokenManager
         void GenToken(string str);
         TokenManager();
         vector< string > seq ;
+=======*/
+        TokenManager(TransitionTable *transTable);
+        vector<char> seq ;
+//>>>>>>> 781d444f1ddcd7e6f46b902bb19e9b5482282cc3
         bool isError ;
-        int GetNextState(string str);
-        void isToken(int state);
+        char discardChar ;
+        bool is_Token;
+        char is_Error();
+        int GetNextState(char str);
+        bool isToken(int state);
         virtual ~TokenManager();
 
     protected:
     private:
         vector< vector<int> > transition_table;
-        TransitionTable transTable;
-        vector<string> store ;
+        TransitionTable *transTable;
+        vector<char> store ;
+        vector<int> states;
         int startNode;
         int tempState;
+        int NextTempState ;
         int transTableIndex;
-        bool is_Token;
+
         string type;
+
 };
 
 #endif // TOKENMANAGER_H

@@ -22,7 +22,7 @@ class Graph
     private:
         Node *start_node;
         Node *end_node;
-        int graph_size = -1;
+        int graph_size ;
 
 
 

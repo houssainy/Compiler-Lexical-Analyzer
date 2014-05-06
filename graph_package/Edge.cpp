@@ -4,9 +4,9 @@
 Edge::Edge(Node* start_node , Node* end_node , string value )
 {
     //ctor
-        this->value = value;
-        this->start_node = start_node;
-        this->end_node = end_node;
+    this->value = value;
+    this->start_node = start_node;
+    this->end_node = end_node;
 }
 
 /**

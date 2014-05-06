@@ -1,1 +1,2 @@
-[	;,\(\) { }]
+digit : a.b|c*.(s|d)
+digits= digit*

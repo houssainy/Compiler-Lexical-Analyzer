@@ -20,6 +20,7 @@ void Node::add_child(Node* end_node, string value){
 
     children.push_back(e);
 
+
 }
 
 /**

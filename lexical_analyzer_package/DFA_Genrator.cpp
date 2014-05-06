@@ -38,7 +38,7 @@ DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int 
         for (int i =0 ; i<input.size(); i++)
         {
             DFA_State element = DFA_State (size,stateindex);
-            if (currentStateNumber>finished_states)
+            if (currentStateNumber.size()>finished_states)
             {
                 for (int j =0 ; j<currentStateNumber.size(); j++)
                 {

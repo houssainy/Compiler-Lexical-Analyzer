@@ -1,0 +1,2 @@
+digit : A.B|C*.(S|D)
+digits= digit*
