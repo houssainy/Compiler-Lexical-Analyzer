@@ -269,6 +269,8 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
                 index_char++;
 
                 temp_string = string("");
+
+                delete temp_graph;
         }
 
         //Evaluate the expression
@@ -278,7 +280,7 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
         // insert new reg expression or deffinition
         language_map.insert(pair<string,Graph*>(exp_name, result_graph));
 
-        //result_graph = NULL;
+        result_graph = NULL;
         delete result_graph;
     }else
         cout<< "Grammar Error!" << endl;
@@ -296,9 +298,12 @@ Graph *NFA_Generator::get_language_graph(){
     language_graph = it->second;
 
     it++;
-    for ( ; it != language_map.end(); ++it )
-        language_graph = graph_builder.or_operation(language_graph , it->second);
-
+    for ( ; it != language_map.end(); ++it ){
+        Graph *temp = it->second;
+        Node *n = temp->get_end_node();
+        n->add_child(new Node() , "\l");
+        language_graph = graph_builder.or_operation(language_graph , temp);
+    }
 
     return language_graph;
 }
