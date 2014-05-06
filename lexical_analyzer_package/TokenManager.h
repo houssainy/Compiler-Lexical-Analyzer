@@ -8,7 +8,6 @@
 #include <string>
 #define TOKENMANAGER_H
 #include "TransitionTable.h"
-#include <vector>
 
 using namespace std;
 
@@ -23,6 +22,7 @@ class TokenManager
         void write_to_file(ofstream file , vector<char> seq, string type);
         void GenToken(string str);
         TokenManager();
+        vector< string > seq ;
         bool isError ;
         int GetNextState(string str);
         void isToken(int state);

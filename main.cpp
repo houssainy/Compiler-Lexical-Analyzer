@@ -164,4 +164,62 @@ ExpressionEvaluator expressionEvaluator;
 
 return 0;
 
+
+/**
+ * DFA test
+*/
+vector <vector <int> > nfa;
+vector <vector <int> > eclosure;
+// inout to NFA table
+vector <int> row;
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(2);
+row.push_back(1);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(4);
+row.push_back(2);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(6);
+row.push_back(1);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(8);
+row.push_back(3);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(10);
+row.push_back(4);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+nfa.push_back(row);
+row.push_back(-1);
+//input to e-closure
+
+
 };

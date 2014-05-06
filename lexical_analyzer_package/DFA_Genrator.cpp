@@ -31,31 +31,40 @@ DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int 
 
     while (counter < newStates.size())
     {
+        int finished_states = 0;
         vector <DFA_State> row ;
         DFA_State currentState = newStates.at(counter);
+        vector <int> currentStateNumber = currentState.get_States_Number();
         for (int i =0 ; i<input.size(); i++)
         {
             DFA_State element = DFA_State (size,stateindex);
-            vector <int> currentStateNumber = currentState.get_States_Number();
-            for (int j =0 ; j<currentStateNumber.size(); j++)
+            if (currentStateNumber>finished_states)
             {
-                int tempState =  currentStateNumber[j];
-                element.set_state(NFA[tempState].at(i),finalState[tempState]);
-                for(int k =0 ; k<eClouser[NFA[tempState].at(i)].size() ; k++)
+                for (int j =0 ; j<currentStateNumber.size(); j++)
                 {
-                    int state = eClouser[NFA[tempState].at(i)].at(k);
-                    element.set_state(state,finalState[state]);
+                    int tempState =  currentStateNumber[j];
+                    if (NFA[tempState].at(0)!=-1 && NFA[tempState].at(1)==i)
+                    {
+                        finished_states ++ ;
+                        element.set_state(NFA[tempState].at(0),finalState[tempState]);
+                        for(int k =0 ; k<eClouser[NFA[tempState].at(0)].size() ; k++)
+                        {
+                            int state = eClouser[NFA[tempState].at(0)].at(k);
+                            element.set_state(state,finalState[state]);
+                        }
+                    }
+
+                }
+                if (!element.is_Empty())
+                {
+                    if (Compare(element))
+                    {
+                        newStates.push_back(element);
+                        stateindex ++ ;
+                    }
                 }
             }
-            if (!element.is_Empty())
-            {
-                if (Compare(element))
-                {
-                    newStates.push_back(element);
-                    stateindex ++ ;
-                }
-            }else
-                row.push_back (element);
+            row.push_back (element);
 
 
 
