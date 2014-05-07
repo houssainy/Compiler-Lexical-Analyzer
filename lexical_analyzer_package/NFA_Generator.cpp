@@ -174,24 +174,28 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
                     continue;
 
                 Graph* temp_graph;
-
                 if( language_map.find(temp_string) != language_map.end()){ // diffinition of predefined expression
                     temp_graph = language_map.find(temp_string)->second;
                 }else{ // New input
-
                     if( temp_string.length() > 1){// e.g: a-z , 1-9
-            //                        int j = 0;
-            //                        temp_graph = graph_builder.init_graph(temp_string[j]);
-            //
-            //                        for(; j < temp_string.length() ; j++ )
-            //                            temp_graph = graph_builder.or_operation(temp_graph , )
+
+                        temp_graph = graph_builder.init_graph(string(1,temp_string[0]));
+
+                        if( temp_string[1] != '-'){
+                            cout<< "Error in Grammar!" <<endl;
+                            return;
+                        }
+
+                        for( char c = temp_string[0] ; c < temp_string[2] ; c++ )
+                            temp_graph = graph_builder.or_operation(temp_graph , graph_builder.init_graph(string(1, c)));
+
                     }else{ // one char
                         if( input_map.find(temp_string[0]) == input_map.end() ) // this character not added before
                             input_map.insert(pair<char,int>(temp_string[0], input_count++));
                         temp_graph = graph_builder.init_graph(temp_string);
                     }
-
                 }
+
 
                 // create new graph
                 exp_graphs.insert(pair<string,Graph*>( string(1,index_char), temp_graph ));
@@ -210,19 +214,22 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
                     if( language_map.find(temp_string) != language_map.end()){ // diffinition of predefined expression
                         temp_graph = language_map.find(temp_string)->second;
                     }else{ // New input
-
                         if( temp_string.length() > 1){// e.g: a-z , 1-9
-                    //                        int j = 0;
-                    //                        temp_graph = graph_builder.init_graph(temp_string[j]);
-                    //
-                    //                        for(; j < temp_string.length() ; j++ )
-                    //                            temp_graph = graph_builder.or_operation(temp_graph , )
+
+                            temp_graph = graph_builder.init_graph(string(1,temp_string[0]));
+
+                            if( temp_string[1] != '-'){
+                                cout<< "Error in Grammar!" <<endl;
+                                return;
+                            }
+
+                            for( char c = temp_string[0] ; c < temp_string[2] ; c++ )
+                                temp_graph = graph_builder.or_operation(temp_graph , graph_builder.init_graph(string(1, c)));
                         }else{ // one char
                             if( input_map.find(temp_string[0]) == input_map.end() ) // this character not added before
                                 input_map.insert(pair<char,int>(temp_string[0], input_count++));
                             temp_graph = graph_builder.init_graph(temp_string);
                         }
-
                     }
 
                     // create new graph
@@ -249,21 +256,22 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
                 if( language_map.find(temp_string) != language_map.end()){ // diffinition of predefined expression
                     temp_graph = language_map.find(temp_string)->second;
                 }else{ // New input
-
                     if( temp_string.length() > 1){// e.g: a-z , 1-9
-            //                        int j = 0;
-            //                        temp_graph = graph_builder.init_graph(temp_string[j]);
-            //
-            //                        for(; j < temp_string.length() ; j++ )
-            //                            temp_graph = graph_builder.or_operation(temp_graph , )
+                        temp_graph = graph_builder.init_graph(string(1,temp_string[0]));
+
+                        if( temp_string[1] != '-'){
+                            cout<< "Error in Grammar!" <<endl;
+                            return;
+                        }
+
+                        for( char c = temp_string[0] ; c < temp_string[2] ; c++ )
+                            temp_graph = graph_builder.or_operation(temp_graph ,graph_builder.init_graph(string(1, c)));
                     }else{ // one char
                         if( input_map.find(temp_string[0]) == input_map.end() ) // this character not added before
                             input_map.insert(pair<char,int>(temp_string[0], input_count++));
                         temp_graph = graph_builder.init_graph(temp_string);
                     }
-
                 }
-
                 // creaProcrastinating your launchte new graph
 
                 exp_graphs.insert(pair<string,Graph*>( string(1,index_char), temp_graph ));
@@ -289,7 +297,6 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
     }else
         cout<< "Grammar Error!" << endl;
 }
-
 
 Graph *NFA_Generator::get_language_graph(){
     Graph * language_graph;
