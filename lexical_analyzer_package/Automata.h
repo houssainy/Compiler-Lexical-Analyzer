@@ -1,0 +1,16 @@
+#ifndef AUTOMATA_H
+#define AUTOMATA_H
+
+#include "../graph_package/Graph.h"
+
+class Automata
+{
+    public:
+        virtual Graph* getAutomata() = 0;
+    protected:
+    private:
+        Graph* graph;
+
+};
+
+#endif // AUTOMATA_H

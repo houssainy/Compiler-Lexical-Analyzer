@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Lexecal Analyzer" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Lexecal Analyzer" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="lexical_analyzer_package" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Lexecal Analyzer" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="lexical_analyzer_package" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="graph_package/Edge.cpp" />
+		<Unit filename="graph_package/Edge.h" />
+		<Unit filename="graph_package/Graph.cpp" />
+		<Unit filename="graph_package/Graph.h" />
+		<Unit filename="graph_package/Node.cpp" />
+		<Unit filename="graph_package/Node.h" />
+		<Unit filename="lexical_analyzer_package/Automata.cpp" />
+		<Unit filename="lexical_analyzer_package/Automata.h" />
+		<Unit filename="lexical_analyzer_package/DFA_Genrator.cpp" />
+		<Unit filename="lexical_analyzer_package/DFA_Genrator.h" />
+		<Unit filename="lexical_analyzer_package/DFA_Minimization.cpp" />
+		<Unit filename="lexical_analyzer_package/DFA_Minimization.h" />
+		<Unit filename="lexical_analyzer_package/DFA_State.cpp" />
+		<Unit filename="lexical_analyzer_package/DFA_State.h" />
+		<Unit filename="lexical_analyzer_package/ExpressionEvaluator.cpp" />
+		<Unit filename="lexical_analyzer_package/ExpressionEvaluator.h" />
+		<Unit filename="lexical_analyzer_package/NFA_Generator.cpp" />
+		<Unit filename="lexical_analyzer_package/NFA_Generator.h" />
+		<Unit filename="lexical_analyzer_package/SimpsonGraphBuilder.cpp" />
+		<Unit filename="lexical_analyzer_package/SimpsonGraphBuilder.h" />
+		<Unit filename="lexical_analyzer_package/TokenManager.cpp" />
+		<Unit filename="lexical_analyzer_package/TokenManager.h" />
+		<Unit filename="lexical_analyzer_package/TransitionTable.cpp" />
+		<Unit filename="lexical_analyzer_package/TransitionTable.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="test_package/TestSimpsonGraphBuilder.cpp" />
+		<Unit filename="test_package/TestSimpsonGraphBuilder.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
