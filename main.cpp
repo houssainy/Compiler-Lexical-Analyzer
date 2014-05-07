@@ -17,7 +17,6 @@ using namespace std;
 
 int main()
 {
-
     /**
     *  ***************** Simposn't Test  **********************
     *                       Houssainy

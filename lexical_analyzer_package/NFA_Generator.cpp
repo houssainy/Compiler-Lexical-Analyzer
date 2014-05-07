@@ -172,7 +172,8 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
             if( line[i] == ' ' || line[i] == '\t' ){
                 if( temp_string.empty() ) // Spaces
                     continue;
-                                Graph* temp_graph;
+
+                Graph* temp_graph;
 
                 if( language_map.find(temp_string) != language_map.end()){ // diffinition of predefined expression
                     temp_graph = language_map.find(temp_string)->second;
@@ -200,6 +201,7 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
 
                 temp_string = string("");
 
+                temp_graph = NULL;
                 delete temp_graph;
             }else if( line[i] == '+' || line[i] == '*' || line[i] == '|' || line[i] == '.' || line[i] == '(' || line[i] == ')' ){ // Operation
                 if( !temp_string.empty() ){
@@ -262,13 +264,17 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
 
                 }
 
-                // create new graph
+                // creaProcrastinating your launchte new graph
+
                 exp_graphs.insert(pair<string,Graph*>( string(1,index_char), temp_graph ));
                 // Add the chosen char to the expression to be user in evaluation
                 exp_string = string(exp_string + index_char);
                 index_char++;
 
                 temp_string = string("");
+
+                temp_graph = NULL;
+                delete temp_graph;
         }
 
         //Evaluate the expression
@@ -278,7 +284,7 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
         // insert new reg expression or deffinition
         language_map.insert(pair<string,Graph*>(exp_name, result_graph));
 
-        //result_graph = NULL;
+        result_graph = NULL;
         delete result_graph;
     }else
         cout<< "Grammar Error!" << endl;
@@ -294,11 +300,15 @@ Graph *NFA_Generator::get_language_graph(){
         return NULL;
 
     language_graph = it->second;
+    Node *sn = language_graph->get_start_node();
+    Node *en = language_graph->get_end_node();
 
     it++;
-    for ( ; it != language_map.end(); ++it )
+    for ( ; it != language_map.end(); ++it ){
+        sn = it->second->get_start_node();
+        en = it->second->get_end_node();
         language_graph = graph_builder.or_operation(language_graph , it->second);
-
+    }
 
     return language_graph;
 }

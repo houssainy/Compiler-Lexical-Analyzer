@@ -4,6 +4,7 @@ TestSimpsonGraphBuilder::TestSimpsonGraphBuilder()
 {
     //ctor
 }
+
 void TestSimpsonGraphBuilder::start(){
     cout << "*******************************" << endl;
     cout << "Start of the test:" << endl;
@@ -31,7 +32,7 @@ void TestSimpsonGraphBuilder::start(){
     NFA_Generator gen("grammarInput.txt");
     Graph *g = gen.getAutomata();
     cout<<g->get_graph_size() << endl;
-    if( g->get_graph_size() == 22)
+    if( g->get_graph_size() == 33)
         cout << "Passed" << endl;
     else
         cout << "Failed" << endl;

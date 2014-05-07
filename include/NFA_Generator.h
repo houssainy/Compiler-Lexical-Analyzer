@@ -2,7 +2,11 @@
 #define NFA_GENERATOR_H
 
 class Node;
+<<<<<<< HEAD
 class Graph;
+=======
+class Graph;
+>>>>>>> df53cba76b84642eeed534a0345a2b7627db408b
 class Edge;
 
 class NFA_Generator
