@@ -12,7 +12,6 @@ ExpressionEvaluator::ExpressionEvaluator(SimpsonGraphBuilder *builder)
 ExpressionEvaluator::ExpressionEvaluator( )
 {
     //ctor
-
 }
 
 string ExpressionEvaluator::post_fix_conversion(string exp)

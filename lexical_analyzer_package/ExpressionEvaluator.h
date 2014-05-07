@@ -1,5 +1,6 @@
 #ifndef EXPRESSIONEVALUATOR_H
 #define EXPRESSIONEVALUATOR_H
+
 #include <stack>
 #include "SimpsonGraphBuilder.h"
 #include "../graph_package/Graph.h"
@@ -15,6 +16,7 @@ class ExpressionEvaluator
          ExpressionEvaluator();
          string post_fix_conversion(string exp);
         Graph *evaluate(string expr ,unordered_map <string,Graph*> *graphs);
+
         bool is_operand(string type);
 
         virtual ~ExpressionEvaluator();

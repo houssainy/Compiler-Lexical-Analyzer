@@ -54,6 +54,7 @@ void Graph::set_graph_size(int graph_size){
 int Graph::get_graph_size(){
     return graph_size;
 }
+
 Graph::~Graph()
 {
     //dtor

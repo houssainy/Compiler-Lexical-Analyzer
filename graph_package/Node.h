@@ -21,8 +21,9 @@ class Node
         virtual ~Node();
     protected:
     private:
-        bool is_acceptance;
+        bool is_acceptance= false;
         vector<Edge> children;
+
 
 };
 
