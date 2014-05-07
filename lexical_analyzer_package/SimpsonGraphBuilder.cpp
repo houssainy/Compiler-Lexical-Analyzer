@@ -102,8 +102,9 @@ Graph* SimpsonGraphBuilder::clousure_operation(Graph* g1){
     graph->set_graph_size(graph_size);
 
     //Destroy unused pointers
-    delete g1;
-
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//    delete g1;
+    //
     return graph;
 }
 /**

@@ -300,9 +300,13 @@ Graph *NFA_Generator::get_language_graph(){
         return NULL;
 
     language_graph = it->second;
+    Node *sn = language_graph->get_start_node();
+    Node *en = language_graph->get_end_node();
 
     it++;
     for ( ; it != language_map.end(); ++it ){
+        sn = it->second->get_start_node();
+        en = it->second->get_end_node();
         language_graph = graph_builder.or_operation(language_graph , it->second);
     }
 
