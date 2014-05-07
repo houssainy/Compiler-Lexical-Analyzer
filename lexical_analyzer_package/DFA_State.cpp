@@ -5,10 +5,10 @@
 DFA_State::DFA_State(int size , int Number)
 {
     //ctor
-    this->isFinal=isFinal;
     for (int i =0; i<size; i++)
         this->states.push_back(false);
     this->Number=Number;
+    this->isFinal=false;
     this->isEmpty = true;
 }
 

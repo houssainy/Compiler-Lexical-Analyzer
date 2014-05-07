@@ -242,7 +242,7 @@ for (int i=0 ; i<DFA.size() ;i++)
 {
     for (int j=0; j<DFA[i].size() ; j++)
     {
-        cout << DFA[i][j].get_state_number ()  << endl;
+        cout << DFA[i][j].get_state_number ()<<"\t" <<DFA[i][j].is_final () << endl;
 
     }
 

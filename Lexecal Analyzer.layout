@@ -1,65 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-<<<<<<< HEAD
-<<<<<<< HEAD
-	<File name="lexical_analyzer_package/DFA_Genrator.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<ActiveTarget name="Debug" />
+	<File name="lexical_analyzer_package/Automata.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="288" topLine="5" />
-		</Cursor>
-	</File>
-	<File name="graph_package/Edge.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="51" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/Automata.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="146" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/SimpsonGraphBuilder.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1351" topLine="57" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/TokenManager.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="835" topLine="22" />
-		</Cursor>
-	</File>
-	<File name="graph_package/Graph.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="323" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/NFA_Generator.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4726" topLine="128" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/TransitionTable.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="738" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/DFA_Minimization.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="69" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="graph_package/Graph.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="133" topLine="39" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/DFA_State.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="343" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/TokenManager.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="156" topLine="0" />
+			<Cursor1 position="1" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="lexical_analyzer_package/NFA_Generator.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -67,24 +11,49 @@
 			<Cursor1 position="124" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="lexical_analyzer_package/Automata.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="146" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="lexical_analyzer_package/TransitionTable.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="738" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="graph_package/Node.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="316" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="lexical_analyzer_package/DFA_Genrator.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="497" topLine="2" />
+		</Cursor>
+	</File>
 	<File name="lexical_analyzer_package/TransitionTable.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="701" topLine="10" />
+			<Cursor1 position="493" topLine="15" />
 		</Cursor>
 	</File>
-	<File name="graph_package/Node.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="lexical_analyzer_package/NFA_Generator.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="455" topLine="0" />
+			<Cursor1 position="4726" topLine="128" />
 		</Cursor>
 	</File>
-	<File name="lexical_analyzer_package/Automata.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="lexical_analyzer_package/DFA_Genrator.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1" topLine="0" />
+			<Cursor1 position="869" topLine="21" />
 		</Cursor>
 	</File>
-	<File name="graph_package/Edge.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="lexical_analyzer_package/DFA_Minimization.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="179" topLine="0" />
+			<Cursor1 position="1641" topLine="34" />
+		</Cursor>
+	</File>
+	<File name="lexical_analyzer_package/DFA_State.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="286" topLine="9" />
 		</Cursor>
 	</File>
 	<File name="lexical_analyzer_package/ExpressionEvaluator.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -92,144 +61,59 @@
 			<Cursor1 position="945" topLine="20" />
 		</Cursor>
 	</File>
-	<File name="graph_package/Node.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="graph_package/Edge.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="0" />
+			<Cursor1 position="179" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="lexical_analyzer_package/DFA_Minimization.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="lexical_analyzer_package/TokenManager.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="406" topLine="9" />
+			<Cursor1 position="386" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="lexical_analyzer_package/DFA_State.cpp" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="graph_package/Node.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="805" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/DFA_Genrator.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="254" topLine="3" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2373" topLine="67" />
-=======
-<<<<<<< HEAD
-	<File name="lexical_analyzer_package/DFA_State.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="300" topLine="14" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/DFA_State.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/ExpressionEvaluator.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7153" topLine="218" />
-		</Cursor>
-	</File>
-	<File name="test_package/TestSimpsonGraphBuilder.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="186" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/NFA_Generator.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1084" topLine="27" />
-		</Cursor>
-	</File>
-	<File name="test_package/TestSimpsonGraphBuilder.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1081" topLine="18" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/SimpsonGraphBuilder.cpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2153" topLine="65" />
-		</Cursor>
-	</File>
-	<File name="graph_package/Node.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="343" topLine="4" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="389" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/DFA_Genrator.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="427" topLine="8" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/NFA_Generator.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5674" topLine="161" />
-=======
-	<File name="lexical_analyzer_package/ExpressionEvaluator.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="265" topLine="7" />
-		</Cursor>
-	</File>
-	<File name="graph_package/Edge.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="275" topLine="3" />
-		</Cursor>
-	</File>
-	<File name="lexical_analyzer_package/DFA_Minimization.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-=======
-	<ActiveTarget name="Debug" />
-	<File name="graph_package\Node.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
->>>>>>> 0132a37e3eeeac0d8d6f37fa3e6a79bfa9432ed5
-		<Cursor>
-			<Cursor1 position="76" topLine="0" />
+			<Cursor1 position="460" topLine="5" />
 		</Cursor>
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="418" topLine="12" />
+			<Cursor1 position="5667" topLine="209" />
 		</Cursor>
 	</File>
-	<File name="graph_package\Graph.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="lexical_analyzer_package/TokenManager.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="381" topLine="6" />
+			<Cursor1 position="156" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="lexical_analyzer_package\ExpressionEvaluator.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="lexical_analyzer_package/DFA_Minimization.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6594" topLine="209" />
+			<Cursor1 position="252" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="lexical_analyzer_package\NFA_Generator.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="lexical_analyzer_package/DFA_State.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="11843" topLine="287" />
+			<Cursor1 position="328" topLine="8" />
 		</Cursor>
 	</File>
-	<File name="graph_package\Node.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="lexical_analyzer_package/SimpsonGraphBuilder.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="432" topLine="9" />
-=======
-	<ActiveTarget name="Release" />
-	<File name="lexical_analyzer_package/NFA_Generator.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6006" topLine="150" />
+			<Cursor1 position="1351" topLine="57" />
 		</Cursor>
 	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="graph_package/Graph.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="142" topLine="0" />
->>>>>>> e6d9c53b613ebc70afc3218f7e188ce0bed44457
->>>>>>> 781d444f1ddcd7e6f46b902bb19e9b5482282cc3
-=======
-			<Cursor1 position="804" topLine="0" />
->>>>>>> df53cba76b84642eeed534a0345a2b7627db408b
->>>>>>> 0132a37e3eeeac0d8d6f37fa3e6a79bfa9432ed5
+			<Cursor1 position="323" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="graph_package/Edge.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="88" topLine="1" />
+		</Cursor>
+	</File>
+	<File name="graph_package/Graph.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="133" topLine="39" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
