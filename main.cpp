@@ -10,6 +10,8 @@
 #include "graph_package/Node.h"
 #include "lexical_analyzer_package/NFA_Generator.h"
 #include "TransitionTable.h"
+#include "lexical_analyzer_package/DFA_Genrator.h"
+#include "lexical_analyzer_package/DFA_State.h"
 
 using namespace std;
 
@@ -130,6 +132,7 @@ int main()
 */
 vector <vector <int> > nfa;
 vector <vector <int> > eclosure;
+vector <bool> finalStates ;
 // inout to NFA table
 vector <int> row;
 row.push_back(-1);
@@ -177,9 +180,73 @@ row.push_back(-1);
 nfa.push_back(row);
 row.clear();
 row.push_back(-1);
-nfa.push_back(row);
 row.push_back(-1);
+nfa.push_back(row);
+row.clear();
 //input to e-closure
+row.push_back(1);
+row.push_back(5);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+row.push_back(3);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+row.push_back(11);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+row.push_back(7);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+row.push_back(9);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+row.push_back(11);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+//create final states vector
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(true);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(true);
+finalStates.push_back(false);
+
+//this vector for test only
+vector < string > input;
+input.push_back("i");
+input.push_back("f");
+input.push_back("n");
+input.push_back("t");
+
+DFA_Genrator gene = DFA_Genrator (nfa , eclosure , input ,finalStates);
+vector < vector <DFA_State> > DFA = gene.Get_DFA();
+for (int i=0 ; i<DFA.size() ;i++)
+{
+    for (int j=0; j<DFA[i].size() ; j++)
+    {
+        cout << DFA[i][j].get_state_number ()  << endl;
+
+    }
+
+}
 
 
 };

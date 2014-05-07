@@ -12,7 +12,7 @@ class DFA_Minimization
 
 public:
     DFA_Minimization(vector < vector < DFA_State > > DFA );
-    vector < vector <DFA_State> > minimize (vector < DFA_State > newStates );
+    vector < vector <int> > minimize (vector < DFA_State > newStates );
     virtual ~DFA_Minimization();
 protected:
 private:

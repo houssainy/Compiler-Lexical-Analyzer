@@ -74,7 +74,9 @@ vector< vector <int> > DFA_Minimization:: minimize (vector < DFA_State > newStat
     map <int, DFA_State> rootState;
 
 
-    return DFA_Copy;
+   // return DFA_Copy;
+   vector < vector <int> > MDFA ;
+   return MDFA;
 }
 DFA_Minimization::~DFA_Minimization()
 {
