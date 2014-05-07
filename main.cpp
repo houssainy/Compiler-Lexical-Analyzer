@@ -127,7 +127,12 @@ int main()
 
 /**
  * DFA test
-*/
+ */
+/**
+ *-------------------------------------------
+ *Test 1
+ *-------------------------------------------
+ */
 vector <vector <int> > nfa;
 vector <vector <int> > eclosure;
 vector <bool> finalStates ;
@@ -238,6 +243,181 @@ input.push_back("t");
 
 DFA_Genrator gene = DFA_Genrator (nfa , eclosure , input ,finalStates);
 vector < vector <DFA_State> > DFA = gene.Get_DFA();
+for (int i=0 ; i<DFA.size() ;i++)
+{
+    for (int j=0; j<DFA[i].size() ; j++)
+    {
+        cout << DFA[i][j].get_state_number ()<<"\t" <<DFA[i][j].is_final () << endl;
+
+    }
+
+}
+cout << "\n\n\n" <<"test 2" <<endl;
+/**
+ *-------------------------------------------
+ *Test 2
+ *-------------------------------------------
+ */
+ nfa.clear();
+ finalStates.clear();
+ eclosure.clear();
+// inout to NFA table
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(2);
+row.push_back(1);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(4);
+row.push_back(2);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(6);
+row.push_back(1);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(8);
+row.push_back(2);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(10);
+row.push_back(3);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(12);
+row.push_back(4);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(14);
+row.push_back(5);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(16);
+row.push_back(6);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+row.push_back(-1);
+row.push_back(-1);
+nfa.push_back(row);
+row.clear();
+
+cout << nfa.size()<<endl;
+//input to e-closure
+row.push_back(1);
+row.push_back(5);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+row.push_back(3);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+row.push_back(17);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+row.push_back(7);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+row.push_back(9);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+row.push_back(11);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+row.push_back(13);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+row.push_back(15);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+row.push_back(17);
+eclosure.push_back(row);
+row.clear();
+eclosure.push_back(row);
+row.clear();
+cout<< eclosure.size()<<endl;
+
+//create final states vector
+finalStates.clear();
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(true);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(false);
+finalStates.push_back(true);
+finalStates.push_back(false);
+cout<< finalStates.size() <<endl;
+//this vector for test only
+input.clear();
+input.push_back("d");
+input.push_back("o");
+input.push_back("u");
+input.push_back("b");
+input.push_back("l");
+input.push_back("e");
+
+
+gene = DFA_Genrator (nfa , eclosure , input ,finalStates);
+DFA = gene.Get_DFA();
 for (int i=0 ; i<DFA.size() ;i++)
 {
     for (int j=0; j<DFA[i].size() ; j++)
