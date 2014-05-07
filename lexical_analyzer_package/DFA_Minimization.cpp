@@ -40,16 +40,14 @@ vector< vector <int> > DFA_Minimization:: minimize (vector < DFA_State > newStat
         int setCount = sets.size();
         for(int i = 0 ; i < setCount ; i++)
         {
-            for(int j = 0 ; j < sets[i].size() ; j++)
+            for(int j = 0 ; j < sets[0].size() ; j++)
             {
                 vector <DFA_State> cur;
                 cur.push_back(sets[0][j]);
                 stateSet[j] = counter;
 
                 for(int k = j+1 ; k < sets[0].size() ; k++)
-                {
                     for(int l = 0 ; l < DFA_Copy[0].size() ; l++)
-                    {
                         if(stateSet[DFA_Copy[j][l].get_state_number()] == stateSet[DFA_Copy[k][l].get_state_number()])
                         {
                             cur.push_back(sets[0][k]);
@@ -60,8 +58,7 @@ vector< vector <int> > DFA_Minimization:: minimize (vector < DFA_State > newStat
                         {
                             f = true;
                         }
-                    }
-                }
+
                 sets.push_back(cur);
                 sets[0].erase(sets[0].begin() + j);
                 j--;
@@ -71,11 +68,19 @@ vector< vector <int> > DFA_Minimization:: minimize (vector < DFA_State > newStat
         }
     }
 
-    map <int, DFA_State> rootState;
-
-
-   // return DFA_Copy;
+    map <int, int> rootState;
    vector < vector <int> > MDFA ;
+
+    for(int i = 0 ; i < sets.size() ; i++)
+        for(int j = 0 ; j < sets[i].size() ; j++)
+            rootState.insert(pair<int, int> (sets[i][j].get_state_number(), sets[i][0].get_state_number()));
+
+
+    for(int i = 0 ; i < DFA_Copy.size() ; i++)
+        for(int j = 0 ; j < DFA_Copy[i].size() ; j++)
+            MDFA[i][j] = rootState[DFA_Copy[i][j].get_state_number()];
+
+
    return MDFA;
 }
 DFA_Minimization::~DFA_Minimization()

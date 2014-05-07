@@ -43,7 +43,7 @@ DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int 
                 for (int j =0 ; j<currentStateNumber.size(); j++)
                 {
                     int tempState =  currentStateNumber[j];
-                    if (NFA[tempState].at(0)!=-1 && NFA[tempState].at(1)==i)
+                    if (NFA[tempState].at(0)!=-1 && NFA[tempState].at(1)==i+1)
                     {
                         finished_states ++ ;
                         element.set_state(NFA[tempState].at(0),finalState[tempState]);
@@ -69,6 +69,8 @@ DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int 
 
 
         }
+        int x = DFA.size ();
+        int y= newStates.size();
         DFA.push_back(row);
 
     }

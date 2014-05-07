@@ -38,6 +38,7 @@ int main()
     TokenManager token;
     ifstream inputFile ("p.txt");
 =======*/
+
  char inputChar ;
     int returnState;
     string token_type;
@@ -103,7 +104,6 @@ int main()
     /**
     *   ***************** TEST PostFiXConversion **********************
     **/
-
     ExpressionEvaluator expressionEvaluator;
 
     string exp;
@@ -125,7 +125,6 @@ int main()
     cout << "-------------------------------------------------------" << endl;
 
     return 0;
-
 
 /**
  * DFA test
@@ -183,6 +182,7 @@ row.push_back(-1);
 row.push_back(-1);
 nfa.push_back(row);
 row.clear();
+cout << nfa.size()<<endl;
 //input to e-closure
 row.push_back(1);
 row.push_back(5);
@@ -215,6 +215,7 @@ eclosure.push_back(row);
 row.clear();
 eclosure.push_back(row);
 row.clear();
+cout<< eclosure.size()<<endl;
 //create final states vector
 finalStates.push_back(false);
 finalStates.push_back(false);
@@ -228,7 +229,7 @@ finalStates.push_back(false);
 finalStates.push_back(false);
 finalStates.push_back(true);
 finalStates.push_back(false);
-
+cout<< finalStates.size() <<endl;
 //this vector for test only
 vector < string > input;
 input.push_back("i");
