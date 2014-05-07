@@ -145,16 +145,16 @@
 1397656982 /home/administrator/Desktop/compilerProject/graph_package/Edge.h
 	<iostream>
 
-1399289033 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/TokenManager.cpp
+1399313623 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/TokenManager.cpp
 	"TokenManager.h"
 	<string.h>
 	"TransitionTable.h"
 	<fstream>
 
-1399289033 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/TokenManager.h
+1399313623 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/TokenManager.h
 	"TransitionTable.h"
 
-1399298323 source:/home/administrator/Desktop/compilerProject/main.cpp
+1399417775 source:/home/administrator/Desktop/compilerProject/main.cpp
 	<iostream>
 	"test_package/TestSimpsonGraphBuilder.h"
 	<stack>
@@ -165,6 +165,7 @@
 	"graph_package/Graph.h"
 	"graph_package/Node.h"
 	"lexical_analyzer_package/NFA_Generator.h"
+	"TransitionTable.h"
 
 1398194147 source:/home/administrator/Desktop/compilerProject/graph_package/Graph.cpp
 	"Graph.h"
@@ -201,7 +202,7 @@
 
 1397840059 fa8a491bdad718137cf39286807163fc498cb
 
-1399304618 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/NFA_Generator.cpp
+1399415512 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/NFA_Generator.cpp
 	"NFA_Generator.h"
 	"strings.h"
 	<stdio.h>

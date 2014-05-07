@@ -21,70 +21,7 @@ int main()
     *                       Houssainy
     */
     /** Test Graph Builder **/
-    TestSimpsonGraphBuilder test_builder;
-    test_builder.start();
-    /**
-    *  ***************** END OF TEST  **********************
-    */
 
-    /**
-    *   ***************** BUSHRA **********************
-    **/
-    char inputChar ;
-    int returnState;
-    string token_type;
-    vector<char> tokenSeq;
-    TransitionTable *t;
-    TokenManager *token;
-    ifstream inputFile ;
-    ofstream outputFile;
-    ofstream errorFile ;
-    vector< vector<char> > symbol_table;
-    inputFile.open("p.txt");
-    if(inputFile)
-    {
-        token = new TokenManager(t);
-        outputFile.open("output.txt");
-        if(!outputFile)
-            cout<< "Unable to open output file";
-        errorFile.open("errorFile.txt");
-        if(!errorFile)
-            cout<< "Unable to open error file";
-        do
-        {
-            inputFile >> noskipws >> inputChar;
-            returnState = token->GetNextState(inputChar);
-            if(token->is_Token)
-            {
-                token_type = t->type(token->seq[token->seq.size()]);
-                for (int i = 0 ; i < token->seq.size(); i++)
-                {
-                   outputFile << token->seq[i] ;
-                }
-                outputFile << "/t" << token_type << endl;
-
-                if(token_type == "Identifier")
-                    symbol_table.push_back(token->seq); /*test*/
-            }
-            if(token->isError)
-                errorFile << token->is_Error() << "/t" << returnState << endl;
-        } while(! inputFile.eof());
-        inputFile.close();
-        outputFile.close();
-        errorFile.close();
-    }
-    else
-    {
-        cout<< "Unable to open input file";
-    }
-    /**
-    *   ***************** END BUSHRA **********************
-    **/
-
-
-    /**
-    *   ***************** TEST PostFiXConversion **********************
-    **/
 
     ExpressionEvaluator expressionEvaluator;
 
