@@ -172,6 +172,7 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
             if( line[i] == ' ' || line[i] == '\t' ){
                 if( temp_string.empty() ) // Spaces
                     continue;
+
                 Graph* temp_graph;
 
                 if( language_map.find(temp_string) != language_map.end()){ // diffinition of predefined expression
@@ -264,6 +265,7 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line){
                 }
 
                 // creaProcrastinating your launchte new graph
+
                 exp_graphs.insert(pair<string,Graph*>( string(1,index_char), temp_graph ));
                 // Add the chosen char to the expression to be user in evaluation
                 exp_string = string(exp_string + index_char);

@@ -21,7 +21,6 @@ class NFA_Generator : public Automata
 
         virtual ~NFA_Generator();
     protected:
-
     private:
         string file_path;
         SimpsonGraphBuilder graph_builder;

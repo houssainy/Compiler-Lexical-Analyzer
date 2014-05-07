@@ -4,6 +4,7 @@ TestSimpsonGraphBuilder::TestSimpsonGraphBuilder()
 {
     //ctor
 }
+
 void TestSimpsonGraphBuilder::start(){
     cout << "*******************************" << endl;
     cout << "Start of the test:" << endl;

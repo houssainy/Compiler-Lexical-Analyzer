@@ -14,7 +14,6 @@ class TokenManager
         int GetNextState(char str);
         bool isToken(int state);
         virtual ~TokenManager();
-
     protected:
     private:
         vector< vector<int> > transition_table;
@@ -27,7 +26,6 @@ class TokenManager
         int transTableIndex;
 
         string type;
-
 };
 
 #endif // TOKENMANAGER_H

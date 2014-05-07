@@ -5,6 +5,7 @@ SimpsonGraphBuilder::SimpsonGraphBuilder()
     //ctor
 }
 
+
 /**
 *   Build sempson's initial graph for only one input
 **/
@@ -137,3 +138,4 @@ SimpsonGraphBuilder::~SimpsonGraphBuilder()
 {
     //dtor
 }
+
