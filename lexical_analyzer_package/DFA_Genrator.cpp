@@ -56,12 +56,13 @@ DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int 
 
                 }
                 if (!element.is_Empty())
-                {
-                    if (Compare(element))
+                    if (!Compare(element))
                     {
                         newStates.push_back(element);
                         stateindex ++ ;
                     }
+                else {
+                    element.set_state_number(-1);
                 }
             }
             row.push_back (element);
@@ -69,6 +70,7 @@ DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int 
 
 
         }
+        counter ++;
         int x = DFA.size ();
         int y= newStates.size();
         DFA.push_back(row);
@@ -92,7 +94,7 @@ bool DFA_Genrator::Compare (DFA_State state )
         if (bitmask==tempbitmask)
             return true;
     }
-    return true;
+    return false;
 }
 
 DFA_Genrator::~DFA_Genrator()

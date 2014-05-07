@@ -15,6 +15,7 @@ public:
     vector <bool> get_state ();
     bool is_final ();
     int get_state_number ();
+    void set_state_number (int number );
     vector <int> get_States_Number ();
     bool is_Empty ();
 

@@ -30,7 +30,10 @@ bool DFA_State::is_final ()
 {
     return isFinal;
 }
+void  DFA_State::set_state_number (int number ){
 
+    this->Number = number ;
+}
 int DFA_State::get_state_number ()
 {
     return Number;
