@@ -3,17 +3,20 @@
 
 #include <vector>
 #include <DFA_State.h>
+#include <map>
 
-using namespace std ;
+using namespace std;
 
 class DFA_Minimization
 {
-public:
 
+public:
+    DFA_Minimization(vector < vector < DFA_State > > DFA );
+    vector < vector <DFA_State> > minimize (vector < DFA_State > newStates );
     virtual ~DFA_Minimization();
 protected:
 private:
-
+  vector < vector <DFA_State> > DFA_Copy ;
 
 };
 
