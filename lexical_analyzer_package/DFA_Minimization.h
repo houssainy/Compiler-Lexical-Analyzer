@@ -3,25 +3,21 @@
 
 #include <vector>
 #include <DFA_State.h>
+#include <map>
 
-using namespace std ;
+using namespace std;
 
 class DFA_Minimization
 {
-public:
-    DFA_Minimization(vector < vector < DFA_State > > DFA ,vector < DFA_State > newStates );
 
+public:
+    DFA_Minimization(vector < vector < DFA_State > > DFA );
+    vector < vector <int> > minimize (vector < DFA_State > newStates );
     virtual ~DFA_Minimization();
 protected:
 private:
-    struct set
-    {
+  vector < vector <DFA_State> > DFA_Copy ;
 
-        vector < int > states ;
-    };
-    vector < set > MSets ;
-    vector < vector < int > > MDFA ;
-    bool isChanged ;
 };
 
 #endif // DFA_MINIMIZATION_H

@@ -21,7 +21,7 @@ DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int 
     // Add EClouser of first State to DFA_State
     for(int i =0 ; i<eClouser[0].size() ; i++)
     {
-        int state = eClouser[0].at(i);
+        int state = eClouser[0][i];
         startState.set_state(state,finalState[state]);
     }
     stateindex++;
@@ -31,35 +31,52 @@ DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int 
 
     while (counter < newStates.size())
     {
+        int finished_states = 0;
         vector <DFA_State> row ;
-        DFA_State currentState = newStates.at(counter);
+        DFA_State currentState = newStates[counter];
+        vector <int> currentStateNumber = currentState.get_States_Number();
         for (int i =0 ; i<input.size(); i++)
         {
             DFA_State element = DFA_State (size,stateindex);
-            vector <int> currentStateNumber = currentState.get_States_Number();
-            for (int j =0 ; j<currentStateNumber.size(); j++)
+            if (currentStateNumber.size()>finished_states)
             {
-                int tempState =  currentStateNumber[j];
-                element.set_state(NFA[tempState].at(i),finalState[tempState]);
-                for(int k =0 ; k<eClouser[NFA[tempState].at(i)].size() ; k++)
+                for (int j =0 ; j<currentStateNumber.size(); j++)
                 {
-                    int state = eClouser[NFA[tempState].at(i)].at(k);
-                    element.set_state(state,finalState[state]);
+                    int tempState =  currentStateNumber[j];
+                    if (NFA[tempState][0]!=-1 && NFA[tempState][1]==i+1)
+                    {
+                        finished_states ++ ;
+                        //remove it
+                        bool test= finalState[NFA[tempState][0]];
+                        element.set_state(NFA[tempState][0],finalState[NFA[tempState][0]]);
+                        for(int k =0 ; k<eClouser[NFA[tempState][0]].size() ; k++)
+                        {
+                            int state = eClouser[NFA[tempState][0]].at(k);
+                            element.set_state(state,finalState[state]);
+                        }
+                    }
+
+                }
+                if (!element.is_Empty())
+                {
+                    if (!Compare(element))
+                    {
+                        newStates.push_back(element);
+                        stateindex ++ ;
+                    }
+                }
+                else {
+                    element.set_state_number(-1);
                 }
             }
-            if (!element.is_Empty())
-            {
-                if (Compare(element))
-                {
-                    newStates.push_back(element);
-                    stateindex ++ ;
-                }
-            }else
-                row.push_back (element);
+            row.push_back (element);
 
 
 
         }
+        counter ++;
+        int x = DFA.size ();
+        int y= newStates.size();
         DFA.push_back(row);
 
     }
@@ -81,7 +98,7 @@ bool DFA_Genrator::Compare (DFA_State state )
         if (bitmask==tempbitmask)
             return true;
     }
-    return true;
+    return false;
 }
 
 DFA_Genrator::~DFA_Genrator()
