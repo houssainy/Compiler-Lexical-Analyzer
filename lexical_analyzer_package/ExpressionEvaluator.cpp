@@ -31,6 +31,7 @@ string ExpressionEvaluator::post_fix_conversion(string exp)
         {
 //input is operand
             operand.push(string(1 , exp[i]));
+
             i++;
         }
         else

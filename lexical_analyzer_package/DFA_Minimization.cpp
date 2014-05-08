@@ -9,7 +9,8 @@ DFA_Minimization::DFA_Minimization(vector < vector < DFA_State > > DFA )
 }
 
 vector< vector <int> > DFA_Minimization:: minimize (vector < DFA_State > newStates)
-{   vector < vector <DFA_State> > sets ;
+{
+    vector < vector <DFA_State> > sets ;
     // add final and not final to sets vector
     vector <DFA_State> acceptance ;
     vector <DFA_State> nonacceptance;
@@ -44,21 +45,28 @@ vector< vector <int> > DFA_Minimization:: minimize (vector < DFA_State > newStat
             {
                 vector <DFA_State> cur;
                 cur.push_back(sets[0][j]);
-                stateSet[j] = counter;
+                int first_state =sets[0][j].get_state_number();
+                stateSet[first_state] = counter;
 
                 for(int k = j+1 ; k < sets[0].size() ; k++)
+                {
+                    int second_state = sets[0][k].get_state_number();
+                    bool check = true;
                     for(int l = 0 ; l < DFA_Copy[0].size() ; l++)
-                        if(stateSet[DFA_Copy[j][l].get_state_number()] == stateSet[DFA_Copy[k][l].get_state_number()])
-                        {
-                            cur.push_back(sets[0][k]);
-                            sets[0].erase(sets[0].begin() + k);
-                            k--;
-                            stateSet[k] = counter;
-                        }else
-                        {
-                            f = true;
-                        }
-
+                    {
+                        if(stateSet[DFA_Copy[first_state][l].get_state_number()] != stateSet[DFA_Copy[second_state][l].get_state_number()])
+                            check =false;
+                    }
+                    if (check)
+                    {
+                        cur.push_back(sets[0][k]);
+                        sets[0].erase(sets[0].begin() + k);
+                        stateSet[second_state] = counter;
+                        k--;
+                    }
+                    else
+                        f=true;
+                }
                 sets.push_back(cur);
                 sets[0].erase(sets[0].begin() + j);
                 j--;
@@ -77,10 +85,20 @@ vector< vector <int> > DFA_Minimization:: minimize (vector < DFA_State > newStat
 
 
     for(int i = 0 ; i < DFA_Copy.size() ; i++)
+    {
+        vector <int > row ;
         for(int j = 0 ; j < DFA_Copy[i].size() ; j++)
-            MDFA[i][j] = rootState[DFA_Copy[i][j].get_state_number()];
+        {
+            int state = DFA_Copy[i][j].get_state_number();
+            if (state==-1)
+                row.push_back(-1);
+            else
+                row.push_back(rootState[state]);
 
+        }
+        MDFA.push_back(row);
 
+    }
    return MDFA;
 }
 DFA_Minimization::~DFA_Minimization()
