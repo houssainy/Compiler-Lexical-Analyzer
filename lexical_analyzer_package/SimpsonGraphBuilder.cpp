@@ -39,10 +39,6 @@ Graph* SimpsonGraphBuilder::and_operation(Graph* g1 , Graph* g2){
         int graph_size = g1->get_graph_size() + g2->get_graph_size();
         graph->set_graph_size(graph_size);
 
-        //Destroy unused pointers
-        delete g1;
-        delete g2;
-
         return graph;
 }
 
@@ -71,10 +67,6 @@ Graph* SimpsonGraphBuilder::or_operation(Graph* g1 , Graph* g2){
     int graph_size = g1->get_graph_size() + g2->get_graph_size() + 2;
     graph->set_graph_size(graph_size);
 
-    //Destroy unused pointers
-    delete g1;
-    delete g2;
-
     return graph;
 }
 
@@ -101,10 +93,6 @@ Graph* SimpsonGraphBuilder::clousure_operation(Graph* g1){
     int graph_size = g1->get_graph_size() + 1;
     graph->set_graph_size(graph_size);
 
-    //Destroy unused pointers
-    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-//    delete g1;
-    //
     return graph;
 }
 /**
@@ -128,9 +116,6 @@ Graph* SimpsonGraphBuilder::positive_clousure_operation(Graph* g1){
     //GRaph Size
     int graph_size = g1->get_graph_size() + 1;
     graph->set_graph_size(graph_size);
-
-    //Destroy unused pointers
-    delete g1;
 
     return graph;
 }
