@@ -189,81 +189,86 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line)
     if( i < line.length() && (line[i] == '='|| line[i] == ':' ))
     {
         unordered_map<string, Graph*> exp_graphs;
-        string exp_string;
-        string temp_string;
+        stringstream exp_string;
+        stringstream temp_string;
         char index_char = 'a';
 
         for(i=i+1 ; i < line.length() ; i++ )
         {
             if( line[i] == ' ' || line[i] == '\t' )
             {
-                if( temp_string.empty() ) // Spaces
+                if( temp_string.str().empty() ) // Spaces
                     continue;
 
-                Graph* temp_graph = build_new_input_graph(temp_string);
+                Graph* temp_graph = build_new_input_graph(temp_string.str());
                 if( temp_graph == NULL )//Error
                     return ;
 
                 // create new graph
                 exp_graphs.insert(pair<string,Graph*>( string(1,index_char), temp_graph ));
                 // Add the chosen char to the expression to be user in evaluation
-                exp_string = string(exp_string + index_char);
+                exp_string << index_char;
                 index_char++;
 
-                temp_string = string("");
+                temp_string.clear();
+                temp_string.str("");
 
                 temp_graph = NULL;
                 delete temp_graph;
             }
-            else if( line[i] == '+' || line[i] == '*' || line[i] == '|' || line[i] == '.' || line[i] == '(' || line[i] == ')' )   // Operation
+            else if( temp_string.str() != "\\"&& ( line[i] == '+' || line[i] == '*' || line[i] == '|' || line[i] == '.' || line[i] == '(' || line[i] == ')' ) )  // Operation
             {
-                if( !temp_string.empty() )
+                if( !temp_string.str().empty() )
                 {
 
-                    Graph* temp_graph = build_new_input_graph(temp_string);
+                    Graph* temp_graph = build_new_input_graph(temp_string.str());
                     if( temp_graph == NULL )//Error
                         return ;
 
                     // create new graph
                     exp_graphs.insert(pair<string,Graph*>( string(1,index_char), temp_graph ));
                     // Add the chosen char to the expression to be user in evaluation
-                    exp_string = string(exp_string + index_char+ line[i]);
+                    exp_string << index_char <<  line[i];
                     index_char++;
 
-                    temp_string = string("");
+                    temp_string.clear();
+                    temp_string.str("");
+
 
                     temp_graph = NULL;
                     delete temp_graph;
                 }
                 else
-                    exp_string = string(exp_string + line[i]);
+                    exp_string <<  line[i] ;
 
 
             }
             else // append character to temp_string to be used as name of key of the map
-                temp_string = string(temp_string + line[i]);
+                temp_string<< line[i];
         }
 
-        if( !temp_string.empty() )
+        if( !temp_string.str().empty() )
         {
 
-            Graph* temp_graph = build_new_input_graph(temp_string);
+            Graph* temp_graph = build_new_input_graph(temp_string.str());
             if( temp_graph == NULL )//Error
                 return ;
 
             exp_graphs.insert(pair<string,Graph*>( string(1,index_char), temp_graph ));
             // Add the chosen char to the expression to be user in evaluation
-            exp_string = string(exp_string + index_char);
+            exp_string << index_char;
             index_char++;
 
-            temp_string = string("");
+            temp_string.clear();
+            temp_string.str("");
+
 
             temp_graph = NULL;
             delete temp_graph;
         }
 
         //Evaluate the expression
-        Graph* result_graph = exp_eval.evaluate(exp_string , &exp_graphs);
+        Graph* result_graph = exp_eval.evaluate(exp_string.str() , &exp_graphs);
         result_graph->get_end_node()->set_acceptance_state(true);
 
         // insert new reg expression or deffinition
@@ -285,29 +290,47 @@ Graph * NFA_Generator::build_new_input_graph(string temp_string)
     }
     else   // New input
     {
+        cout<< temp_string.length() << endl;
         if( temp_string.length() > 1)
         {
             /**
             *   1- Range e.g a-z or 1-9
             *   2- Add or Multiply operation e.g \+ or \*
-            *   3- Relational operation e.g \=\= | !\= | > | >\= | < | <\=
+            *   3- Relational operation e.g \=\= or !\= or > or >\= or < or <\=
             **/
+            int i = 0;
+            if( temp_string[i] == '\\' || temp_string[i] == '!' ||
+                temp_string[i] == '>' || temp_string[i] == '<'){ //case 2 or 3
 
-            switch(temp_string[0]){
-                case '\': //case 2 or 3
-                    break;
+                if( temp_string[i] == '\\')
+                    i++;
 
+                temp_graph = graph_builder.init_graph(string(1,temp_string[i++]));
+
+                for( ; i < temp_string.length() ; i++ ){
+                    if( temp_string[i] != '\\')
+                        temp_graph = graph_builder.and_operation(temp_graph , graph_builder.init_graph(string(1,temp_string[i])));
+                }
+            }else{//Case 1 or error
+                temp_graph = graph_builder.init_graph(string(1,temp_string[i++]));
+
+                // skip white spaces after exp name
+                while(i < temp_string.length() && (temp_string[i] == ' ' || temp_string[i] == '\t') )
+                    i++;
+
+                if( temp_string[i++] != '-')
+                {
+                    cout<< "Error in Grammar!" <<endl;
+                    return NULL;
+                }
+
+                // skip white spaces after exp name
+                while(i < temp_string.length() && (temp_string[i] == ' ' || temp_string[i] == '\t') )
+                    i++;
+
+                for( char c = temp_string[0] + 1  ; c <= temp_string[i] ; c++ ) // Range a-z OR 1-9
+                    temp_graph = graph_builder.or_operation(temp_graph , graph_builder.init_graph(string(1, c)));
             }
-            temp_graph = graph_builder.init_graph(string(1,temp_string[0]));
-
-            if( temp_string[1] != '-')
-            {
-                cout<< "Error in Grammar!" <<endl;
-                return NULL;
-            }
-
-            for( char c = temp_string[0] + 1  ; c <= temp_string[2] ; c++ ) // Range a-z OR 1-9
-                temp_graph = graph_builder.or_operation(temp_graph , graph_builder.init_graph(string(1, c)));
 
         }
         else   // one char

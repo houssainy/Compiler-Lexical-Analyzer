@@ -580,19 +580,20 @@
 	"../graph_package/Graph.h"
 	<iostream>
 
-1399509298 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\nfa_generator.cpp
+1399517970 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\nfa_generator.cpp
 	"NFA_Generator.h"
 	"strings.h"
 	<stdio.h>
 	<vector>
 	<iostream>
 
-1399507652 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\nfa_generator.h
+1399516984 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\nfa_generator.h
 	"Automata.h"
 	"SimpsonGraphBuilder.h"
 	"../graph_package/Graph.h"
 	<fstream>
 	<iostream>
+	<sstream>
 	"unordered_map"
 	"ExpressionEvaluator.h"
 
@@ -644,7 +645,7 @@
 	<string.h>
 	<iostream>
 
-1399503046 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\test_package\testsimpsongraphbuilder.cpp
+1399516951 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\test_package\testsimpsongraphbuilder.cpp
 	"TestSimpsonGraphBuilder.h"
 	"BFS.h"
 
@@ -788,7 +789,7 @@
 
 1399499224 f1aaff8eafed74c498e59adce5ad81588f189
 
-1399509458 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\bfs.cpp
+1399512222 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\bfs.cpp
 	"BFS.h"
 
 1399501688 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\bfs.h

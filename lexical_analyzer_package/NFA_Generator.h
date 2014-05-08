@@ -7,6 +7,7 @@
 #include "../graph_package/Graph.h"
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 #include "unordered_map"
 #include "ExpressionEvaluator.h"
