@@ -14,12 +14,14 @@ vector<string>* BFS::getBFS(Graph* g){
     {
         q.push((*children)[i]);
     }
-
-    for(int j=0; j<g->get_graph_size(); j++)
+cout<<"size Of Queue"<<q.size()<<endl;
+    int j=0;
+    while(q.size()!=0)
     {
         Edge element = q.front();
         q.pop();
         bfsItration.push_back(element.get_value());
+        cout<<"size Of Queue-"<<q.size()<<endl;
         cout<<"element ("<<j<<")in BFS ";
         cout<<element.get_value()<<endl;
         children = element.get_end_node()->get_children();
@@ -27,6 +29,7 @@ vector<string>* BFS::getBFS(Graph* g){
         {
             q.push((*children)[i]);
         }
+        j++;
 
     }
 
