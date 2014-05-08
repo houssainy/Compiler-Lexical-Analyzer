@@ -1,1 +1,2 @@
-digit = \* | /
+digit = a
+digits: digit*

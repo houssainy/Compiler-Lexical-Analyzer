@@ -80,7 +80,7 @@ Graph* SimpsonGraphBuilder::clousure_operation(Graph* g1){
 
     // 1..*
     start_node->add_child(g1->get_start_node() , "\L");
-    g1->get_end_node()->add_child(start_node,"\L");
+    g1->get_end_node()->add_child(g1->get_start_node(),"\L");
 
     //0..*
     start_node->add_child(g1->get_end_node() , "\L");

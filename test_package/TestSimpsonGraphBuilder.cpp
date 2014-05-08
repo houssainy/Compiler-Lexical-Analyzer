@@ -38,6 +38,16 @@ void TestSimpsonGraphBuilder::start(){
     else
         cout << "Failed" << endl;
 
+    cout << "-------------------------------" << endl;
+    cout<< "Test on Input map:" <<endl;
+    unordered_map<char,int> *input_map = gen.get_input_map();
+    unordered_map<char, int>::const_iterator it = input_map->begin();
+
+     for(;it != input_map->end(); ++it)
+        cout<< "Input "<< it->first << " - index " << it->second << endl;
+
+    cout << "-------------------------------" << endl;
+    cout<< "BFS Test:" <<endl;
     BFS b ;
     b.getBFS(g);
 }
