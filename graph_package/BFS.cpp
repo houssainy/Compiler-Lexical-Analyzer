@@ -4,11 +4,12 @@ BFS::BFS()
 {
     //ctor
 }
-vector<string>* BFS::getBFS(Graph* g)
-{
-    Node* first=g->get_start_node();
-    vector<Edge> *children ;
-    children= first->get_children();
+
+vector<string>* BFS::getBFS(Graph* g){
+ Node* first=g->get_start_node();
+ vector<Edge> *children ;
+ children= first->get_children();
+
     for(int i=0; i< children->size(); i++)
     {
         q.push((*children)[i]);
@@ -19,6 +20,8 @@ vector<string>* BFS::getBFS(Graph* g)
         Edge element = q.front();
         q.pop();
         bfsItration.push_back(element.get_value());
+        cout<<"element ("<<j<<")in BFS ";
+        cout<<element.get_value()<<endl;
         children = element.get_end_node()->get_children();
         for(int i=0; i<children->size(); i++)
         {
@@ -35,3 +38,4 @@ BFS::~BFS()
 {
     //dtor
 }
+

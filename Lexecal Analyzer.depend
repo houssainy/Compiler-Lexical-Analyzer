@@ -154,7 +154,7 @@
 1399500924 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/TokenManager.h
 	"TransitionTable.h"
 
-1399465823 source:/home/administrator/Desktop/compilerProject/main.cpp
+1399507392 source:/home/administrator/Desktop/compilerProject/main.cpp
 	<iostream>
 	"test_package/TestSimpsonGraphBuilder.h"
 	<stack>
@@ -166,6 +166,8 @@
 	"graph_package/Node.h"
 	"lexical_analyzer_package/NFA_Generator.h"
 	"TransitionTable.h"
+	"lexical_analyzer_package/DFA_Genrator.h"
+	"lexical_analyzer_package/DFA_State.h"
 
 1399500924 source:/home/administrator/Desktop/compilerProject/graph_package/Graph.cpp
 	"Graph.h"
@@ -184,7 +186,7 @@
 
 1397776030 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/Automata.cpp
 
-1399500924 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/SimpsonGraphBuilder.cpp
+1399507392 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/SimpsonGraphBuilder.cpp
 	"SimpsonGraphBuilder.h"
 
 1399500924 /home/administrator/Desktop/compilerProject/lexical_analyzer_package/SimpsonGraphBuilder.h
@@ -202,7 +204,7 @@
 
 1397840059 fa8a491bdad718137cf39286807163fc498cb
 
-1399500924 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/NFA_Generator.cpp
+1399507392 source:/home/administrator/Desktop/compilerProject/lexical_analyzer_package/NFA_Generator.cpp
 	"NFA_Generator.h"
 	"strings.h"
 	<stdio.h>
@@ -293,7 +295,7 @@
 	<unordered_map>
 	<iostream>
 
-1399292562 /home/administrator/Desktop/compilerProject/test_package/TestSimpsonGraphBuilder.h
+1399500924 /home/administrator/Desktop/compilerProject/test_package/TestSimpsonGraphBuilder.h
 	"../lexical_analyzer_package/SimpsonGraphBuilder.h"
 	"../lexical_analyzer_package/NFA_Generator.h"
 	<vector>
@@ -399,8 +401,9 @@
 	<string.h>
 	<iostream>
 
-1399292382 source:/home/administrator/Desktop/compilerProject/test_package/TestSimpsonGraphBuilder.cpp
+1399507392 source:/home/administrator/Desktop/compilerProject/test_package/TestSimpsonGraphBuilder.cpp
 	"TestSimpsonGraphBuilder.h"
+	"BFS.h"
 
 1399429345 onGraphBuilder.h"
 
@@ -774,7 +777,7 @@
 1399429345 source:c:\users\mohamed\google drive\my workspace\c++\compiler-lexical-analyzer-master\test_package\testsimpsongraphbuilder.cpp
 	"TestSimpsonGraphBuilder.h"
 
-1399500719 source:/home/administrator/Desktop/compilerProject/graph_package/BFS.cpp
+1399508362 source:/home/administrator/Desktop/compilerProject/graph_package/BFS.cpp
 	"BFS.h"
 
 1399499224 /home/administrator/Desktop/compilerProject/graph_package/BFS.h
