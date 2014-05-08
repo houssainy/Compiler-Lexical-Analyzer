@@ -1,14 +1,12 @@
 #include "DFA_Minimization.h"
 
 
-DFA_Minimization::DFA_Minimization(vector < vector < DFA_State > > DFA )
+DFA_Minimization::DFA_Minimization()
 {
     //ctor
-    this ->DFA_Copy = DFA;
-
 }
 
-vector< vector <int> > DFA_Minimization:: minimize (vector < DFA_State > newStates)
+vector< vector <int> > DFA_Minimization:: minimize (vector < vector < DFA_State > > DFA,vector < DFA_State > newStates)
 {
     vector < vector <DFA_State> > sets ;
     // add final and not final to sets vector
@@ -52,9 +50,9 @@ vector< vector <int> > DFA_Minimization:: minimize (vector < DFA_State > newStat
                 {
                     int second_state = sets[0][k].get_state_number();
                     bool check = true;
-                    for(int l = 0 ; l < DFA_Copy[0].size() ; l++)
+                    for(int l = 0 ; l < DFA[0].size() ; l++)
                     {
-                        if(stateSet[DFA_Copy[first_state][l].get_state_number()] != stateSet[DFA_Copy[second_state][l].get_state_number()])
+                        if(stateSet[DFA[first_state][l].get_state_number()] != stateSet[DFA[second_state][l].get_state_number()])
                             check =false;
                     }
                     if (check)
@@ -84,23 +82,32 @@ vector< vector <int> > DFA_Minimization:: minimize (vector < DFA_State > newStat
             rootState.insert(pair<int, int> (sets[i][j].get_state_number(), sets[i][0].get_state_number()));
 
 
-    for(int i = 0 ; i < DFA_Copy.size() ; i++)
+    for(int i = 0 ; i < DFA.size() ; i++)
     {
         vector <int > row ;
-        for(int j = 0 ; j < DFA_Copy[i].size() ; j++)
+        for(int j = 0 ; j < DFA[i].size() ; j++)
         {
-            int state = DFA_Copy[i][j].get_state_number();
+            int state = DFA[i][j].get_state_number();
             if (state==-1)
                 row.push_back(-1);
             else
                 row.push_back(rootState[state]);
 
         }
+        bool test = newStates[i].is_final();
+        isFinal.push_back(newStates[i].is_final());
         MDFA.push_back(row);
 
     }
    return MDFA;
 }
+vector < bool > DFA_Minimization::Is_final ()
+{
+
+    return isFinal;
+
+}
+
 DFA_Minimization::~DFA_Minimization()
 {
     //dtor

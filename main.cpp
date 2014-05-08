@@ -244,13 +244,16 @@ int main()
         for (int j=0; j<DFA[i].size() ; j++)
             cout << DFA[i][j].get_state_number ()<<"\t" <<DFA[i][j].is_final () << endl;
 
-    DFA_Minimization mini = DFA_Minimization (DFA);
-    vector < vector <int> > MDFA = mini.minimize(new_states);
+    DFA_Minimization mini = DFA_Minimization ();
+    vector < vector <int> > MDFA = mini.minimize(DFA,new_states);
+    vector < bool > finals =mini.Is_final();
     cout <<"\n\n\n"<<"Minimization"<<endl;
     for (int i=0 ; i<MDFA.size() ; i++)
         for (int j=0; j<MDFA[i].size() ; j++)
-            cout << MDFA[i][j]<< endl;
-
+            if (MDFA[i][j]!=-1)
+                cout << MDFA[i][j]<<"\t\t\t"<<finals[MDFA[i][j]]<< endl;
+            else
+                cout << MDFA[i][j]<< endl;
 
     cout << "\n\n\n" <<"test 2" <<endl;
     /**
@@ -429,6 +432,17 @@ int main()
 
     }
 
+    mini = DFA_Minimization ();
+    MDFA = mini.minimize(DFA,new_states);
+    finals.clear();
+    finals =mini.Is_final();
+    cout <<"\n\n\n"<<"Minimization"<<endl;
+    for (int i=0 ; i<MDFA.size() ; i++)
+        for (int j=0; j<MDFA[i].size() ; j++)
+            if (MDFA[i][j]!=-1)
+                cout << MDFA[i][j]<<"\t\t\t"<<finals[MDFA[i][j]]<< endl;
+            else
+                cout << MDFA[i][j]<< endl;
     return 0;
 
 };
