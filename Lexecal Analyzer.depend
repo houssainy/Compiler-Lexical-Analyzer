@@ -607,3 +607,142 @@
 
 1399381762 3cba76b84642eeed534a0345a2b7627db408b
 
+1399470822 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\graph_package\edge.cpp
+	"Edge.h"
+
+1399470822 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\graph_package\edge.h
+	<iostream>
+
+1399470822 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\graph_package\graph.cpp
+	"Graph.h"
+
+1399470822 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\graph_package\graph.h
+	"Node.h"
+	"Node.h"
+
+1399470822 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\graph_package\node.h
+	<vector>
+	"Edge.h"
+	<iostream>
+
+1399470822 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\graph_package\node.cpp
+	"Node.h"
+
+1399470822 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\automata.cpp
+
+1399470822 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\dfa_genrator.cpp
+	"DFA_Genrator.h"
+	<DFA_State.h>
+
+1399470822 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\dfa_genrator.h
+	<vector>
+	<iostream>
+	<DFA_State.h>
+
+1399470822 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\dfa_state.h
+	<vector>
+
+1399470822 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\dfa_minimization.cpp
+	"DFA_Minimization.h"
+
+1399470822 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\dfa_minimization.h
+	<vector>
+	<DFA_State.h>
+
+1399470822 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\dfa_state.cpp
+	"DFA_State.h"
+
+1399470822 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\expressionevaluator.cpp
+	"ExpressionEvaluator.h"
+	"string.h"
+	<unordered_map>
+	<iostream>
+
+1399470822 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\expressionevaluator.h
+	<stack>
+	"SimpsonGraphBuilder.h"
+	"../graph_package/Graph.h"
+	<unordered_map>
+	<iostream>
+
+1399470822 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\simpsongraphbuilder.h
+	"../graph_package/Graph.h"
+	<iostream>
+
+1399470822 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\nfa_generator.cpp
+	"NFA_Generator.h"
+	"strings.h"
+	<stdio.h>
+	<vector>
+	<iostream>
+
+1399470822 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\nfa_generator.h
+	"Automata.h"
+	"SimpsonGraphBuilder.h"
+	"../graph_package/Graph.h"
+	<fstream>
+	<iostream>
+	"unordered_map"
+	"ExpressionEvaluator.h"
+
+1399470822 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\automata.h
+	"../graph_package/Graph.h"
+
+1399470822 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\simpsongraphbuilder.cpp
+	"SimpsonGraphBuilder.h"
+
+1399549031 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\tokenmanager.cpp
+	"TokenManager.h"
+	<string.h>
+	"TransitionTable.h"
+	<fstream>
+	"TestTokenManager.h"
+
+1399541414 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\tokenmanager.h
+	"TransitionTable.h"
+	"TestTokenManager.h"
+
+1399470822 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\transitiontable.h
+	<string>
+	<vector>
+	<unordered_map>
+
+1399470822 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\transitiontable.cpp
+	"TransitionTable.h"
+
+1399546386 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\main.cpp
+	<iostream>
+	"test_package/TestSimpsonGraphBuilder.h"
+	<stack>
+	<fstream>
+	<string.h>
+	"lexical_analyzer_package/TokenManager.h"
+	"lexical_analyzer_package/ExpressionEvaluator.h"
+	"graph_package/Graph.h"
+	"graph_package/Node.h"
+	"lexical_analyzer_package/NFA_Generator.h"
+	"TransitionTable.h"
+	"TestTokenManager.h"
+
+1399470823 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\test_package\testsimpsongraphbuilder.h
+	"../lexical_analyzer_package/SimpsonGraphBuilder.h"
+	"../lexical_analyzer_package/NFA_Generator.h"
+	<vector>
+	"../graph_package/Edge.h"
+	<stack>
+	<fstream>
+	<string.h>
+	<iostream>
+
+1399470823 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\test_package\testsimpsongraphbuilder.cpp
+	"TestSimpsonGraphBuilder.h"
+
+1399547491 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\test_package\testtokenmanager.cpp
+	"TestTokenManager.h"
+	"TokenManager.h"
+	"TransitionTable.h"
+
+1399540661 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\test_package\testtokenmanager.h
+	<vector>
+	<iostream>
+
