@@ -17,17 +17,32 @@ class Node
         void add_child(Node* end_node, string value);
         void set_acceptance_state(bool is_acceptance);
         bool is_acceptance_node();
-        void set_visited(bool is_visited);
-        bool is_visited();
 
+        void set_token_type(string token_type){
+            this->token_type = token_type;
+        }
+
+        string get_token_type(){
+            return token_type;
+        }
+
+        void set_node_name(){
+            this->node_name = node_count++;
+        }
+
+        int get_node_name(){
+            return node_name;
+        }
+
+        static int node_count;
         virtual ~Node();
     protected:
     private:
-        bool is_acceptance= false;
-        bool is_visited_state= false;
+        int node_name = -1;
+        string token_type;
+        bool is_acceptance = false;
         vector<Edge> children;
 
 
 };
-
 #endif // NODE_H

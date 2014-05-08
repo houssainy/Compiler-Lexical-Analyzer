@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <vector>
 #include <iostream>
+#include<queue>
 
 NFA_Generator::NFA_Generator(string file_path)
 {
@@ -64,6 +65,7 @@ void NFA_Generator::handle_keyword_graph(string line)
 
             // Set last node as acceptance state
             temp_graph->get_end_node()->set_acceptance_state(true);
+            temp_graph->get_end_node()->set_token_type("key word");
 
             if( language_map.find("key_word") != language_map.end() )
             {
@@ -86,6 +88,7 @@ void NFA_Generator::handle_keyword_graph(string line)
 
             // Set last node as acceptance state
             temp_graph->get_end_node()->set_acceptance_state(true);
+            temp_graph->get_end_node()->set_token_type("key word");
 
             if( language_map.find("key_word") != language_map.end() )
             {
@@ -143,6 +146,7 @@ void NFA_Generator::handle_punctuation_graph(string line)
 
             // Set last node as acceptance state
             temp_graph->get_end_node()->set_acceptance_state(true);
+            temp_graph->get_end_node()->set_token_type("punctuation");
 
             // Add new character to input map
             if( input_map.find(line[i]) == input_map.end() ) // this character not added before
@@ -270,6 +274,7 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line)
         //Evaluate the expression
         Graph* result_graph = exp_eval.evaluate(exp_string.str() , &exp_graphs);
         result_graph->get_end_node()->set_acceptance_state(true);
+        result_graph->get_end_node()->set_token_type(exp_name);
 
         // insert new reg expression or deffinition
         language_map.insert(pair<string,Graph*>(exp_name, result_graph));
@@ -286,7 +291,7 @@ Graph * NFA_Generator::build_new_input_graph(string temp_string)
     Graph *temp_graph;
     if( language_map.find(temp_string) != language_map.end())  // diffinition of predefined expression
     {
-        temp_graph = copy_graph(language_map.find(temp_string)->second);
+        temp_graph = language_map.find(temp_string)->second;
     }
     else   // New input
     {
@@ -377,38 +382,58 @@ Graph *NFA_Generator::get_language_graph()
     return language_graph;
 }
 
-void Graph* NFA_Generator::copy_graph(Graph *g)
+Graph* NFA_Generator::copy_graph(Graph *g)
 {
+    queue <Edge> q;
     Graph *graph = new Graph();
-
-    Node* first=g->get_start_node();
-    vector<Edge> *children ;
-    children= first->get_children();
-    first->set_visited(true);
-
-    for(int i=0; i< children->size(); i++)
-    {
-        q.push((*children)[i]);
-    }
-
-    while(q.size()!=0)
-    {
-        Edge element = q.front();
-        q.pop();
-        bfsItration.push_back(element.get_value());
-        if( element.get_end_node()->is_visited())
-            continue;
-
-        element.get_end_node()->set_visited(true);
-        children = element.get_end_node()->get_children();
-        for(int i=0; i<children->size(); i++)
-        {
-            Edge child = (*children)[i];
-            q.push((*children)[i]);
-        }
-    }
+//
+//    bool v[g->get_graph_size()];
+//    for(int i = 0 ; i < g->get_graph_size() ; i++)
+//        v[i] = false;
+//
+//    Node* first=g->get_start_node();
+//    vector<Edge> *children ;
+//    children= first->get_children();
+//    v[first->get_node_name()] = true;
+//
+//    //----------- New Start Node -----------
+//    Node *current_node = new Node();
+//    current_node->set_node_name();
+//
+//    graph->set_start_node(current_node);
+//
+//    for(int i=0; i< children->size(); i++)
+//    {
+//        q.push((*children)[i]);
+//    }
+//
+//    while(q.size()!=0)
+//    {
+//        Edge element = q.front();
+//        q.pop();
+//
+//        Node *new_node = new Node();
+//        new_node->set_node_name();
+//
+//
+//        if( v[element.get_end_node()->get_node_name()] )
+//            continue;
+//
+//        current_node->add_child( new_node , element.get_value() );
+//
+//        v[element.get_end_node()->get_node_name()] = true;
+//        children = element.get_end_node()->get_children();
+//        for(int i=0; i<children->size(); i++)
+//        {
+//            Edge child = (*children)[i];
+//            q.push((*children)[i]);
+//        }
+//
+//
+//    }
     return graph;
 }
+
 NFA_Generator::~NFA_Generator()
 {
     //dtor

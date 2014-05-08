@@ -1,5 +1,6 @@
 #include "Node.h"
 
+int Node::node_count = 0;
 Node::Node()
 {
     //ctor
@@ -36,19 +37,7 @@ void Node::set_acceptance_state(bool is_acceptance){
 bool Node::is_acceptance_node(){
     return is_acceptance;
 }
-/**
-*   Set visited Nodes
-**/
-void Node::set_visited(bool is_visited){
-    this->is_visited_state = is_visited;
-}
 
-/**
-* return is this node visited or not?
-**/
-bool Node::is_visited(){
-    return is_visited_state;
-}
 Node::~Node()
 {
     //dtor
