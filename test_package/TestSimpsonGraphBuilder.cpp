@@ -1,5 +1,6 @@
 #include "TestSimpsonGraphBuilder.h"
 #include "BFS.h"
+
 TestSimpsonGraphBuilder::TestSimpsonGraphBuilder()
 {
     //ctor

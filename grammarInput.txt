@@ -1,1 +1,1 @@
-digit = a-b | A-B
+digit = \* | /

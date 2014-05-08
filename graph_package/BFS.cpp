@@ -14,7 +14,7 @@ vector<string>* BFS::getBFS(Graph* g){
     {
         q.push((*children)[i]);
     }
-cout<<"size Of Queue"<<q.size()<<endl;
+    cout<<"size Of Queue"<<q.size()<<endl;
     int j=0;
     while(q.size()!=0)
     {
