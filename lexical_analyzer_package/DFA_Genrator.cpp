@@ -4,7 +4,7 @@
 
 
 
-DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int > > eClouser,vector <string> input,vector<bool> finalState)
+DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int > > eClouser,int numberOfInputs,vector<bool> finalState)
 {
     //ctor
     int size = NFA.size ();
@@ -35,7 +35,7 @@ DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int 
         vector <DFA_State> row ;
         DFA_State currentState = newStates[counter];
         vector <int> currentStateNumber = currentState.get_States_Number();
-        for (int i =0 ; i<input.size(); i++)
+        for (int i =0 ; i<numberOfInputs; i++)
         {
             DFA_State element = DFA_State (size,stateindex);
             if (currentStateNumber.size()>finished_states)
