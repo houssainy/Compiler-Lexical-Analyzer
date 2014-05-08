@@ -88,6 +88,11 @@ vector < vector < DFA_State > > DFA_Genrator::Get_DFA ()
 
     return DFA;
 }
+vector < DFA_State> DFA_Genrator::Get_New_States ()
+{
+
+    return newStates;
+}
 
 bool DFA_Genrator::Compare (DFA_State state )
 {
