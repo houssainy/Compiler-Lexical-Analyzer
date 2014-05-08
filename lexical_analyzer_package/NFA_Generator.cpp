@@ -285,9 +285,19 @@ Graph * NFA_Generator::build_new_input_graph(string temp_string)
     }
     else   // New input
     {
-        if( temp_string.length() > 1) // e.g: a-z , 1-9
+        if( temp_string.length() > 1)
         {
+            /**
+            *   1- Range e.g a-z or 1-9
+            *   2- Add or Multiply operation e.g \+ or \*
+            *   3- Relational operation e.g \=\= | !\= | > | >\= | < | <\=
+            **/
 
+            switch(temp_string[0]){
+                case '\': //case 2 or 3
+                    break;
+
+            }
             temp_graph = graph_builder.init_graph(string(1,temp_string[0]));
 
             if( temp_string[1] != '-')
@@ -296,7 +306,7 @@ Graph * NFA_Generator::build_new_input_graph(string temp_string)
                 return NULL;
             }
 
-            for( char c = temp_string[0] + 1  ; c <= temp_string[2] ; c++ )
+            for( char c = temp_string[0] + 1  ; c <= temp_string[2] ; c++ ) // Range a-z OR 1-9
                 temp_graph = graph_builder.or_operation(temp_graph , graph_builder.init_graph(string(1, c)));
 
         }
