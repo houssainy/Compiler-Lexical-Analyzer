@@ -237,17 +237,34 @@ int main()
     input.push_back("n");
     input.push_back("t");
 
+    /**
+        constractor of DFA genrator taka nfa table and eclousre that genrate when we traverse in the NFA graph
+        * input make your map and let it for me to change it
+        * final state also will generate when we traverse in the graph
+    */
     DFA_Genrator gene = DFA_Genrator (nfa , eclosure , input ,finalStates);
+    // this method get the DFA table from DFA Generator to pass it to DFA Minimization
     vector < vector <DFA_State> > DFA = gene.Get_DFA();
+    // this method get the new DFA states from DFA Generator to pass it to DFA Minimization
     vector < DFA_State > new_states = gene.Get_New_States();
+   // print the DFA table
     for (int i=0 ; i<DFA.size() ; i++)
         for (int j=0; j<DFA[i].size() ; j++)
             cout << DFA[i][j].get_state_number ()<<"\t" <<DFA[i][j].is_final () << endl;
-
+    /**
+        constractor of DFA Minimization
+    */
     DFA_Minimization mini = DFA_Minimization ();
+    /**
+        method in DFA Minimization which take generated DFA table and DFA states and return minimized DFA transation table
+    */
     vector < vector <int> > MDFA = mini.minimize(DFA,new_states);
+    /**
+        method in DFA Minimization return acceptance table of minimized states
+    */
     vector < bool > finals =mini.Is_final();
     cout <<"\n\n\n"<<"Minimization"<<endl;
+    // print minimized DFA
     for (int i=0 ; i<MDFA.size() ; i++)
         for (int j=0; j<MDFA[i].size() ; j++)
             if (MDFA[i][j]!=-1)
@@ -417,7 +434,6 @@ int main()
     input.push_back("b");
     input.push_back("l");
     input.push_back("e");
-
 
     gene = DFA_Genrator (nfa , eclosure , input ,finalStates);
     DFA = gene.Get_DFA();
