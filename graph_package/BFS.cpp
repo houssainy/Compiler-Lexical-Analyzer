@@ -1,23 +1,27 @@
 #include "BFS.h"
 
-/*BFS::BFS()
+BFS::BFS()
 {
     //ctor
 }
 vector<string>* BFS::getBFS(Graph* g){
  Node* first=g->get_start_node();
- for(int i=0;i<first->get_children()->size();i++)
-            {
-            q.push(first->get_children()[i]);
-             }
+ vector<Edge> *children ;
+ children= first->get_children();
+    for(int i=0; i< children->size(); i++)
+    {
+        q.push((*children)[i]);
+    }
 
- for(int j=0;j<g.get_graph_size();i++)
+ for(int j=0;j<g->get_graph_size();j++)
  {
-        Edge element = q.pop();
+        Edge element = q.front();
+        q.pop();
         bfsItration.push_back(element.get_value());
-          for(int i=0;i<element.get_end_node().get_children().size();i++)
+         children = element.get_end_node()->get_children();
+          for(int i=0;i<children->size();i++)
             {
-            q.push(element.get_end_node().get_children()[i]);
+              q.push((*children)[i]);
              }
 
  }
@@ -30,4 +34,4 @@ BFS::~BFS()
 {
     //dtor
 }
-*/
+
