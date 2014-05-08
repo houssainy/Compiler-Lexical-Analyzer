@@ -1,4 +1,5 @@
 #include "TestSimpsonGraphBuilder.h"
+#include "BFS.h"
 
 TestSimpsonGraphBuilder::TestSimpsonGraphBuilder()
 {
@@ -36,6 +37,9 @@ void TestSimpsonGraphBuilder::start(){
         cout << "Passed" << endl;
     else
         cout << "Failed" << endl;
+
+    BFS b ;
+    b.getBFS(g);
 }
 TestSimpsonGraphBuilder::~TestSimpsonGraphBuilder()
 {

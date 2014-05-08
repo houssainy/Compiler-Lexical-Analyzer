@@ -2,7 +2,7 @@
 #include <string.h>
 #include "TransitionTable.h"
 #include <fstream>
-#include "TestTokenManager.h"
+#include "../test_package/TestTokenManager.h"
 
 TokenManager::TokenManager(TransitionTable *transTable)
 {
@@ -61,14 +61,20 @@ int TokenManager::GetNextState(char inputChar)
     /********************************************************************/
     if (tempState != -1 )
     {
+        /**There is accepted path -->
+        1. add inputChar to sequence vector
+        2. get Next State **/
         seq.push_back(inputChar);
-        cout<<"Index:" << transTableIndex <<endl;
-        cout << "State:" << tempState << endl;
-        cout <<"transState:" <<transition_table[tempState][transTableIndex]<<endl;
         tempState = transition_table[tempState][transTableIndex];
+
+//        cout<<"Index:" << transTableIndex <<endl;
+//        cout << "State:" << tempState << endl;
+//        cout <<"transState:" <<transition_table[tempState][transTableIndex]<<endl;
     }
     else
     {
+        /**There is no accepted path -->
+        1. if the last chars accepted **/
         int n  = seq.size();
         for (int i = 0 ; i < n ; i ++)
         {

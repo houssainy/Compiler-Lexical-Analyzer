@@ -14,7 +14,11 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="lexical_analyzer_package" />
+<<<<<<< HEAD
 					<Add directory="test_package" />
+=======
+					<Add directory="graph_package" />
+>>>>>>> 7b8581ca71f30ae23d0ea853aaeef726f80b8325
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -25,7 +29,11 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="lexical_analyzer_package" />
+<<<<<<< HEAD
 					<Add directory="test_package" />
+=======
+					<Add directory="graph_package" />
+>>>>>>> 7b8581ca71f30ae23d0ea853aaeef726f80b8325
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -36,6 +44,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="graph_package/BFS.cpp" />
+		<Unit filename="graph_package/BFS.h" />
 		<Unit filename="graph_package/Edge.cpp" />
 		<Unit filename="graph_package/Edge.h" />
 		<Unit filename="graph_package/Graph.cpp" />

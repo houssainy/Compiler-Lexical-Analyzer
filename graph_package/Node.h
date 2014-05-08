@@ -24,6 +24,7 @@ class Node
         bool is_acceptance= false;
         vector<Edge> children;
 
+
 };
 
 #endif // NODE_H

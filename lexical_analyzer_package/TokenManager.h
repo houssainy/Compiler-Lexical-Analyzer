@@ -1,7 +1,7 @@
 #ifndef TOKENMANAGER_H
 #define TOKENMANAGER_H
 #include "TransitionTable.h"
-#include "TestTokenManager.h"
+#include "../test_package/TestTokenManager.h"
 
 class TokenManager
 {

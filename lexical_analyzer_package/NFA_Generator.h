@@ -7,6 +7,7 @@
 #include "../graph_package/Graph.h"
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 #include "unordered_map"
 #include "ExpressionEvaluator.h"
@@ -38,6 +39,7 @@ class NFA_Generator : public Automata
         void handle_punctuation_graph(string line);
         void handle_regular_exp_or_def_graph(string line);
 
+        Graph* build_new_input_graph(string temp_string );
         Graph *get_language_graph();
 
 };
