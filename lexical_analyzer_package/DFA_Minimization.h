@@ -11,13 +11,13 @@ class DFA_Minimization
 {
 
 public:
-    DFA_Minimization(vector < vector < DFA_State > > DFA );
-    vector < vector <int> > minimize (vector < DFA_State > newStates );
+    DFA_Minimization();
+    vector < vector <int> > minimize (vector < vector < DFA_State > > DFA,vector < DFA_State > newStates );
+    vector < bool > Is_final ();
     virtual ~DFA_Minimization();
 protected:
 private:
-  vector < vector <DFA_State> > DFA_Copy ;
-
+    vector <bool> isFinal ;
 };
 
 #endif // DFA_MINIMIZATION_H

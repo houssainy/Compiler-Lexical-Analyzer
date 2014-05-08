@@ -12,6 +12,8 @@
 #include "TransitionTable.h"
 #include "lexical_analyzer_package/DFA_Genrator.h"
 #include "lexical_analyzer_package/DFA_State.h"
+#include "lexical_analyzer_package/DFA_Minimization.h"
+
 
 using namespace std;
 
@@ -237,15 +239,22 @@ int main()
 
     DFA_Genrator gene = DFA_Genrator (nfa , eclosure , input ,finalStates);
     vector < vector <DFA_State> > DFA = gene.Get_DFA();
+    vector < DFA_State > new_states = gene.Get_New_States();
     for (int i=0 ; i<DFA.size() ; i++)
-    {
         for (int j=0; j<DFA[i].size() ; j++)
-        {
             cout << DFA[i][j].get_state_number ()<<"\t" <<DFA[i][j].is_final () << endl;
 
-        }
+    DFA_Minimization mini = DFA_Minimization ();
+    vector < vector <int> > MDFA = mini.minimize(DFA,new_states);
+    vector < bool > finals =mini.Is_final();
+    cout <<"\n\n\n"<<"Minimization"<<endl;
+    for (int i=0 ; i<MDFA.size() ; i++)
+        for (int j=0; j<MDFA[i].size() ; j++)
+            if (MDFA[i][j]!=-1)
+                cout << MDFA[i][j]<<"\t\t\t"<<finals[MDFA[i][j]]<< endl;
+            else
+                cout << MDFA[i][j]<< endl;
 
-    }
     cout << "\n\n\n" <<"test 2" <<endl;
     /**
      *-------------------------------------------
@@ -412,6 +421,7 @@ int main()
 
     gene = DFA_Genrator (nfa , eclosure , input ,finalStates);
     DFA = gene.Get_DFA();
+    new_states = gene.Get_New_States();
     for (int i=0 ; i<DFA.size() ; i++)
     {
         for (int j=0; j<DFA[i].size() ; j++)
@@ -422,6 +432,17 @@ int main()
 
     }
 
+    mini = DFA_Minimization ();
+    MDFA = mini.minimize(DFA,new_states);
+    finals.clear();
+    finals =mini.Is_final();
+    cout <<"\n\n\n"<<"Minimization"<<endl;
+    for (int i=0 ; i<MDFA.size() ; i++)
+        for (int j=0; j<MDFA[i].size() ; j++)
+            if (MDFA[i][j]!=-1)
+                cout << MDFA[i][j]<<"\t\t\t"<<finals[MDFA[i][j]]<< endl;
+            else
+                cout << MDFA[i][j]<< endl;
     return 0;
 
 };

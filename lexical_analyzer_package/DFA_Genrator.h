@@ -14,13 +14,13 @@ class DFA_Genrator
 
         DFA_Genrator(vector < vector < int > > nfa , vector < vector <int > > eClouser,vector <string> input,vector<bool> finalState);
         vector < vector < DFA_State > > Get_DFA ();
-        bool Compare (DFA_State state );
-
+        vector < DFA_State> Get_New_States ();
         virtual ~DFA_Genrator();
 
     protected:
 
     private:
+        bool Compare (DFA_State state );
         vector < vector < DFA_State > > DFA ;
         vector <DFA_State> newStates ;
 };
