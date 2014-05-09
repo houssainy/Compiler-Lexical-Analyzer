@@ -18,7 +18,7 @@ using namespace std;
 int main(int arg , char* args[])
 {
     /**************************** Main Code*******************************/
-  //  Lexical_Analyzer lx(args[1]);
+    Lexical_Analyzer lx("grammarInput.txt");
 
     /****************************END OF MAIN ****************************/
 
@@ -32,11 +32,11 @@ int main(int arg , char* args[])
     TestSimpsonGraphBuilder test_builder;
     test_builder.start();
     /**
-    *  ***************** END OF TEST  **********************
+    *  ***************** END HOUSSAINY'S TEST  **********************
     */
-//    /**
-//    *   ***************** BUSHRA **********************
-//    **/
+    /**
+    *   ***************** BUSHRA **********************
+    **/
 //
 // char inputChar ;
 //    int returnState;
@@ -92,9 +92,9 @@ int main(int arg , char* args[])
 //    {
 //        cout<< "Unable to open input file";
 //    }
-//    /**
-//    *   ***************** END BUSHRA **********************
-//    **/
+    /**
+    *   ***************** END BUSHRA **********************
+    **/
 
 
 
@@ -102,33 +102,34 @@ int main(int arg , char* args[])
     *   ***************** TEST PostFiXConversion **********************
     **/
 
-    ExpressionEvaluator expressionEvaluator;
 
-    string exp;
+//    ExpressionEvaluator expressionEvaluator;
+//
+//    string exp;
+//
+//
+//
+//    exp=expressionEvaluator.post_fix_conversion("A.B|C*");
+//    cout <<"PostFixNotation of this Expression (A.B|C*) is "<< exp << endl;
+//    cout << "--------------------------------------------------------" << endl;
+//
+//    exp=expressionEvaluator.post_fix_conversion("A.(B|C*|A*).B*");
+//    cout <<"PostFixNotation of this Expression (A.(B|C*|A*).B*) is "<< exp << endl;
+//    cout << "--------------------------------------------------------" << endl;
+//
+//    exp=expressionEvaluator.post_fix_conversion("A.(B|C)");
+//    cout <<"PostFixNotation of this Expression (A.(B|C) is "<< exp <<  endl;
+//    cout << "--------------------------------------------------------" << endl;
+//
+//    exp=expressionEvaluator.post_fix_conversion("A.(B|C)|A|C*.(A*.S*)");
+//    cout <<"PostFixNotation of this Expression (A.(B|C)|A|C*.(A*.S*)) is "<< exp << endl;
+//    cout << "-------------------------------------------------------" << endl;
 
+    /************************* END POST FIX TEST *******************************/
 
-
-    exp=expressionEvaluator.post_fix_conversion("A.B|C*");
-    cout <<"PostFixNotation of this Expression (A.B|C*) is "<< exp << endl;
-    cout << "--------------------------------------------------------" << endl;
-
-    exp=expressionEvaluator.post_fix_conversion("A.(B|C*|A*).B*");
-    cout <<"PostFixNotation of this Expression (A.(B|C*|A*).B*) is "<< exp << endl;
-    cout << "--------------------------------------------------------" << endl;
-
-    exp=expressionEvaluator.post_fix_conversion("A.(B|C)");
-    cout <<"PostFixNotation of this Expression (A.(B|C) is "<< exp <<  endl;
-    cout << "--------------------------------------------------------" << endl;
-
-    exp=expressionEvaluator.post_fix_conversion("A.(B|C)|A|C*.(A*.S*)");
-    cout <<"PostFixNotation of this Expression (A.(B|C)|A|C*.(A*.S*)) is "<< exp << endl;
-    cout << "-------------------------------------------------------" << endl;
-    cout << "-------------------------------------------------------" << endl;
-
-
-
+    /**************************** DFA TEST *************************************/
     DFATest DFAtest = DFATest ();
-
+    /************************* END DFA TEST *******************************/
 
     return 0;
 
