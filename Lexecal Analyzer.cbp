@@ -65,8 +65,10 @@
 		<Unit filename="lexical_analyzer_package/TransitionTable.cpp" />
 		<Unit filename="lexical_analyzer_package/TransitionTable.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="test_package/TestNFA.cpp" />
-		<Unit filename="test_package/TestNFA.h" />
+		<Unit filename="test_package/DFATest.cpp" />
+		<Unit filename="test_package/DFATest.h" />
+		<Unit filename="test_package/TestSimpsonGraphBuilder.cpp" />
+		<Unit filename="test_package/TestSimpsonGraphBuilder.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
