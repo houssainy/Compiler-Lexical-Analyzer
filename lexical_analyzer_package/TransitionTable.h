@@ -11,11 +11,11 @@ class TransitionTable
 {
 public:
     TransitionTable( vector < vector <int> > MDFA ,
-                     unordered_map <string,int> input,
+                     unordered_map <char,int> input,
                      vector <bool> finalState ,
-                     unordered_map <int,string> tokenType );
+                     vector<string> tokenType );
     vector < vector <int> > Get_MDFA ();
-    int Get_Input (string input);
+    int Get_Input (char input);
     bool is_final (int state );
     string type (int state );
 
@@ -25,9 +25,9 @@ protected:
 
 private:
     vector < vector <int> > MDFA ;
-    unordered_map <string,int> input_map;
+    unordered_map <char,int> input_map;
     vector <bool> finalState ;
-    unordered_map <int,string> tokenType ;
+    vector<string> tokenType ;
 };
 
 #endif // TRANSITIONTABLE_H

@@ -34,7 +34,7 @@ Graph* SimpsonGraphBuilder::and_operation(Graph* g1 , Graph* g2){
         Graph *graph = new Graph();
 
         //Connect the two graphs
-        g1->get_end_node()->add_child(g2->get_start_node() , "\L");
+        g1->get_end_node()->add_child(g2->get_start_node() , "\\L");
 
         graph->set_start_node(g1->get_start_node());
         graph->set_end_node(g2->get_end_node());
@@ -58,12 +58,12 @@ Graph* SimpsonGraphBuilder::or_operation(Graph* g1 , Graph* g2){
     end_node->set_node_name();
 
     // Connect the new End node to the two graphs
-    g1->get_end_node()->add_child(end_node,"\L");
-    g2->get_end_node()->add_child(end_node,"\L");
+    g1->get_end_node()->add_child(end_node,"\\L");
+    g2->get_end_node()->add_child(end_node,"\\L");
 
     //Connect the new Start node to the two graphs
-    start_node->add_child(g1->get_start_node(),"\L");
-    start_node->add_child(g2->get_start_node(),"\L");
+    start_node->add_child(g1->get_start_node(),"\\L");
+    start_node->add_child(g2->get_start_node(),"\\L");
 
     // Add the start and end nodes to the graph
     graph->set_start_node(start_node);
@@ -87,11 +87,11 @@ Graph* SimpsonGraphBuilder::clousure_operation(Graph* g1){
     start_node->set_node_name();
 
     // 1..*
-    start_node->add_child(g1->get_start_node() , "\L");
-    g1->get_end_node()->add_child(g1->get_start_node(),"\L");
+    start_node->add_child(g1->get_start_node() , "\\L");
+    g1->get_end_node()->add_child(g1->get_start_node(),"\\L");
 
     //0..*
-    start_node->add_child(g1->get_end_node() , "\L");
+    start_node->add_child(g1->get_end_node() , "\\L");
 
     // Add the start and end nodes to the graph
     graph->set_start_node(start_node);
@@ -114,10 +114,10 @@ Graph* SimpsonGraphBuilder::positive_clousure_operation(Graph* g1){
     end_node->set_node_name();
 
     // 1..+
-    g1->get_end_node()->add_child(g1->get_start_node(),"\L");
+    g1->get_end_node()->add_child(g1->get_start_node(),"\\L");
 
     // finish
-    g1->get_end_node()->add_child(end_node,"\L");
+    g1->get_end_node()->add_child(end_node,"\\L");
 
     // Add the start and end nodes to the graph
     graph->set_start_node(g1->get_start_node());

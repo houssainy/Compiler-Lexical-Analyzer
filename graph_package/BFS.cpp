@@ -7,6 +7,7 @@ BFS::BFS()
 
 vector<string>* BFS::getBFS(Graph* g)
 {
+    cout<< g->get_graph_size() << endl;
     bool v[g->get_graph_size()];
     for(int i = 0 ; i < g->get_graph_size() ; i++)
         v[i] = false;
@@ -44,8 +45,6 @@ vector<string>* BFS::getBFS(Graph* g)
 
 
     }
-
-
     return &bfsItration;
 
 }

@@ -18,7 +18,7 @@ using namespace std;
 int main(int arg , char* args[])
 {
     /**************************** Main Code*******************************/
-    Lexical_Analyzer lx(args[1]);
+  //  Lexical_Analyzer lx(args[1]);
 
     /****************************END OF MAIN ****************************/
 

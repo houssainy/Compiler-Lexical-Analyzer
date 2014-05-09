@@ -39,7 +39,7 @@ class Node
     protected:
     private:
         int node_name = -1;
-        string token_type;
+        string token_type = "";
         bool is_acceptance = false;
         vector<Edge> children;
 

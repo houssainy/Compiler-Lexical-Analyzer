@@ -1,13 +1,104 @@
 #include "DFA_Genrator.h"
 #include <DFA_State.h>
 
+#include <queue>
 
-
-DFA_Genrator::DFA_Genrator(Graph * NFA , int input_size)
+DFA_Genrator::DFA_Genrator(Graph * NFA , unordered_map<char,int> input_map)
 {
-
+    // Traverse
+    init(NFA, input_map);
 }
-void DFA_Genrator::Generate (vector < vector < int > > NFA , vector < vector <int > > eClouser,int numberOfInputs,vector<bool> finalState)
+
+void DFA_Genrator::init(Graph * NFA , unordered_map<char,int> input_map){
+    vector < vector < int > > trans_nfa;
+    vector < vector <int > > eClouser;
+    vector<bool> finalState;
+    vector<string> token_type;
+
+    vector<int> state_clouser;
+    vector<int> state_trans;
+
+    int node_name = 0;
+
+    //BFS
+    queue <Node*> q;
+
+    // map of key = node name and value index of the node in transition table
+    // if there was a value for the givven node name
+    unordered_map<int,int> node_holder;
+
+    // New node position in transition table
+    int new_temp_node;
+
+    // Node of old graph
+    Node* temp_node;
+    // Children of old graph
+    vector<Edge> *children;
+
+    temp_node = NFA->get_start_node();
+
+    // New start Node
+    finalState.push_back(temp_node->is_acceptance_node());
+    token_type.push_back(temp_node->get_token_type());
+
+    //Push first node
+    q.push(temp_node);
+    node_holder.insert(pair<int,int>(temp_node->get_node_name(), node_name++));
+
+    while(q.size()!=0)
+    {
+        temp_node = q.front(); // old node
+        q.pop();
+
+        new_temp_node = node_holder[temp_node->get_node_name()]; // new graph
+
+        children = temp_node->get_children();
+        Node * node;
+
+        for(int i=0; i< children->size(); i++)
+        {
+            node = (*children)[i].get_end_node(); // children #i
+
+            if( node_holder.find(node->get_node_name()) != node_holder.end() ){ // visited add to new graph only
+                if( (*children)[i].get_value() == "\\L"){ // if epson add it to epson clousre
+                    state_clouser.push_back(node_holder[node->get_node_name()]);
+                }else{ // not epson, add it trans_table
+                    state_trans.push_back(node_holder[node->get_node_name()]); // state number
+                    state_trans.push_back(input_map[(*children)[i].get_value()[0]]); // input for the previous state number
+                }
+                continue;
+            }
+
+            //Not visited
+
+            // New start Node
+            finalState.push_back(node->is_acceptance_node());
+            token_type.push_back(node->get_token_type());
+
+            //Push first node
+            q.push(node);
+            node_holder.insert(pair<int,int>(node->get_node_name(), node_name++));
+
+            if( (*children)[i].get_value() == "\\L"){ // if epson add it to epson clousre
+                state_clouser.push_back(node_holder[node->get_node_name()]);
+            }else{ // not epson, add it trans_table
+                state_trans.push_back(node_holder[node->get_node_name()]); // state number
+                state_trans.push_back(input_map[(*children)[i].get_value()[0]]); // input for the previous state number
+            }
+        }
+        if (state_trans.size()<2){
+            state_trans.push_back(-1);
+            state_trans.push_back(-1);
+        }
+
+        trans_nfa.push_back(state_trans);
+        eClouser.push_back(state_clouser); // if state clousere is empty ?!!
+    }
+
+    Generate(trans_nfa , eClouser , input_map.size() , finalState , token_type);
+}
+
+void DFA_Genrator::Generate (vector < vector < int > > NFA , vector < vector <int > > eClouser,int numberOfInputs,vector<bool> finalState , vector<string> token_type)
 {
        //ctor
     int size = NFA.size ();

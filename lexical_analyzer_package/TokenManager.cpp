@@ -22,7 +22,7 @@ int TokenManager::GetNextState(char inputChar)
       states.pop_back();
     }
 
-    transTableIndex = transTable-> Get_Input(string(1,inputChar));
+    transTableIndex = transTable-> Get_Input(inputChar);
 
     /*********** Input not Exist in our language alphabets*************/
     if (transTableIndex == -1)
@@ -70,7 +70,7 @@ int TokenManager::GetNextState(char inputChar)
                    //tempState = GetNextState(store[i]);
                inputChar = seq[i];
                NextTempState = states.back();
-               transTableIndex = transTable-> Get_Input(string(1,inputChar));
+               transTableIndex = transTable-> Get_Input(inputChar);
                tempState = transition_table[NextTempState][transTableIndex];
                 if (isToken(tempState)){is_Token = true; return tempState;}
                 else {store.pop_back(); states.pop_back();}

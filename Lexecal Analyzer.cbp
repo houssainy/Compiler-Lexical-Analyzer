@@ -46,8 +46,6 @@
 		<Unit filename="graph_package/Graph.h" />
 		<Unit filename="graph_package/Node.cpp" />
 		<Unit filename="graph_package/Node.h" />
-		<Unit filename="lexical_analyzer_package/Automata.cpp" />
-		<Unit filename="lexical_analyzer_package/Automata.h" />
 		<Unit filename="lexical_analyzer_package/DFA_Genrator.cpp" />
 		<Unit filename="lexical_analyzer_package/DFA_Genrator.h" />
 		<Unit filename="lexical_analyzer_package/DFA_Minimization.cpp" />
@@ -56,6 +54,8 @@
 		<Unit filename="lexical_analyzer_package/DFA_State.h" />
 		<Unit filename="lexical_analyzer_package/ExpressionEvaluator.cpp" />
 		<Unit filename="lexical_analyzer_package/ExpressionEvaluator.h" />
+		<Unit filename="lexical_analyzer_package/Lexical_Analyzer.cpp" />
+		<Unit filename="lexical_analyzer_package/Lexical_Analyzer.h" />
 		<Unit filename="lexical_analyzer_package/NFA_Generator.cpp" />
 		<Unit filename="lexical_analyzer_package/NFA_Generator.h" />
 		<Unit filename="lexical_analyzer_package/SimpsonGraphBuilder.cpp" />
