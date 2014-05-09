@@ -111,7 +111,7 @@ void NFA_Generator::handle_keyword_graph(string line)
             if( temp_graph == NULL )// Build graph for first charachter
                 temp_graph = graph_builder.init_graph(string(1,line[i]));
             else // concatenate old graph and new graph of the new character
-                temp_graph = graph_builder.and_operation(temp_graph , graph_builder.init_graph(string(1,line[1])));
+                temp_graph = graph_builder.and_operation(temp_graph , graph_builder.init_graph(string(1,line[i])));
         }
 
     }

@@ -157,7 +157,7 @@ void DFA_Genrator::Generate (vector < vector < int > > NFA , vector < vector <in
                 for (int j =0 ; j<currentStateNumber.size(); j++)
                 {
                     int tempState =  currentStateNumber[j];
-                    if (NFA[tempState][0]!=-1 && NFA[tempState][1]==i+1)
+                    if (NFA[tempState][0]!=-1 && NFA[tempState][1]==i)
                     {
                         finished_states ++ ;
                         element.set_state(NFA[tempState][0],finalState[NFA[tempState][0]]);

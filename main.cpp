@@ -18,7 +18,7 @@ using namespace std;
 int main(int arg , char* args[])
 {
     /**************************** Main Code*******************************/
-    Lexical_Analyzer lx("grammarInput.txt");
+//    Lexical_Analyzer lx("grammarInput.txt");
 
     /****************************END OF MAIN ****************************/
 
