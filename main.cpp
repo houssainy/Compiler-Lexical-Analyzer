@@ -119,6 +119,7 @@ int main()
     exp=expressionEvaluator.post_fix_conversion("A.(B|C)|A|C*.(A*.S*)");
     cout <<"PostFixNotation of this Expression (A.(B|C)|A|C*.(A*.S*)) is "<< exp << endl;
     cout << "-------------------------------------------------------" << endl;
+    cout << "-------------------------------------------------------" << endl;
 
 
 
