@@ -111,7 +111,7 @@ void NFA_Generator::handle_keyword_graph(string line)
             if( temp_graph == NULL )// Build graph for first charachter
                 temp_graph = graph_builder.init_graph(string(1,line[i]));
             else // concatenate old graph and new graph of the new character
-                temp_graph = graph_builder.and_operation(temp_graph , graph_builder.init_graph(string(1,line[1])));
+                temp_graph = graph_builder.and_operation(temp_graph , graph_builder.init_graph(string(1,line[i])));
         }
 
     }
@@ -291,7 +291,7 @@ Graph * NFA_Generator::build_new_input_graph(string temp_string)
     Graph *temp_graph;
     if( language_map.find(temp_string) != language_map.end())  // diffinition of predefined expression
     {
-        temp_graph = language_map.find(temp_string)->second;
+        temp_graph = copy_graph(language_map.find(temp_string)->second);
     }
     else   // New input
     {
@@ -327,7 +327,12 @@ Graph * NFA_Generator::build_new_input_graph(string temp_string)
             }
             else  //Case 1 or error
             {
+                char c = temp_string[i];
                 temp_graph = graph_builder.init_graph(string(1,temp_string[i++]));
+
+                if( input_map.find(c) == input_map.end() ) // this character not added before
+                    input_map.insert(pair<char,int>(c, input_count++));
+                c++;
 
                 // skip white spaces after exp name
                 while(i < temp_string.length() && (temp_string[i] == ' ' || temp_string[i] == '\t') )
@@ -343,7 +348,7 @@ Graph * NFA_Generator::build_new_input_graph(string temp_string)
                 while(i < temp_string.length() && (temp_string[i] == ' ' || temp_string[i] == '\t') )
                     i++;
 
-                for( char c = temp_string[0] + 1  ; c <= temp_string[i] ; c++ )  // Range a-z OR 1-9
+                for(  ; c <= temp_string[i] ; c++ )  // Range a-z OR 1-9
                 {
                     if( input_map.find(c) == input_map.end() ) // this character not added before
                         input_map.insert(pair<char,int>(c, input_count++));
@@ -384,54 +389,77 @@ Graph *NFA_Generator::get_language_graph()
 
 Graph* NFA_Generator::copy_graph(Graph *g)
 {
-    queue <Edge> q;
-    Graph *graph = new Graph();
-//
-//    bool v[g->get_graph_size()];
-//    for(int i = 0 ; i < g->get_graph_size() ; i++)
-//        v[i] = false;
-//
-//    Node* first=g->get_start_node();
-//    vector<Edge> *children ;
-//    children= first->get_children();
-//    v[first->get_node_name()] = true;
-//
-//    //----------- New Start Node -----------
-//    Node *current_node = new Node();
-//    current_node->set_node_name();
-//
-//    graph->set_start_node(current_node);
-//
-//    for(int i=0; i< children->size(); i++)
-//    {
-//        q.push((*children)[i]);
-//    }
-//
-//    while(q.size()!=0)
-//    {
-//        Edge element = q.front();
-//        q.pop();
-//
-//        Node *new_node = new Node();
-//        new_node->set_node_name();
-//
-//
-//        if( v[element.get_end_node()->get_node_name()] )
-//            continue;
-//
-//        current_node->add_child( new_node , element.get_value() );
-//
-//        v[element.get_end_node()->get_node_name()] = true;
-//        children = element.get_end_node()->get_children();
-//        for(int i=0; i<children->size(); i++)
-//        {
-//            Edge child = (*children)[i];
-//            q.push((*children)[i]);
-//        }
-//
-//
-//    }
-    return graph;
+    queue <Node*> q;
+
+    // map of key = node name and value pointer to Node in the new graph
+    // if there was a value for the givven node name
+    unordered_map<int,Node*> node_holder;
+    Graph *new_graph = new Graph();
+
+    // Node of old graph
+    Node* temp_node;
+    // Children of old graph
+    vector<Edge> *children;
+
+    // Node of new graph
+    Node *new_temp_node;
+
+    temp_node = g->get_start_node();
+
+    // New start Node
+    new_temp_node = new Node();
+    new_temp_node->set_node_name();
+
+    new_temp_node->set_acceptance_state(temp_node->is_acceptance_node());
+    new_temp_node->set_token_type(temp_node->get_token_type());
+
+    //Set start node of new graph
+    new_graph->set_start_node(new_temp_node);
+
+    //Push first node
+    q.push(temp_node);
+    node_holder.insert(pair<int,Node*>(temp_node->get_node_name(), new_temp_node));
+
+    while(q.size()!=0)
+    {
+        temp_node = q.front(); // old node
+        q.pop();
+
+        new_temp_node = node_holder[temp_node->get_node_name()]; // new graph
+
+        children = temp_node->get_children();
+        Node * node;
+
+        for(int i=0; i< children->size(); i++)
+        {
+            node = (*children)[i].get_end_node(); // children #i
+
+            if( node_holder.find(node->get_node_name()) != node_holder.end() ){ // visited add to new graph only
+                new_temp_node->add_child( node_holder[node->get_node_name()] , (*children)[i].get_value());
+                continue;
+            }
+
+            Node *new_node = new Node();
+            new_node->set_node_name();
+
+            new_node->set_acceptance_state(node->is_acceptance_node());
+            new_node->set_token_type(node->get_token_type());
+
+            new_temp_node->add_child( new_node , (*children)[i].get_value());
+
+            //Not visited
+            q.push(node);
+            node_holder.insert(pair<int,Node*>((*children)[i].get_end_node()->get_node_name(), new_node));
+        }
+    }
+    // Set end node
+    new_graph->set_end_node(node_holder[g->get_end_node()->get_node_name()]);
+    new_graph->get_end_node()->set_acceptance_state(g->get_end_node()->is_acceptance_node());
+    new_graph->get_end_node()->set_token_type(g->get_end_node()->get_token_type());
+
+    new_graph->set_graph_size(g->get_graph_size());
+
+    return new_graph;
 }
 
 NFA_Generator::~NFA_Generator()

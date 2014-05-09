@@ -6,8 +6,9 @@
 class TokenManager
 {
     public:
-        vector<bool> is_Final;
 
+        vector<bool> is_Final;
+        TokenManager(){};
         TokenManager(/*TransitionTable *transTable*/);
         TestTokenManager test;
         void printTransitionTable();

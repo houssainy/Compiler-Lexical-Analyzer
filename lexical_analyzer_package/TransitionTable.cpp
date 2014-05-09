@@ -4,7 +4,7 @@
 TransitionTable::TransitionTable( vector < vector <int> > MDFA ,
                                   unordered_map <char,int> input,
                                   vector <bool> finalState ,
-                                  unordered_map <int,string> tokenType )
+                                  vector<string> tokenType )
 {
     //ctor
     this->MDFA = MDFA;

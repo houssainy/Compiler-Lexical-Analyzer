@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include "TransitionTable.h"
 #include "Lexical_Analyzer.h"
+<<<<<<< HEAD
 #include "graph_package/Node.h"
 #include "graph_package/Graph.h"
 #include "test_package/DFATest.h"
@@ -15,11 +16,14 @@
 #include "lexical_analyzer_package/NFA_Generator.h"
 #include "lexical_analyzer_package/DFA_Minimization.h"
 #include "lexical_analyzer_package/ExpressionEvaluator.h"
+=======
+>>>>>>> 042b4763c1f1a3e82332f195f59c3658af9110bf
 
 using namespace std;
 
 int main(int arg , char* args[])
 {
+
     /**************************** Main Code******************************/
 //    Lexical_Analyzer lx(args[1]);
 //
@@ -64,7 +68,7 @@ int main(int arg , char* args[])
 //
 //        /******************* DFA TEST  **************************
 //                            AHMED */
-////<<<<<<< HEAD
+//      DFATest DFAtest = DFATest ();
 //    /**
 //     * DFA test
 //     */
@@ -374,6 +378,7 @@ int main(int arg , char* args[])
 //            cout << DFA[i][j].get_state_number ()<<"\t" <<DFA[i][j].is_final () << endl;
 //        }
 //    }
+<<<<<<< HEAD
 //
 //    mini = DFA_Minimization ();
 //    MDFA = mini.minimize(DFA,new_states);
@@ -386,6 +391,8 @@ int main(int arg , char* args[])
 //                cout << MDFA[i][j]<<"\t\t\t"<<finals[MDFA[i][j]]<< endl;
 //            else
 //                cout << MDFA[i][j]<< endl;
+=======
+>>>>>>> 042b4763c1f1a3e82332f195f59c3658af9110bf
 
         /******************* END OF AHMED TEST  ******************/
 
@@ -533,15 +540,6 @@ int main(int arg , char* args[])
         cout<< "Unable to open input file";
     }
         /******************* END OF BUSHRA TEST  ***********************/
-
-
-//=======
-
-
-    //DFATest DFAtest = DFATest ();
-
-
-//>>>>>>> c0df6ff9adc88fee05a6d8e6378ee6c8b1b1ff4d
 
     /***************************** END OF TEST **********************************/
     return 0;
