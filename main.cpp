@@ -605,6 +605,98 @@ int main()
             else
                 cout << MDFA[i][j]<< endl;
 
+    /**
+     *-------------------------------------------
+     *Test 4
+     *-------------------------------------------
+     */
+     cout << "\n\n\n\n"<<"test 4"<<endl;
+
+// input to NFA table
+    nfa.clear();
+    finalStates.clear();
+    eclosure.clear();
+
+
+    row.clear();
+    row.push_back(-1);
+    row.push_back(-1);
+    nfa.push_back(row);
+    row.clear();
+    row.push_back(2);
+    row.push_back(1);
+    nfa.push_back(row);
+    row.clear();
+    row.push_back(-1);
+    row.push_back(-1);
+    nfa.push_back(row);
+    row.clear();
+    row.push_back(4);
+    row.push_back(2);
+    nfa.push_back(row);
+    row.clear();
+    row.push_back(-1);
+    row.push_back(-1);
+    nfa.push_back(row);
+    row.clear();
+
+    cout << nfa.size()<<endl;
+//input to e-closure
+    row.push_back(1);
+    row.push_back(4);
+    eclosure.push_back(row);
+    row.clear();
+    eclosure.push_back(row);
+    row.clear();
+    row.push_back(3);
+    eclosure.push_back(row);
+    row.clear();
+    eclosure.push_back(row);
+    row.clear();
+    row.push_back(1);
+    eclosure.push_back(row);
+    row.clear();
+    cout<< eclosure.size()<<endl;
+//create final states vector
+    finalStates.clear();
+    finalStates.push_back(false);
+    finalStates.push_back(false);
+    finalStates.push_back(false);
+    finalStates.push_back(false);
+    finalStates.push_back(true);
+    cout<< finalStates.size() <<endl;
+//this vector for test only
+    input.clear();
+    input.push_back("i");
+    input.push_back("f");
+
+    /**
+        constractor of DFA genrator taka nfa table and eclousre that genrate when we traverse in the NFA graph
+        * input make your map and let it for me to change it
+        * final state also will generate when we traverse in the graph
+    */
+    gene = DFA_Genrator (nfa , eclosure , input.size() ,finalStates);
+    // this method get the DFA table from DFA Generator to pass it to DFA Minimization
+    DFA = gene.Get_DFA();
+    // this method get the new DFA states from DFA Generator to pass it to DFA Minimization
+    new_states = gene.Get_New_States();
+   // print the DFA table
+    for (int i=0 ; i<DFA.size() ; i++)
+        for (int j=0; j<DFA[i].size() ; j++)
+            cout << DFA[i][j].get_state_number ()<<"\t" <<DFA[i][j].is_final () << endl;
+
+    mini = DFA_Minimization ();
+    MDFA = mini.minimize(DFA,new_states);
+    finals.clear();
+    finals =mini.Is_final();
+    cout <<"\n\n\n"<<"Minimization"<<endl;
+    for (int i=0 ; i<MDFA.size() ; i++)
+        for (int j=0; j<MDFA[i].size() ; j++)
+            if (MDFA[i][j]!=-1)
+                cout << MDFA[i][j]<<"\t\t\t"<<finals[MDFA[i][j]]<< endl;
+            else
+                cout << MDFA[i][j]<< endl;
+
     return 0;
 
 };

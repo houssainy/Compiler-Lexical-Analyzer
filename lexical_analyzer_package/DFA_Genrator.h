@@ -20,7 +20,7 @@ class DFA_Genrator
     protected:
 
     private:
-        bool Compare (DFA_State state );
+        int Compare (DFA_State state );
         vector < vector < DFA_State > > DFA ;
         vector <DFA_State> newStates ;
 };

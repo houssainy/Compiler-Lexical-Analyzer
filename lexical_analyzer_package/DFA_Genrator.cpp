@@ -22,6 +22,7 @@ DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int 
     for(int i =0 ; i<eClouser[0].size() ; i++)
     {
         int state = eClouser[0][i];
+        bool testcase = finalState [state];
         startState.set_state(state,finalState[state]);
     }
     stateindex++;
@@ -59,11 +60,14 @@ DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int 
                 }
                 if (!element.is_Empty())
                 {
-                    if (!Compare(element))
+                    int found =Compare(element);
+                    if (found ==-1)
                     {
                         newStates.push_back(element);
                         stateindex ++ ;
                     }
+                    else
+                        element = newStates[found];
                 }
                 else {
                     element.set_state_number(-1);
@@ -94,16 +98,16 @@ vector < DFA_State> DFA_Genrator::Get_New_States ()
     return newStates;
 }
 
-bool DFA_Genrator::Compare (DFA_State state )
+int DFA_Genrator::Compare (DFA_State state )
 {
     vector <bool> bitmask = state.get_state();
     for (int i =0 ; i<newStates.size(); i++)
     {
         vector <bool> tempbitmask = newStates[i].get_state();
         if (bitmask==tempbitmask)
-            return true;
+            return i;
     }
-    return false;
+    return -1;
 }
 
 DFA_Genrator::~DFA_Genrator()
