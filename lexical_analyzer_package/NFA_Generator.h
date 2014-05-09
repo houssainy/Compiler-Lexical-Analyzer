@@ -1,7 +1,6 @@
 #ifndef NFA_GENERATOR_H
 #define NFA_GENERATOR_H
 
-#include "Automata.h"
 #include "SimpsonGraphBuilder.h"
 
 #include "../graph_package/Graph.h"
@@ -14,12 +13,14 @@
 
 using namespace std;
 
-class NFA_Generator : public Automata
+class NFA_Generator
 {
     public:
         NFA_Generator(string file_path);
-        Graph* getAutomata();
-
+        Graph* getNFA();
+        unordered_map<char,int> get_input_map(){
+            return input_map;
+        }
         virtual ~NFA_Generator();
     protected:
     private:
@@ -39,6 +40,7 @@ class NFA_Generator : public Automata
         void handle_punctuation_graph(string line);
         void handle_regular_exp_or_def_graph(string line);
 
+        Graph* copy_graph(Graph *g);
         Graph* build_new_input_graph(string temp_string );
         Graph *get_language_graph();
 

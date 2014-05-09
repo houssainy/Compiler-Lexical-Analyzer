@@ -1,44 +1,48 @@
-#include <iostream>
-#include <unordered_map>
-
-#include "test_package/TestSimpsonGraphBuilder.h"
 #include <stack>
 #include <fstream>
 #include <string.h>
-#include "lexical_analyzer_package/TokenManager.h"
-#include "lexical_analyzer_package/ExpressionEvaluator.h"
-#include "graph_package/Graph.h"
-#include "graph_package/Node.h"
-#include "lexical_analyzer_package/NFA_Generator.h"
+#include <iostream>
+#include <unordered_map>
 #include "TransitionTable.h"
-#include "lexical_analyzer_package/DFA_Genrator.h"
+#include "Lexical_Analyzer.h"
+#include "graph_package/Node.h"
+#include "graph_package/Graph.h"
+#include "test_package/DFATest.h"
 #include "lexical_analyzer_package/DFA_State.h"
+#include "test_package/TestSimpsonGraphBuilder.h"
+#include "lexical_analyzer_package/TokenManager.h"
+#include "lexical_analyzer_package/DFA_Genrator.h"
+#include "lexical_analyzer_package/NFA_Generator.h"
 #include "lexical_analyzer_package/DFA_Minimization.h"
+#include "lexical_analyzer_package/ExpressionEvaluator.h"
 
 using namespace std;
 
-int main()
+int main(int arg , char* args[])
 {
-    /**
-    *  ***************** Simposn't Test  **********************
-    *                       Houssainy
-    */
+    /**************************** Main Code******************************/
+    Lexical_Analyzer lx(args[1]);
+
+    /**************************** END OF MAIN ***************************/
+
+
+    /***************************** TEST *********************************/
+
+        /****************** Simposn't Test  **********************
+                            Houssainy */
+
     /** Test Graph Builder **/
     TestSimpsonGraphBuilder test_builder;
     test_builder.start();
-    /**
-    *  ***************** END OF TEST  **********************
-    */
 
-    /**
-    *   ***************** TEST PostFiXConversion **********************
-    **/
+        /******************* END OF Houssainy TEST  *************/
+
+
+        /****************** TEST PostFiXConversion  *************
+                            YASMINA */
 
     ExpressionEvaluator expressionEvaluator;
-
     string exp;
-
-
 
     exp=expressionEvaluator.post_fix_conversion("A.B|C*");
     cout <<"PostFixNotation of this Expression (A.B|C*) is "<< exp << endl;
@@ -56,6 +60,11 @@ int main()
     cout <<"PostFixNotation of this Expression (A.(B|C)|A|C*.(A*.S*)) is "<< exp << endl;
     cout << "-------------------------------------------------------" << endl;
 
+        /******************* END OF YASMINA TEST  ***************/
+
+        /******************* DFA TEST  **************************
+                            AHMED */
+<<<<<<< HEAD
     /**
      * DFA test
      */
@@ -377,10 +386,12 @@ int main()
             else
                 cout << MDFA[i][j]<< endl;
 
-                /**
-    *   ***************** BUSHRA **********************
-    **/
+        /******************* END OF AHMED TEST  ******************/
 
+        /****************** LEXIACL ANALYSIS OUTPUT  *************
+                            BUSHRA */
+
+    /* **************************************************/
     vector< vector<char> > symbol_table;
     ifstream inputFile ;
     ofstream outputFile;
@@ -389,7 +400,8 @@ int main()
     TestTokenManager test;
     test.start();
 
-    /****** For Test ******/
+    /* ***** For Test ******/
+    vector<string> Type;
     unordered_map <char,int> in ;
     in.insert(make_pair('d',0));
     in.insert(make_pair('o',1));
@@ -397,9 +409,7 @@ int main()
     in.insert(make_pair('b',3));
     in.insert(make_pair('l',4));
     in.insert(make_pair('e',5));
-
-    vector<string> Type;
-    /************/
+    /* ***********/
     TokenManager *token;
     TransitionTable *t =new TransitionTable(MDFA, in , finals,Type);
     token = new TokenManager(t);
@@ -408,7 +418,7 @@ int main()
     char inputChar = ' ' ;
     int returnState;
     string token_type;
-
+    /* **************************************************/
     inputFile.open("inputFile.txt");
     if(inputFile)
     {
@@ -439,7 +449,7 @@ int main()
             {
                 token_type = t->type(token->states[token->states.size()]);
                 token_type = "Identifier";
-                cout << "********Symbol Table********" << endl;
+                cout << "************************* Symbol Table**********************" << endl;
                 if(token_type == "Identifier")
                 {
                     outputFile << /*token_type*/ "id" << endl;
@@ -452,7 +462,6 @@ int main()
                         cout << endl;
                     }
                 }
-
                 if(token_type == "operator")
                     outputFile << "\t" << token->seq[0] << endl;
 
@@ -480,8 +489,8 @@ int main()
         outputFile.close();
         errorFile.close();
 
-        cout << endl << "************************************" << endl;
-        cout << "States path"<<endl;
+        cout << endl << "*****************************************************" << endl;
+        cout << "*********************** States path ***********************"<<endl;
         for(int i = 0; i < token->states.size(); ++i)
         {
             cout << token->states[i]<<endl;
@@ -493,11 +502,18 @@ int main()
     {
         cout<< "Unable to open input file";
     }
-    /**
-    *   ***************** END BUSHRA **********************
-    **/
+        /******************* END OF BUSHRA TEST  ***********************/
 
 
+=======
+
+
+    DFATest DFAtest = DFATest ();
+
+
+>>>>>>> c0df6ff9adc88fee05a6d8e6378ee6c8b1b1ff4d
+
+    /***************************** END OF TEST **********************************/
     return 0;
 
 };

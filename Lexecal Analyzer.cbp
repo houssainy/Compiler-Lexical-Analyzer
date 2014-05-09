@@ -18,7 +18,11 @@
 					<Add directory="test_package" />
 =======
 					<Add directory="graph_package" />
+<<<<<<< HEAD
 >>>>>>> 7b8581ca71f30ae23d0ea853aaeef726f80b8325
+=======
+					<Add directory="include" />
+>>>>>>> c0df6ff9adc88fee05a6d8e6378ee6c8b1b1ff4d
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -33,7 +37,11 @@
 					<Add directory="test_package" />
 =======
 					<Add directory="graph_package" />
+<<<<<<< HEAD
 >>>>>>> 7b8581ca71f30ae23d0ea853aaeef726f80b8325
+=======
+					<Add directory="include" />
+>>>>>>> c0df6ff9adc88fee05a6d8e6378ee6c8b1b1ff4d
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -52,8 +60,6 @@
 		<Unit filename="graph_package/Graph.h" />
 		<Unit filename="graph_package/Node.cpp" />
 		<Unit filename="graph_package/Node.h" />
-		<Unit filename="lexical_analyzer_package/Automata.cpp" />
-		<Unit filename="lexical_analyzer_package/Automata.h" />
 		<Unit filename="lexical_analyzer_package/DFA_Genrator.cpp" />
 		<Unit filename="lexical_analyzer_package/DFA_Genrator.h" />
 		<Unit filename="lexical_analyzer_package/DFA_Minimization.cpp" />
@@ -62,6 +68,8 @@
 		<Unit filename="lexical_analyzer_package/DFA_State.h" />
 		<Unit filename="lexical_analyzer_package/ExpressionEvaluator.cpp" />
 		<Unit filename="lexical_analyzer_package/ExpressionEvaluator.h" />
+		<Unit filename="lexical_analyzer_package/Lexical_Analyzer.cpp" />
+		<Unit filename="lexical_analyzer_package/Lexical_Analyzer.h" />
 		<Unit filename="lexical_analyzer_package/NFA_Generator.cpp" />
 		<Unit filename="lexical_analyzer_package/NFA_Generator.h" />
 		<Unit filename="lexical_analyzer_package/SimpsonGraphBuilder.cpp" />
@@ -71,10 +79,15 @@
 		<Unit filename="lexical_analyzer_package/TransitionTable.cpp" />
 		<Unit filename="lexical_analyzer_package/TransitionTable.h" />
 		<Unit filename="main.cpp" />
+<<<<<<< HEAD
 		<Unit filename="test_package/TestSimpsonGraphBuilder.cpp" />
 		<Unit filename="test_package/TestSimpsonGraphBuilder.h" />
 		<Unit filename="test_package/TestTokenManager.cpp" />
 		<Unit filename="test_package/TestTokenManager.h" />
+=======
+		<Unit filename="test_package/TestNFA.cpp" />
+		<Unit filename="test_package/TestNFA.h" />
+>>>>>>> c0df6ff9adc88fee05a6d8e6378ee6c8b1b1ff4d
 		<Extensions>
 			<code_completion />
 			<debugger />

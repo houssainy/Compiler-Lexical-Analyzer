@@ -47,9 +47,13 @@
 1399304497 /home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/TokenManager.h
 	"TransitionTable.h"
 
+<<<<<<< HEAD
 1399427589 D
 	"TestTokenManager.h"
 	"TestTokenManager.h"
+=======
+1399517556 D
+>>>>>>> c0df6ff9adc88fee05a6d8e6378ee6c8b1b1ff4d
 
 1397917498 4e5a7c002f4833fc0c5b90886ef1979fe7756
 
@@ -195,7 +199,11 @@
 	"../graph_package/Graph.h"
 	<iostream>
 
+<<<<<<< HEAD
 1399540661 
+=======
+1399427589 
+>>>>>>> c0df6ff9adc88fee05a6d8e6378ee6c8b1b1ff4d
 
 1397777379 source:/home/houssainy/Desktop/MyWorkSpaces/C++/Lexecal Analyzer/lexical_analyzer_package/test_class.cpp
 	"test_class.h"
@@ -347,19 +355,20 @@
 	"../graph_package/Graph.h"
 	<iostream>
 
-1399517556 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/NFA_Generator.cpp
+1399524997 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/NFA_Generator.cpp
 	"NFA_Generator.h"
 	"strings.h"
 	<stdio.h>
 	<vector>
 	<iostream>
 
-1399517556 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/NFA_Generator.h
+1399524997 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/NFA_Generator.h
 	"Automata.h"
 	"SimpsonGraphBuilder.h"
 	"../graph_package/Graph.h"
 	<fstream>
 	<iostream>
+	<sstream>
 	"unordered_map"
 	"ExpressionEvaluator.h"
 
@@ -378,9 +387,10 @@
 1399466422 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/TokenManager.h
 	"TransitionTable.h"
 
-1399524643 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/main.cpp
+1399602638 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/main.cpp
 	<iostream>
 	"test_package/TestSimpsonGraphBuilder.h"
+	"test_package/DFATest.h"
 	<stack>
 	<fstream>
 	<string.h>
@@ -410,18 +420,22 @@
 
 1399429345 onGraphBuilder.h"
 
-1399517556 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/test_package/TestSimpsonGraphBuilder.cpp
+1399524997 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/test_package/TestSimpsonGraphBuilder.cpp
 	"TestSimpsonGraphBuilder.h"
 	"BFS.h"
 
-1399517174 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/DFA_Genrator.cpp
+1399602205 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/DFA_Genrator.cpp
 	"DFA_Genrator.h"
 	<DFA_State.h>
 
-1399517137 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/DFA_Genrator.h
+1399602693 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/DFA_Genrator.h
 	<vector>
 	<iostream>
 	<DFA_State.h>
+	<unordered_map>
+	"../graph_package/Graph.h"
+	"../graph_package/Node.h"
+	"../graph_package/Edge.h"
 
 1399492942 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/DFA_State.cpp
 	"DFA_State.h"
@@ -432,7 +446,7 @@
 1398090688 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/TransitionTable.cpp
 	"TransitionTable.h"
 
-1398090688 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/TransitionTable.h
+1399598517 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/lexical_analyzer_package/TransitionTable.h
 	<string>
 	<vector>
 	<unordered_map>
@@ -521,10 +535,10 @@
 
 1398247315 d786880b84c245b501a1e19a76464e1911956
 
-1399427232 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\edge.cpp
+1399607139 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\edge.cpp
 	"Edge.h"
 
-1399427219 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\edge.h
+1399607146 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\edge.h
 	<iostream>
 
 1399427318 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\graph.cpp
@@ -534,32 +548,37 @@
 	"Node.h"
 	"Node.h"
 
-1399501688 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\node.h
+1399565517 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\node.h
 	<vector>
 	"Edge.h"
 	<iostream>
 
-1399427340 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\node.cpp
+1399561095 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\node.cpp
 	"Node.h"
 
 1399381762 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\automata.cpp
 
-1399501688 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\dfa_genrator.cpp
+1399607228 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\dfa_genrator.cpp
 	"DFA_Genrator.h"
 	<DFA_State.h>
+	<queue>
 
-1399381762 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\dfa_genrator.h
+1399606636 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\dfa_genrator.h
 	<vector>
 	<iostream>
 	<DFA_State.h>
+	<unordered_map>
+	"../graph_package/Graph.h"
+	"../graph_package/Node.h"
+	"../graph_package/Edge.h"
 
 1399501688 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\dfa_state.h
 	<vector>
 
-1399501688 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\dfa_minimization.cpp
+1399569498 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\dfa_minimization.cpp
 	"DFA_Minimization.h"
 
-1399501688 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\dfa_minimization.h
+1399569498 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\dfa_minimization.h
 	<vector>
 	<DFA_State.h>
 	<map>
@@ -584,15 +603,15 @@
 	"../graph_package/Graph.h"
 	<iostream>
 
-1399517970 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\nfa_generator.cpp
+1399604242 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\nfa_generator.cpp
 	"NFA_Generator.h"
 	"strings.h"
 	<stdio.h>
 	<vector>
 	<iostream>
+	<queue>
 
-1399516984 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\nfa_generator.h
-	"Automata.h"
+1399604583 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\nfa_generator.h
 	"SimpsonGraphBuilder.h"
 	"../graph_package/Graph.h"
 	<fstream>
@@ -604,10 +623,10 @@
 1399381762 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\automata.h
 	"../graph_package/Graph.h"
 
-1399465109 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\simpsongraphbuilder.cpp
+1399561274 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\simpsongraphbuilder.cpp
 	"SimpsonGraphBuilder.h"
 
-1399427542 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\tokenmanager.cpp
+1399606248 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\tokenmanager.cpp
 	"TokenManager.h"
 	<string.h>
 	"TransitionTable.h"
@@ -616,17 +635,18 @@
 1399427505 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\tokenmanager.h
 	"TransitionTable.h"
 
-1399381762 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\transitiontable.h
+1399606180 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\transitiontable.h
 	<string>
 	<vector>
 	<unordered_map>
 
-1399381762 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\transitiontable.cpp
+1399606170 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\transitiontable.cpp
 	"TransitionTable.h"
 
-1399502481 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\main.cpp
+1399603815 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\main.cpp
 	<iostream>
 	"test_package/TestSimpsonGraphBuilder.h"
+	"test_package/DFATest.h"
 	<stack>
 	<fstream>
 	<string.h>
@@ -638,6 +658,8 @@
 	"TransitionTable.h"
 	"lexical_analyzer_package/DFA_Genrator.h"
 	"lexical_analyzer_package/DFA_State.h"
+	"lexical_analyzer_package/DFA_Minimization.h"
+	"Lexical_Analyzer.h"
 
 1399427589 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\test_package\testsimpsongraphbuilder.h
 	"../lexical_analyzer_package/SimpsonGraphBuilder.h"
@@ -649,7 +671,7 @@
 	<string.h>
 	<iostream>
 
-1399516951 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\test_package\testsimpsongraphbuilder.cpp
+1399604616 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\test_package\testsimpsongraphbuilder.cpp
 	"TestSimpsonGraphBuilder.h"
 	"BFS.h"
 
@@ -927,7 +949,7 @@
 
 1399499224 f1aaff8eafed74c498e59adce5ad81588f189
 
-1399512222 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\bfs.cpp
+1399607098 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\bfs.cpp
 	"BFS.h"
 
 1399501688 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\graph_package\bfs.h
@@ -936,7 +958,7 @@
 	<queue>
 	"Graph.h"
 
-1399517556 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/graph_package/BFS.cpp
+1399524997 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/graph_package/BFS.cpp
 	"BFS.h"
 
 1399517556 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/graph_package/BFS.h
@@ -945,6 +967,7 @@
 	<queue>
 	"Graph.h"
 
+<<<<<<< HEAD
 1399556333 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\graph_package\bfs.cpp
 	"BFS.h"
 
@@ -953,4 +976,49 @@
 	<vector>
 	<queue>
 	"Graph.h"
+=======
+1399606300 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\lexical_analyzer.cpp
+	"Lexical_Analyzer.h"
+	"NFA_Generator.h"
+	"DFA_Genrator.h"
+	"DFA_Minimization.h"
+	"TransitionTable.h"
+	<vector>
+
+1399599964 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\lexical_analyzer.h
+	"TokenManager.h"
+	<iostream>
+
+1399427589 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\test_package\testnfa.h
+	"../lexical_analyzer_package/SimpsonGraphBuilder.h"
+	"../lexical_analyzer_package/NFA_Generator.h"
+	<vector>
+	"../graph_package/Edge.h"
+	<stack>
+	<fstream>
+	<string.h>
+	<iostream>
+
+1399602502 source:/home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/test_package/DFATest.cpp
+	"DFATest.h"
+
+1399602500 /home/eng-mego/Desktop/work Space/Compiler_Lexical_Analyzer/test_package/DFATest.h
+	"../lexical_analyzer_package/DFA_State.h"
+	"../lexical_analyzer_package/DFA_Genrator.h"
+	"../lexical_analyzer_package/DFA_Minimization.h"
+
+1399602500 4117519144b0a9e5661565783fab49383cd0e
+
+1399602186 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\test_package\testnfa.cpp
+	"TestNFA.h"
+	"BFS.h"
+
+1399603393 c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\test_package\dfatest.h
+	"../lexical_analyzer_package/DFA_State.h"
+	"../lexical_analyzer_package/DFA_Genrator.h"
+	"../lexical_analyzer_package/DFA_Minimization.h"
+
+1399603393 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\test_package\dfatest.cpp
+	"DFATest.h"
+>>>>>>> c0df6ff9adc88fee05a6d8e6378ee6c8b1b1ff4d
 

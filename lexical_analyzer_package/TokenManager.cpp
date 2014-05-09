@@ -18,15 +18,27 @@ TokenManager::TokenManager(TransitionTable *transTable)
 
 int TokenManager::GetNextState(char inputChar)
 {
+    /********************************************************************/
     if(inputChar != '\0')
         transTableIndex = transTable-> Get_Input(inputChar);
- /********************** white Spaces ********************************/
+
+    /********************** white Spaces ********************************/
     if (inputChar == ' ' || inputChar == '/t' || inputChar == '/n' )
     {
         is_Token = isToken(tempState);/**tempState: the previous return*/
         cout << "isToken :" << is_Token << endl;
-        tempState = -1;
+
+        if(is_Token)
+            {tempState = -1;}
         return tempState;
+    }
+
+    /*********** Input not Exist in our language alphabets**************/
+    if (transTableIndex == -1)
+    {
+        isError = true;
+        discardChar = inputChar;
+        return -1;
     }
 
     /************************** New Token ****************************/
@@ -37,6 +49,7 @@ int TokenManager::GetNextState(char inputChar)
         seq.clear();
         states.clear();
     }
+
     /*********** Input not Exist in our language alphabets *************/
     if (transTableIndex == -1)
     {
@@ -45,11 +58,11 @@ int TokenManager::GetNextState(char inputChar)
         discardChar = inputChar;
         return tempState ;
     }
-   /*******************************************************************/
+   /************************** End of file *****************************/
     if ((inputChar == '\0') && (seq.size()!= 0))
     {
         int n = seq.size();
-        is_Token = isToken(tempState); /**tempState: the previous return*/
+        is_Token = isToken(tempState); /* *tempState: the previous return*/
 
         if(is_Token)
             return tempState;
@@ -74,7 +87,7 @@ int TokenManager::GetNextState(char inputChar)
         tempState = transition_table[tempState][transTableIndex];
 
 
-        /**************Test *********************/
+        /* Test ******/
         cout<<"Index:" << transTableIndex <<endl;
         cout << "NextState:" << tempState << endl;
         if(isToken(tempState)) return tempState;
@@ -104,6 +117,7 @@ int TokenManager::GetNextState(char inputChar)
 
                 tempState = transition_table[tempState][transTableIndex];
                 cout<< tempState;
+
                 if (isToken(tempState)){is_Token = true; return tempState;}
                 else {store.pop_back(); states.pop_back();}
             }

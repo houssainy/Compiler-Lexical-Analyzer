@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <vector>
 #include <iostream>
+#include<queue>
 
 NFA_Generator::NFA_Generator(string file_path)
 {
@@ -11,7 +12,7 @@ NFA_Generator::NFA_Generator(string file_path)
     exp_eval = ExpressionEvaluator(&graph_builder);
 }
 
-Graph* NFA_Generator::getAutomata()
+Graph* NFA_Generator::getNFA()
 {
 
     ifstream grammar_file (file_path.c_str());
@@ -64,6 +65,7 @@ void NFA_Generator::handle_keyword_graph(string line)
 
             // Set last node as acceptance state
             temp_graph->get_end_node()->set_acceptance_state(true);
+            temp_graph->get_end_node()->set_token_type("key word");
 
             if( language_map.find("key_word") != language_map.end() )
             {
@@ -86,6 +88,7 @@ void NFA_Generator::handle_keyword_graph(string line)
 
             // Set last node as acceptance state
             temp_graph->get_end_node()->set_acceptance_state(true);
+            temp_graph->get_end_node()->set_token_type("key word");
 
             if( language_map.find("key_word") != language_map.end() )
             {
@@ -143,6 +146,7 @@ void NFA_Generator::handle_punctuation_graph(string line)
 
             // Set last node as acceptance state
             temp_graph->get_end_node()->set_acceptance_state(true);
+            temp_graph->get_end_node()->set_token_type("punctuation");
 
             // Add new character to input map
             if( input_map.find(line[i]) == input_map.end() ) // this character not added before
@@ -270,6 +274,7 @@ void NFA_Generator::handle_regular_exp_or_def_graph(string line)
         //Evaluate the expression
         Graph* result_graph = exp_eval.evaluate(exp_string.str() , &exp_graphs);
         result_graph->get_end_node()->set_acceptance_state(true);
+        result_graph->get_end_node()->set_token_type(exp_name);
 
         // insert new reg expression or deffinition
         language_map.insert(pair<string,Graph*>(exp_name, result_graph));
@@ -300,18 +305,28 @@ Graph * NFA_Generator::build_new_input_graph(string temp_string)
             **/
             int i = 0;
             if( temp_string[i] == '\\' || temp_string[i] == '!' ||
-                temp_string[i] == '>' || temp_string[i] == '<'){ //case 2 or 3
+                    temp_string[i] == '>' || temp_string[i] == '<')  //case 2 or 3
+            {
 
                 if( temp_string[i] == '\\')
                     i++;
 
+                if( input_map.find(temp_string[i]) == input_map.end() ) // this character not added before
+                    input_map.insert(pair<char,int>(temp_string[i], input_count++));
                 temp_graph = graph_builder.init_graph(string(1,temp_string[i++]));
 
-                for( ; i < temp_string.length() ; i++ ){
+                for( ; i < temp_string.length() ; i++ )
+                {
                     if( temp_string[i] != '\\')
+                    {
+                        if( input_map.find(temp_string[i]) == input_map.end() ) // this character not added before
+                            input_map.insert(pair<char,int>(temp_string[i], input_count++));
                         temp_graph = graph_builder.and_operation(temp_graph , graph_builder.init_graph(string(1,temp_string[i])));
+                    }
                 }
-            }else{//Case 1 or error
+            }
+            else  //Case 1 or error
+            {
                 temp_graph = graph_builder.init_graph(string(1,temp_string[i++]));
 
                 // skip white spaces after exp name
@@ -328,8 +343,13 @@ Graph * NFA_Generator::build_new_input_graph(string temp_string)
                 while(i < temp_string.length() && (temp_string[i] == ' ' || temp_string[i] == '\t') )
                     i++;
 
-                for( char c = temp_string[0] + 1  ; c <= temp_string[i] ; c++ ) // Range a-z OR 1-9
+                for( char c = temp_string[0] + 1  ; c <= temp_string[i] ; c++ )  // Range a-z OR 1-9
+                {
+                    if( input_map.find(c) == input_map.end() ) // this character not added before
+                        input_map.insert(pair<char,int>(c, input_count++));
+
                     temp_graph = graph_builder.or_operation(temp_graph , graph_builder.init_graph(string(1, c)));
+                }
             }
 
         }
@@ -360,6 +380,58 @@ Graph *NFA_Generator::get_language_graph()
     }
 
     return language_graph;
+}
+
+Graph* NFA_Generator::copy_graph(Graph *g)
+{
+    queue <Edge> q;
+    Graph *graph = new Graph();
+//
+//    bool v[g->get_graph_size()];
+//    for(int i = 0 ; i < g->get_graph_size() ; i++)
+//        v[i] = false;
+//
+//    Node* first=g->get_start_node();
+//    vector<Edge> *children ;
+//    children= first->get_children();
+//    v[first->get_node_name()] = true;
+//
+//    //----------- New Start Node -----------
+//    Node *current_node = new Node();
+//    current_node->set_node_name();
+//
+//    graph->set_start_node(current_node);
+//
+//    for(int i=0; i< children->size(); i++)
+//    {
+//        q.push((*children)[i]);
+//    }
+//
+//    while(q.size()!=0)
+//    {
+//        Edge element = q.front();
+//        q.pop();
+//
+//        Node *new_node = new Node();
+//        new_node->set_node_name();
+//
+//
+//        if( v[element.get_end_node()->get_node_name()] )
+//            continue;
+//
+//        current_node->add_child( new_node , element.get_value() );
+//
+//        v[element.get_end_node()->get_node_name()] = true;
+//        children = element.get_end_node()->get_children();
+//        for(int i=0; i<children->size(); i++)
+//        {
+//            Edge child = (*children)[i];
+//            q.push((*children)[i]);
+//        }
+//
+//
+//    }
+    return graph;
 }
 
 NFA_Generator::~NFA_Generator()
