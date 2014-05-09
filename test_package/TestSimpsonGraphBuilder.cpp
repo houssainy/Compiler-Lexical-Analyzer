@@ -39,7 +39,7 @@ void TestSimpsonGraphBuilder::start(){
         cout << "Failed" << endl;
 
     BFS b ;
-    b.getBFS(g);
+  //  b.getBFS(g);
 }
 TestSimpsonGraphBuilder::~TestSimpsonGraphBuilder()
 {

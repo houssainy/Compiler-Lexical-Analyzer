@@ -9,16 +9,25 @@ TokenManager::TokenManager(TransitionTable *transTable)
     this->transTable = transTable;
     transition_table = transTable->Get_MDFA();
    // transition_table=test.insertTable();
-    startNode = transition_table[0].front();
+    startNode = 0;
     is_Token = false;
     isError = false;
     tempState = startNode;
+    cout<< "Start State:"<<tempState << endl;
 }
 
 int TokenManager::GetNextState(char inputChar)
 {
-
-    transTableIndex = transTable-> Get_Input(string(1,inputChar));
+    if(inputChar != '\0')
+        transTableIndex = transTable-> Get_Input(inputChar);
+ /********************** white Spaces ********************************/
+    if (inputChar == ' ' || inputChar == '/t' || inputChar == '/n' )
+    {
+        is_Token = isToken(tempState);/**tempState: the previous return*/
+        cout << "isToken :" << is_Token << endl;
+        tempState = -1;
+        return tempState;
+    }
 
     /************************** New Token ****************************/
     if (is_Token && tempState == -1)
@@ -36,13 +45,7 @@ int TokenManager::GetNextState(char inputChar)
         discardChar = inputChar;
         return tempState ;
     }
-    /********************** white Spaces ********************************/
-    if (inputChar == ' ' || inputChar == '/t' || inputChar == '/n' )
-    {
-        is_Token = isToken(tempState);/**tempState: the previous return*/
-        return tempState;
-    }
-    /*******************************************************************/
+   /*******************************************************************/
     if ((inputChar == '\0') && (seq.size()!= 0))
     {
         int n = seq.size();
@@ -53,7 +56,7 @@ int TokenManager::GetNextState(char inputChar)
         else
         {
             /* seq[n] != 0 */
-            transTableIndex = transTable-> Get_Input(string(1,seq[n]));
+            transTableIndex = transTable-> Get_Input(seq[n]);
             transTableIndex =2;
             tempState = -1;
         }
@@ -64,12 +67,17 @@ int TokenManager::GetNextState(char inputChar)
         /**There is accepted path -->
         1. add inputChar to sequence vector
         2. get Next State **/
+
         seq.push_back(inputChar);
+
+        cout << "State:" << tempState;
         tempState = transition_table[tempState][transTableIndex];
 
-//        cout<<"Index:" << transTableIndex <<endl;
-//        cout << "State:" << tempState << endl;
-//        cout <<"transState:" <<transition_table[tempState][transTableIndex]<<endl;
+
+        /**************Test *********************/
+        cout<<"Index:" << transTableIndex <<endl;
+        cout << "NextState:" << tempState << endl;
+        if(isToken(tempState)) return tempState;
     }
     else
     {
@@ -82,10 +90,18 @@ int TokenManager::GetNextState(char inputChar)
         }
         while(store.size() != 0 )
         {
-            if(! is_Token){ store.pop_back(); states.pop_back();}
-            for (int i = n ; i > 0; i-1)
+            store.pop_back(); states.pop_back();
+            for (int i = n ; i > 0; i--)
             {
                 tempState = states[states.size()];
+                cout << "tempState: "<<tempState <<endl;
+                for (int i = 0 ; i < store.size() ; i++)
+                    cout<< states[i]<<endl;
+
+                if (isToken(tempState)){
+                        is_Token = true; return tempState;}
+                else {store.pop_back(); states.pop_back();}
+
                 tempState = transition_table[tempState][transTableIndex];
                 cout<< tempState;
                 if (isToken(tempState)){is_Token = true; return tempState;}

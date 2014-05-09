@@ -842,7 +842,7 @@
 1399556333 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\simpsongraphbuilder.cpp
 	"SimpsonGraphBuilder.h"
 
-1399556469 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\tokenmanager.cpp
+1399564468 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\tokenmanager.cpp
 	"TokenManager.h"
 	<string.h>
 	"TransitionTable.h"
@@ -861,17 +861,35 @@
 	"TransitionTable.h"
 	"../test_package/TestTokenManager.h"
 
-1399470822 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\transitiontable.h
+1399560681 c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\transitiontable.h
+	<string>
+	<vector>
+	<unordered_map>
 
 1399427505 c:\users\mohamed\google drive\my workspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\tokenmanager.h
 	"TransitionTable.h"
 
 1399381762 c:\users\mohamed\google drive\my workspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\transitiontable.h
 
-1399470822 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\transitiontable.cpp
+1399560776 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\transitiontable.cpp
 	"TransitionTable.h"
 
-1399546386 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\main.cpp
+1399561184 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\main.cpp
+	<iostream>
+	<unordered_map>
+	"test_package/TestSimpsonGraphBuilder.h"
+	<stack>
+	<fstream>
+	<string.h>
+	"lexical_analyzer_package/TokenManager.h"
+	"lexical_analyzer_package/ExpressionEvaluator.h"
+	"graph_package/Graph.h"
+	"graph_package/Node.h"
+	"lexical_analyzer_package/NFA_Generator.h"
+	"TransitionTable.h"
+	"lexical_analyzer_package/DFA_Genrator.h"
+	"lexical_analyzer_package/DFA_State.h"
+	"lexical_analyzer_package/DFA_Minimization.h"
 
 1399381762 source:c:\users\mohamed\google drive\my workspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\transitiontable.cpp
 	"TransitionTable.h"
@@ -882,7 +900,7 @@
 
 1399427589 c:\users\mohamed\google drive\my workspace\c++\compiler-lexical-analyzer-master\test_package\testsimpsongraphbuilder.h
 
-1399556333 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\test_package\testsimpsongraphbuilder.cpp
+1399557079 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\test_package\testsimpsongraphbuilder.cpp
 	"TestSimpsonGraphBuilder.h"
 	"BFS.h"
 

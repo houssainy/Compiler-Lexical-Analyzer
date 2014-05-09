@@ -2,7 +2,7 @@
 
 
 TransitionTable::TransitionTable( vector < vector <int> > MDFA ,
-                                  unordered_map <string,int> input,
+                                  unordered_map <char,int> input,
                                   vector <bool> finalState ,
                                   vector <string> tokenType )
 {
@@ -17,9 +17,9 @@ vector < vector <int> > TransitionTable::Get_MDFA ()
     return MDFA;
 }
 
-int TransitionTable::Get_Input (string input)
+int TransitionTable::Get_Input (char input)
 {
-    unordered_map<string,int>::const_iterator it =input_map.find(input);
+    unordered_map<char,int>::const_iterator it =input_map.find(input);
 
     if (it!=input_map.end())
     {
