@@ -5,6 +5,7 @@
 class TokenManager
 {
     public:
+        TokenManager(){};
         TokenManager(TransitionTable *transTable);
         vector<char> seq ;
         bool isError ;
