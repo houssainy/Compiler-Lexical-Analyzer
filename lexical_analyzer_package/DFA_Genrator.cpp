@@ -42,24 +42,24 @@ void DFA_Genrator::init(Graph * NFA , int input_size){
         }
     }
 
-    while(q.size()!=0)
-    {
-        Edge element = q.front();
-        q.pop();
-        bfsItration.push_back(element.get_value());
-        if( v[element.get_end_node()->get_node_name()] )
-            continue;
-
-        v[element.get_end_node()->get_node_name()] = true;
-        children = element.get_end_node()->get_children();
-        for(int i=0; i<children->size(); i++)
-        {
-            Edge child = (*children)[i];
-            q.push((*children)[i]);
-        }
-
-
-    }
+//    while(q.size()!=0)
+//    {
+//        Edge element = q.front();
+//        q.pop();
+//        bfsItration.push_back(element.get_value());
+//        if( v[element.get_end_node()->get_node_name()] )
+//            continue;
+//
+//        v[element.get_end_node()->get_node_name()] = true;
+//        children = element.get_end_node()->get_children();
+//        for(int i=0; i<children->size(); i++)
+//        {
+//            Edge child = (*children)[i];
+//            q.push((*children)[i]);
+//        }
+//
+//
+//    }
 
     Generate(trans_nfa , eClouser , input_size , finalState);
 }
