@@ -13,7 +13,11 @@ class Lexical_Analyzer
         virtual ~Lexical_Analyzer();
     protected:
     private:
+<<<<<<< HEAD
+     //   TokenManager token_man = NULL;
+=======
         TokenManager token_man;
+>>>>>>> 042b4763c1f1a3e82332f195f59c3658af9110bf
         void init_transition_table(string file_path);
 };
 

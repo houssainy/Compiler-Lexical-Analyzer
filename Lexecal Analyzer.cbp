@@ -65,10 +65,16 @@
 		<Unit filename="lexical_analyzer_package/TransitionTable.cpp" />
 		<Unit filename="lexical_analyzer_package/TransitionTable.h" />
 		<Unit filename="main.cpp" />
+<<<<<<< HEAD
+		<Unit filename="test_package/TestSimpsonGraphBuilder.h" />
+		<Unit filename="test_package/TestTokenManager.cpp" />
+		<Unit filename="test_package/TestTokenManager.h" />
+=======
 		<Unit filename="test_package/DFATest.cpp" />
 		<Unit filename="test_package/DFATest.h" />
 		<Unit filename="test_package/TestSimpsonGraphBuilder.cpp" />
 		<Unit filename="test_package/TestSimpsonGraphBuilder.h" />
+>>>>>>> 042b4763c1f1a3e82332f195f59c3658af9110bf
 		<Extensions>
 			<code_completion />
 			<debugger />

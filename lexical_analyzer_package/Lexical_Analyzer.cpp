@@ -47,7 +47,7 @@ void Lexical_Analyzer::init_transition_table(string file_path){
 
     TransitionTable trans_table(m_dfa , nfa.get_input_map() ,final_states , dfa.get_token_type());
 
-    token_man = TokenManager(&trans_table);
+  //  token_man = TokenManager(&trans_table);
 
     delete nfa_graph;
 }
