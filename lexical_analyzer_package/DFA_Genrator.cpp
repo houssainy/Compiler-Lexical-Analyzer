@@ -1,12 +1,15 @@
 #include "DFA_Genrator.h"
-
 #include <DFA_State.h>
 
 
 
-DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int > > eClouser,int numberOfInputs,vector<bool> finalState)
+DFA_Genrator::DFA_Genrator(Graph * NFA , unordered_map <string,int> input)
 {
-    //ctor
+
+}
+void DFA_Genrator::Generate (vector < vector < int > > NFA , vector < vector <int > > eClouser,int numberOfInputs,vector<bool> finalState)
+{
+       //ctor
     int size = NFA.size ();
 
     if (size == -1)
@@ -85,7 +88,6 @@ DFA_Genrator::DFA_Genrator(vector < vector < int > > NFA , vector < vector <int 
 
     }
 }
-
 
 vector < vector < DFA_State > > DFA_Genrator::Get_DFA ()
 {
