@@ -1,4 +1,4 @@
-#include "TestNFA.h"
+#include "TestSimpsonGraphBuilder.h"
 #include "BFS.h"
 
 TestSimpsonGraphBuilder::TestSimpsonGraphBuilder()
