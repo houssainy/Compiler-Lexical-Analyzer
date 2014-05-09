@@ -327,7 +327,12 @@ Graph * NFA_Generator::build_new_input_graph(string temp_string)
             }
             else  //Case 1 or error
             {
+                char c = temp_string[i];
                 temp_graph = graph_builder.init_graph(string(1,temp_string[i++]));
+
+                if( input_map.find(c) == input_map.end() ) // this character not added before
+                    input_map.insert(pair<char,int>(c, input_count++));
+                c++;
 
                 // skip white spaces after exp name
                 while(i < temp_string.length() && (temp_string[i] == ' ' || temp_string[i] == '\t') )
@@ -343,7 +348,7 @@ Graph * NFA_Generator::build_new_input_graph(string temp_string)
                 while(i < temp_string.length() && (temp_string[i] == ' ' || temp_string[i] == '\t') )
                     i++;
 
-                for( char c = temp_string[0] + 1  ; c <= temp_string[i] ; c++ )  // Range a-z OR 1-9
+                for(  ; c <= temp_string[i] ; c++ )  // Range a-z OR 1-9
                 {
                     if( input_map.find(c) == input_map.end() ) // this character not added before
                         input_map.insert(pair<char,int>(c, input_count++));

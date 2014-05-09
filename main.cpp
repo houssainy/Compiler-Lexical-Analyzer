@@ -11,10 +11,6 @@
 #include "graph_package/Node.h"
 #include "lexical_analyzer_package/NFA_Generator.h"
 #include "TransitionTable.h"
-#include "lexical_analyzer_package/DFA_Genrator.h"
-#include "lexical_analyzer_package/DFA_State.h"
-#include "lexical_analyzer_package/DFA_Minimization.h"
-
 #include "Lexical_Analyzer.h"
 
 using namespace std;
@@ -105,6 +101,7 @@ int main(int arg , char* args[])
     /**
     *   ***************** TEST PostFiXConversion **********************
     **/
+
 
 //    ExpressionEvaluator expressionEvaluator;
 //
