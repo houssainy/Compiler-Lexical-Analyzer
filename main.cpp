@@ -433,8 +433,12 @@ int main(int arg , char* args[])
          while (! inputFile.eof())
         {
             if(token->tempState != -1)
-                inputFile >> noskipws >> inputChar;
-//            if(token->tempState == -1)
+               {
+                    inputFile >> noskipws >> inputChar;
+                    cout << endl<< "Input Read: " ;
+                    cout << inputChar<<endl << endl;;
+               }
+//                    if(token->tempState == -1)
 //                    returnState = token->GetNextState(inputChar);
             if(inputFile.eof())
             {
@@ -443,9 +447,6 @@ int main(int arg , char* args[])
             }
             else
             {
-
-                cout << endl<< "Input Read: " ;
-                cout << inputChar<<endl << endl;;
                 if (inputChar == 'a')
                     token->transTableIndex = 0;
                 else if (inputChar == 'b') token->transTableIndex = 1;

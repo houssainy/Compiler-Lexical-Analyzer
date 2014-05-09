@@ -102,11 +102,11 @@ int TokenManager::GetNextState(char inputChar)
             while(store.size() != 0 )
             {
                 tempState = states.back();
-
+                cout<< tempState;
                 if (isToken(tempState)){
                     is_Token = true; return tempState;}
                 else {
-                        store.pop_back(); }
+                        store.pop_back();  }
             }
 
             if (store.size() == 0) {
@@ -114,7 +114,8 @@ int TokenManager::GetNextState(char inputChar)
                     if(seq.size() != 0 ) seq.erase(seq.begin()); states.erase(states.begin()); }
             store = seq;
         }
-        if(seq.size() == 0 ) {isError = true; discardChar.push_back(inputChar); }
+        if(seq.size() == 0 ) {isError = true; discardChar.push_back(inputChar);///////////////////////
+        }
     }
 
         /********************************************************************/
