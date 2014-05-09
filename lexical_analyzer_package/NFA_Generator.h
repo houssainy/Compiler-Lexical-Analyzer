@@ -19,7 +19,9 @@ class NFA_Generator : public Automata
     public:
         NFA_Generator(string file_path);
         Graph* getAutomata();
-
+        unordered_map<char,int> *get_input_map(){
+            return &input_map;
+        }
         virtual ~NFA_Generator();
     protected:
     private:
@@ -39,6 +41,7 @@ class NFA_Generator : public Automata
         void handle_punctuation_graph(string line);
         void handle_regular_exp_or_def_graph(string line);
 
+        Graph* copy_graph(Graph *g);
         Graph* build_new_input_graph(string temp_string );
         Graph *get_language_graph();
 

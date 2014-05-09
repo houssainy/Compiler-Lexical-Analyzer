@@ -1,5 +1,6 @@
 #include "Node.h"
 
+int Node::node_count = 0;
 Node::Node()
 {
     //ctor
