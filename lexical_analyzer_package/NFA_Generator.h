@@ -1,7 +1,6 @@
 #ifndef NFA_GENERATOR_H
 #define NFA_GENERATOR_H
 
-#include "Automata.h"
 #include "SimpsonGraphBuilder.h"
 
 #include "../graph_package/Graph.h"
@@ -14,7 +13,7 @@
 
 using namespace std;
 
-class NFA_Generator : public Automata
+class NFA_Generator
 {
     public:
         NFA_Generator(string file_path);

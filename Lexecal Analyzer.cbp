@@ -15,6 +15,7 @@
 					<Add option="-g" />
 					<Add directory="lexical_analyzer_package" />
 					<Add directory="graph_package" />
+					<Add directory="test_package" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -26,6 +27,7 @@
 					<Add option="-O2" />
 					<Add directory="lexical_analyzer_package" />
 					<Add directory="graph_package" />
+					<Add directory="test_package" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -63,6 +65,8 @@
 		<Unit filename="lexical_analyzer_package/TransitionTable.cpp" />
 		<Unit filename="lexical_analyzer_package/TransitionTable.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="test_package/DFATest.cpp" />
+		<Unit filename="test_package/DFATest.h" />
 		<Unit filename="test_package/TestSimpsonGraphBuilder.cpp" />
 		<Unit filename="test_package/TestSimpsonGraphBuilder.h" />
 		<Extensions>
