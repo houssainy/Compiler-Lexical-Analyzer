@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "test_package/TestSimpsonGraphBuilder.h"
+#include "test_package/TestNFA.h"
 #include <stack>
 #include <fstream>
 #include <string.h>
@@ -14,11 +14,19 @@
 #include "lexical_analyzer_package/DFA_State.h"
 #include "lexical_analyzer_package/DFA_Minimization.h"
 
+#include "Lexical_Analyzer.h"
 
 using namespace std;
 
-int main()
+int main(int arg , char* args[])
 {
+    /**************************** Main Code*******************************/
+    Lexical_Analyzer lx(args[1]);
+
+    /****************************END OF MAIN ****************************/
+
+
+    /*****************************TEST **********************************/
     /**
     *  ***************** Simposn't Test  **********************
     *                       Houssainy
