@@ -1,12 +1,69 @@
 #include "DFA_Genrator.h"
 #include <DFA_State.h>
 
-
+#include <queue>
 
 DFA_Genrator::DFA_Genrator(Graph * NFA , int input_size)
 {
-
+    // Traverse
+    init(NFA, input_size);
 }
+
+void DFA_Genrator::init(Graph * NFA , int input_size){
+    vector < vector < int > > trans_nfa;
+    vector < vector <int > > eClouser;
+    vector<bool> finalState;
+
+    vector<int> state_clouser;
+    vector<int> state_trans;
+
+    int node_name = 0;
+
+    //BFS
+    queue <Edge> q;
+    Edge e;
+
+    bool v[NFA->get_graph_size()];
+    for(int i = 0 ; i < NFA->get_graph_size() ; i++)
+        v[i] = false;
+
+    Node* first = NFA->get_start_node();
+    vector<Edge> *children = first->get_children();
+
+    v[first->get_node_name()] = true;
+
+    for(int i=0; i< children->size(); i++)
+    {
+        e = (*children)[i];
+        q.push(e);
+
+        if( e.get_value() == "\\L"){
+          //  state_clouser.push_back();
+        }
+    }
+
+    while(q.size()!=0)
+    {
+        Edge element = q.front();
+        q.pop();
+        bfsItration.push_back(element.get_value());
+        if( v[element.get_end_node()->get_node_name()] )
+            continue;
+
+        v[element.get_end_node()->get_node_name()] = true;
+        children = element.get_end_node()->get_children();
+        for(int i=0; i<children->size(); i++)
+        {
+            Edge child = (*children)[i];
+            q.push((*children)[i]);
+        }
+
+
+    }
+
+    Generate(trans_nfa , eClouser , input_size , finalState);
+}
+
 void DFA_Genrator::Generate (vector < vector < int > > NFA , vector < vector <int > > eClouser,int numberOfInputs,vector<bool> finalState)
 {
        //ctor

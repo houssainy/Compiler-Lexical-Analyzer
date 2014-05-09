@@ -25,6 +25,7 @@ class DFA_Genrator
 
     private:
         int Compare (DFA_State state );
+        void init(Graph * NFA , int input_size);
         void Generate (vector < vector < int > > nfa , vector < vector <int > > eClouser,int numberOfInputs,vector<bool> finalState);
         vector < vector < DFA_State > > DFA ;
         vector <DFA_State> newStates ;

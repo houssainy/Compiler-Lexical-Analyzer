@@ -11,6 +11,7 @@ class Node;
 class Edge
 {
     public:
+        Edge();
         Edge(Node* start_node , Node* end_node , string value );
 
         string get_value();

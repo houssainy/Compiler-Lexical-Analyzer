@@ -44,8 +44,6 @@ vector<string>* BFS::getBFS(Graph* g)
 
 
     }
-
-
     return &bfsItration;
 
 }

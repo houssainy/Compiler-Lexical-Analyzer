@@ -9,6 +9,9 @@ Edge::Edge(Node* start_node , Node* end_node , string value )
     this->end_node = end_node;
 }
 
+Edge::Edge(){
+}
+
 /**
 *   return the value of the edge
 **/
