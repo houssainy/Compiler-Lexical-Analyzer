@@ -16,17 +16,21 @@ class DFA_Genrator
 {
     public:
 
-        DFA_Genrator(Graph * NFA , int input_size);
+        DFA_Genrator(Graph * NFA , unordered_map<char,int> input_map);
         vector < vector < DFA_State > > Get_DFA ();
         vector < DFA_State> Get_New_States ();
+        vector<string> get_token_type(){
+            vector<string> s;
+            return s;
+        }
         virtual ~DFA_Genrator();
 
     protected:
 
     private:
         int Compare (DFA_State state );
-        void init(Graph * NFA , int input_size);
-        void Generate (vector < vector < int > > nfa , vector < vector <int > > eClouser,int numberOfInputs,vector<bool> finalState);
+        void init(Graph * NFA , unordered_map<char,int> input_map);
+        void Generate (vector < vector < int > > nfa , vector < vector <int > > eClouser,int numberOfInputs,vector<bool> finalState , vector<string> token_type);
         vector < vector < DFA_State > > DFA ;
         vector <DFA_State> newStates ;
 };

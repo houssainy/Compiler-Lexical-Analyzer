@@ -3,16 +3,17 @@
 
 #include <queue>
 
-DFA_Genrator::DFA_Genrator(Graph * NFA , int input_size)
+DFA_Genrator::DFA_Genrator(Graph * NFA , unordered_map<char,int> input_map)
 {
     // Traverse
-    init(NFA, input_size);
+    init(NFA, input_map);
 }
 
-void DFA_Genrator::init(Graph * NFA , int input_size){
+void DFA_Genrator::init(Graph * NFA , unordered_map<char,int> input_map){
     vector < vector < int > > trans_nfa;
     vector < vector <int > > eClouser;
     vector<bool> finalState;
+    vector<string> token_type;
 
     vector<int> state_clouser;
     vector<int> state_trans;
@@ -20,51 +21,84 @@ void DFA_Genrator::init(Graph * NFA , int input_size){
     int node_name = 0;
 
     //BFS
-    queue <Edge> q;
-    Edge e;
+    queue <Node*> q;
 
-    bool v[NFA->get_graph_size()];
-    for(int i = 0 ; i < NFA->get_graph_size() ; i++)
-        v[i] = false;
+    // map of key = node name and value index of the node in transition table
+    // if there was a value for the givven node name
+    unordered_map<int,int> node_holder;
 
-    Node* first = NFA->get_start_node();
-    vector<Edge> *children = first->get_children();
+    // New node position in transition table
+    int new_temp_node;
 
-    v[first->get_node_name()] = true;
+    // Node of old graph
+    Node* temp_node;
+    // Children of old graph
+    vector<Edge> *children;
 
-    for(int i=0; i< children->size(); i++)
+    temp_node = NFA->get_start_node();
+
+    // New start Node
+    finalState.push_back(temp_node->is_acceptance_node());
+    token_type.push_back(temp_node->get_token_type());
+
+    //Push first node
+    q.push(temp_node);
+    node_holder.insert(pair<int,int>(temp_node->get_node_name(), node_name++));
+
+    while(q.size()!=0)
     {
-        e = (*children)[i];
-        q.push(e);
+        temp_node = q.front(); // old node
+        q.pop();
 
-        if( e.get_value() == "\\L"){
-          //  state_clouser.push_back();
+        new_temp_node = node_holder[temp_node->get_node_name()]; // new graph
+
+        children = temp_node->get_children();
+        Node * node;
+
+        for(int i=0; i< children->size(); i++)
+        {
+            node = (*children)[i].get_end_node(); // children #i
+
+            if( node_holder.find(node->get_node_name()) != node_holder.end() ){ // visited add to new graph only
+                if( (*children)[i].get_value() == "\\L"){ // if epson add it to epson clousre
+                    state_clouser.push_back(node_holder[node->get_node_name()]);
+                }else{ // not epson, add it trans_table
+                    state_trans.push_back(node_holder[node->get_node_name()]); // state number
+                    state_trans.push_back(input_map[(*children)[i].get_value()[0]]); // input for the previous state number
+                }
+                continue;
+            }
+
+            //Not visited
+
+            // New start Node
+            finalState.push_back(node->is_acceptance_node());
+            token_type.push_back(node->get_token_type());
+
+            //Push first node
+            q.push(node);
+            node_holder.insert(pair<int,int>(node->get_node_name(), node_name++));
+
+            if( (*children)[i].get_value() == "\\L"){ // if epson add it to epson clousre
+                state_clouser.push_back(node_holder[node->get_node_name()]);
+            }else{ // not epson, add it trans_table
+                state_trans.push_back(node_holder[node->get_node_name()]); // state number
+                state_trans.push_back(input_map[(*children)[i].get_value()[0]]); // input for the previous state number
+            }
         }
+        if (state_trans.size()<2){
+            state_trans.push_back(-1);
+            state_trans.push_back(-1);
+        }
+
+        trans_nfa.push_back(state_trans);
+        eClouser.push_back(state_clouser); // if state clousere is empty ?!!
     }
 
-//    while(q.size()!=0)
-//    {
-//        Edge element = q.front();
-//        q.pop();
-//        bfsItration.push_back(element.get_value());
-//        if( v[element.get_end_node()->get_node_name()] )
-//            continue;
-//
-//        v[element.get_end_node()->get_node_name()] = true;
-//        children = element.get_end_node()->get_children();
-//        for(int i=0; i<children->size(); i++)
-//        {
-//            Edge child = (*children)[i];
-//            q.push((*children)[i]);
-//        }
-//
-//
-//    }
-
-    Generate(trans_nfa , eClouser , input_size , finalState);
+    Generate(trans_nfa , eClouser , input_map.size() , finalState , token_type);
 }
 
-void DFA_Genrator::Generate (vector < vector < int > > NFA , vector < vector <int > > eClouser,int numberOfInputs,vector<bool> finalState)
+void DFA_Genrator::Generate (vector < vector < int > > NFA , vector < vector <int > > eClouser,int numberOfInputs,vector<bool> finalState , vector<string> token_type)
 {
        //ctor
     int size = NFA.size ();
