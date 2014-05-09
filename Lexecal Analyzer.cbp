@@ -14,15 +14,8 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="lexical_analyzer_package" />
-<<<<<<< HEAD
-					<Add directory="test_package" />
-=======
 					<Add directory="graph_package" />
-<<<<<<< HEAD
->>>>>>> 7b8581ca71f30ae23d0ea853aaeef726f80b8325
-=======
 					<Add directory="include" />
->>>>>>> c0df6ff9adc88fee05a6d8e6378ee6c8b1b1ff4d
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -33,15 +26,8 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="lexical_analyzer_package" />
-<<<<<<< HEAD
-					<Add directory="test_package" />
-=======
 					<Add directory="graph_package" />
-<<<<<<< HEAD
->>>>>>> 7b8581ca71f30ae23d0ea853aaeef726f80b8325
-=======
 					<Add directory="include" />
->>>>>>> c0df6ff9adc88fee05a6d8e6378ee6c8b1b1ff4d
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -79,15 +65,9 @@
 		<Unit filename="lexical_analyzer_package/TransitionTable.cpp" />
 		<Unit filename="lexical_analyzer_package/TransitionTable.h" />
 		<Unit filename="main.cpp" />
-<<<<<<< HEAD
-		<Unit filename="test_package/TestSimpsonGraphBuilder.cpp" />
 		<Unit filename="test_package/TestSimpsonGraphBuilder.h" />
 		<Unit filename="test_package/TestTokenManager.cpp" />
 		<Unit filename="test_package/TestTokenManager.h" />
-=======
-		<Unit filename="test_package/TestNFA.cpp" />
-		<Unit filename="test_package/TestNFA.h" />
->>>>>>> c0df6ff9adc88fee05a6d8e6378ee6c8b1b1ff4d
 		<Extensions>
 			<code_completion />
 			<debugger />

@@ -8,8 +8,9 @@ class TestTokenManager
 {
     public:
         void start();
-        void print_output();
+        void isFinal();
         vector<vector <int> > transTable;
+        vector<bool> tokenType;
         TestTokenManager();
         vector< vector<int> > insertTable();
         virtual ~TestTokenManager();

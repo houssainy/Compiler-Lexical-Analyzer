@@ -7,36 +7,25 @@ TestTokenManager::TestTokenManager()
 
 }
 
-void TestTokenManager::start()
-{
-
-
-
-
-}
 std::vector< vector<int> > TestTokenManager::insertTable()
 {
     vector<int> temp;
 
-    temp.push_back(0);
     temp.push_back(1);
     temp.push_back(0);
     transTable.push_back(temp);
 
     temp.clear();
     temp.push_back(1);
-    temp.push_back(1);
     temp.push_back(2);
     transTable.push_back(temp);
 
     temp.clear();
-    temp.push_back(2);
     temp.push_back(1);
     temp.push_back(3);
     transTable.push_back(temp);
 
     temp.clear();
-    temp.push_back(3);
     temp.push_back(-1);
     temp.push_back(0);
     transTable.push_back(temp);
@@ -44,22 +33,14 @@ std::vector< vector<int> > TestTokenManager::insertTable()
     return transTable;
 
 }
-void TestTokenManager::print_output()
+
+void TestTokenManager::isFinal()
 {
+    tokenType.push_back(false);
+    tokenType.push_back(false);
+    tokenType.push_back(true);
+    tokenType.push_back(true);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 TestTokenManager::~TestTokenManager()
 {
