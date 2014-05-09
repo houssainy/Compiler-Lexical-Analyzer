@@ -12,7 +12,7 @@ NFA_Generator::NFA_Generator(string file_path)
     exp_eval = ExpressionEvaluator(&graph_builder);
 }
 
-Graph* NFA_Generator::getAutomata()
+Graph* NFA_Generator::getNFA()
 {
 
     ifstream grammar_file (file_path.c_str());

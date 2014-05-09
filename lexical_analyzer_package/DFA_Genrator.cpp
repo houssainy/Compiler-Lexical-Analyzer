@@ -3,7 +3,7 @@
 
 
 
-DFA_Genrator::DFA_Genrator(Graph * NFA , unordered_map <string,int> input)
+DFA_Genrator::DFA_Genrator(Graph * NFA , int input_size)
 {
 
 }

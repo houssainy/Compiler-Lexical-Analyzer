@@ -17,9 +17,9 @@ class NFA_Generator
 {
     public:
         NFA_Generator(string file_path);
-        Graph* getAutomata();
-        unordered_map<char,int> *get_input_map(){
-            return &input_map;
+        Graph* getNFA();
+        unordered_map<char,int> get_input_map(){
+            return input_map;
         }
         virtual ~NFA_Generator();
     protected:

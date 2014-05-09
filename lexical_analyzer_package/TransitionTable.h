@@ -13,7 +13,7 @@ public:
     TransitionTable( vector < vector <int> > MDFA ,
                      unordered_map <string,int> input,
                      vector <bool> finalState ,
-                     vector <string> tokenType );
+                     unordered_map <int,string> tokenType );
     vector < vector <int> > Get_MDFA ();
     int Get_Input (string input);
     bool is_final (int state );
@@ -27,7 +27,7 @@ private:
     vector < vector <int> > MDFA ;
     unordered_map <string,int> input_map;
     vector <bool> finalState ;
-    vector <string> tokenType ;
+    unordered_map <int,string> tokenType ;
 };
 
 #endif // TRANSITIONTABLE_H

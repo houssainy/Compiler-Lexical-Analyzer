@@ -31,7 +31,7 @@ void TestSimpsonGraphBuilder::start(){
 
     /** Test Read File **/
     NFA_Generator gen("grammarInput.txt");
-    Graph *g = gen.getAutomata();
+    Graph *g = gen.getNFA();
     cout<<g->get_graph_size() << endl;
     if( g->get_graph_size() == 33)
         cout << "Passed" << endl;
@@ -40,10 +40,10 @@ void TestSimpsonGraphBuilder::start(){
 
     cout << "-------------------------------" << endl;
     cout<< "Test on Input map:" <<endl;
-    unordered_map<char,int> *input_map = gen.get_input_map();
-    unordered_map<char, int>::const_iterator it = input_map->begin();
+    unordered_map<char,int> input_map = gen.get_input_map();
+    unordered_map<char, int>::const_iterator it = input_map.begin();
 
-     for(;it != input_map->end(); ++it)
+     for(;it != input_map.end(); ++it)
         cout<< "Input "<< it->first << " - index " << it->second << endl;
 
     cout << "-------------------------------" << endl;
