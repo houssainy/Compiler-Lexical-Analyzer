@@ -16,8 +16,7 @@ class DFA_Genrator
 {
     public:
 
-        DFA_Genrator(Graph * NFA , unordered_map <string,int> input);
-        void Generate (vector < vector < int > > nfa , vector < vector <int > > eClouser,int numberOfInputs,vector<bool> finalState);
+        DFA_Genrator(Graph * NFA , int input_size);
         vector < vector < DFA_State > > Get_DFA ();
         vector < DFA_State> Get_New_States ();
         virtual ~DFA_Genrator();
@@ -26,6 +25,7 @@ class DFA_Genrator
 
     private:
         int Compare (DFA_State state );
+        void Generate (vector < vector < int > > nfa , vector < vector <int > > eClouser,int numberOfInputs,vector<bool> finalState);
         vector < vector < DFA_State > > DFA ;
         vector <DFA_State> newStates ;
 };
