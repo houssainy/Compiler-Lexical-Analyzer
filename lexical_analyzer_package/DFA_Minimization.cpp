@@ -15,7 +15,7 @@ vector< vector <int> > DFA_Minimization:: minimize (vector < vector < DFA_State 
     map <int, int> stateSet;
     int counter = 2;
 
-    for (int i =0 ; i< newStates.size();i++)
+     for (int i =0 ; i< newStates.size();i++)
     {
         if (newStates[i].is_final())
         {
@@ -28,6 +28,8 @@ vector< vector <int> > DFA_Minimization:: minimize (vector < vector < DFA_State 
         }
     }
 
+    int acc_size = acceptance.size();
+    int non_size = nonacceptance.size();
     sets.push_back(acceptance);
     sets.push_back(nonacceptance);
 
@@ -44,7 +46,7 @@ vector< vector <int> > DFA_Minimization:: minimize (vector < vector < DFA_State 
                 vector <DFA_State> cur;
                 cur.push_back(sets[0][j]);
                 int first_state =sets[0][j].get_state_number();
-                stateSet[first_state] = counter;
+                //stateSet[first_state] = counter;
 
                 for(int k = j+1 ; k < sets[0].size() ; k++)
                 {
@@ -52,6 +54,9 @@ vector< vector <int> > DFA_Minimization:: minimize (vector < vector < DFA_State 
                     bool check = true;
                     for(int l = 0 ; l < DFA[0].size() ; l++)
                     {
+
+                        int testvalue = stateSet[DFA[second_state][l].get_state_number()];
+                        testvalue = stateSet[DFA[first_state][l].get_state_number()];
                         if(stateSet[DFA[first_state][l].get_state_number()] != stateSet[DFA[second_state][l].get_state_number()])
                             check =false;
                     }
@@ -59,11 +64,15 @@ vector< vector <int> > DFA_Minimization:: minimize (vector < vector < DFA_State 
                     {
                         cur.push_back(sets[0][k]);
                         sets[0].erase(sets[0].begin() + k);
-                        stateSet[second_state] = counter;
+                       // stateSet[second_state] = counter;
                         k--;
                     }
                     else
                         f=true;
+                }
+                for (int k =0 ; k<cur.size();k++)
+                {
+                    stateSet[cur[k].get_state_number()]=counter;
                 }
                 sets.push_back(cur);
                 sets[0].erase(sets[0].begin() + j);
