@@ -17,8 +17,10 @@ void DFA_State::set_state (int stateNumber,bool isFinal)
     isEmpty = false;
     if (!this->isFinal)
         this->isFinal = isFinal;
-    states.at(stateNumber) = true;
+    if (!states[stateNumber])
+        return ;
     statesNumber.push_back (stateNumber);
+    states.at(stateNumber) = true;
 }
 
 vector<bool> DFA_State::get_state ()
