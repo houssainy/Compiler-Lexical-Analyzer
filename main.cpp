@@ -12,7 +12,7 @@ int main(int arg , char* args[])
 {
 
     /**************************** Main Code******************************/
-//    Lexical_Analyzer lx(args[1]);
+   Lexical_Analyzer lx("grammarInput.txt");
 //
 //    /**************************** END OF MAIN ***************************/
 //

@@ -119,22 +119,29 @@ void DFA_Genrator::Generate (vector < vector < int > > NFA , vector < vector <in
         return;
 
     int counter =0 ;
+    int counter2=0 ;
     int stateindex=0;
     string type="";
 
     DFA_State startState = DFA_State (size,stateindex);
-    // Add start node to DFA_State
+    // Add start node to DFA_StateĿĿĿĿĿĿĿĿĿ
     startState.set_state(0,finalState[0]);
     if (finalState[0])
         type = token_type[0];
     // Add EClouser of first State to DFA_State
-    for(int i =0 ; i<eClouser[0].size() ; i++)
+    while(counter2<startState.get_States_Number().size())
     {
-        int state = eClouser[0][i];
-        startState.set_state(state,finalState[state]);
-        if (finalState[state] && type =="")
-            type =token_type[state];
+        int state_number = startState.get_States_Number()[counter2];
+        for(int i =0 ; i<eClouser[state_number].size() ; i++)
+        {
+            int state = eClouser[state_number][i];
+            startState.set_state(state,finalState[state]);
+            if (finalState[state] && type =="")
+                type =token_type[state];
+        }
+        counter2++;
     }
+    counter2=0;
     stateindex++;
     // Add start Node to newStates Vector
     newStates.push_back(startState);
@@ -163,16 +170,23 @@ void DFA_Genrator::Generate (vector < vector < int > > NFA , vector < vector <in
                         element.set_state(NFA[tempState][0],finalState[NFA[tempState][0]]);
                         if (finalState[NFA[tempState][0]])
                             type = token_type[NFA[tempState][0]];
-                        for(int k =0 ; k<eClouser[NFA[tempState][0]].size() ; k++)
-                        {
-                            int state = eClouser[NFA[tempState][0]].at(k);
-                            element.set_state(state,finalState[state]);
-                            if (finalState[state] && type=="")
-                                type = token_type[state];
-                        }
+
                     }
 
                 }
+                while(counter2<element.get_States_Number().size())
+                {
+                    int state_number = element.get_States_Number()[counter2];
+                    for(int i =0 ; i<eClouser[state_number].size() ; i++)
+                    {
+                        int state = eClouser[state_number][i];
+                        element.set_state(state,finalState[state]);
+                        if (finalState[state] && type =="")
+                            type =token_type[state];
+                    }
+                    counter2++;
+                }
+                counter2=0;
                 if (!element.is_Empty())
                 {
                     int found =Compare(element);
