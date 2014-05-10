@@ -49,7 +49,7 @@ void TestSimpsonGraphBuilder::start(){
     cout << "-------------------------------" << endl;
     cout<< "BFS Test:" <<endl;
     BFS b ;
-    b.getBFS(g);
+  //  b.getBFS(g);
 }
 TestSimpsonGraphBuilder::~TestSimpsonGraphBuilder()
 {

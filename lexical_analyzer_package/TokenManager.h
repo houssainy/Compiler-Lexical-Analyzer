@@ -1,30 +1,35 @@
 #ifndef TOKENMANAGER_H
 #define TOKENMANAGER_H
 #include "TransitionTable.h"
+#include "../test_package/TestTokenManager.h"
 
 class TokenManager
 {
     public:
-        TokenManager(TransitionTable *transTable);
+
+        vector<bool> is_Final;
+        TokenManager(){};
+        TokenManager(/*TransitionTable *transTable*/);
+        TestTokenManager test;
+        void printTransitionTable();
+        int transTableIndex;
+        int tempState;
         vector<char> seq ;
+        vector<char> Character;
+        vector<int> states;
         bool isError ;
-        char discardChar ;
+        vector<char> discardChar ;
         bool is_Token;
-        char is_Error();
+        int startNode;
+        vector<char> is_Error();
         int GetNextState(char str);
+        vector< vector<int> > transition_table;
         bool isToken(int state);
         virtual ~TokenManager();
-    protected:
     private:
-        vector< vector<int> > transition_table;
+
         TransitionTable *transTable;
         vector<char> store ;
-        vector<int> states;
-        int startNode;
-        int tempState;
-        int NextTempState ;
-        int transTableIndex;
-
         string type;
 };
 

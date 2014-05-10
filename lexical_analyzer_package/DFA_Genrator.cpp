@@ -27,16 +27,13 @@ void DFA_Genrator::init(Graph * NFA , unordered_map<char,int> input_map){
     // if there was a value for the givven node name
     unordered_map<int,int> node_holder;
 
-    // New node position in transition table
-    int new_temp_node;
-
     // Node of old graph
     Node* temp_node;
     // Children of old graph
     vector<Edge> *children;
 
     temp_node = NFA->get_start_node();
-
+    cout<< temp_node->get_node_name() << "Is Acceptance = " << temp_node->is_acceptance_node()<< "Token Type =" << temp_node->get_token_type() <<endl;
     // New start Node
     finalState.push_back(temp_node->is_acceptance_node());
     token_type.push_back(temp_node->get_token_type());
@@ -50,15 +47,13 @@ void DFA_Genrator::init(Graph * NFA , unordered_map<char,int> input_map){
         temp_node = q.front(); // old node
         q.pop();
 
-        new_temp_node = node_holder[temp_node->get_node_name()]; // new graph
-
         children = temp_node->get_children();
         Node * node;
 
         for(int i=0; i< children->size(); i++)
         {
             node = (*children)[i].get_end_node(); // children #i
-
+            cout<< node->get_node_name() << "Is Acceptance = " << node->is_acceptance_node()<< "Token Type =" << node->get_token_type() <<endl;
             if( node_holder.find(node->get_node_name()) != node_holder.end() ){ // visited add to new graph only
                 if( (*children)[i].get_value() == "\\L"){ // if epson add it to epson clousre
                     state_clouser.push_back(node_holder[node->get_node_name()]);
@@ -92,7 +87,24 @@ void DFA_Genrator::init(Graph * NFA , unordered_map<char,int> input_map){
         }
 
         trans_nfa.push_back(state_trans);
-        eClouser.push_back(state_clouser); // if state clousere is empty ?!!
+        eClouser.push_back(state_clouser);
+        state_clouser.clear();
+        state_trans.clear();
+    }
+    cout<< "*******************************************"<<endl;
+    cout<< "Transition Table :" << endl;
+    for(int i = 0 ; i < trans_nfa.size() ;i++){
+        vector<int> v = trans_nfa[i];
+        cout<< "Row " << i << endl;
+        cout<< endl;
+        for(int j= 0 ; j < v.size() ; j++)
+            cout<< " "<<v[j];
+        cout<< " |  is final = "  << finalState[i] << " | Token Type = " << token_type[i] << "| Epson Closure ";
+        vector<int> e_clo = eClouser[i];
+        for(int j = 0 ; j < e_clo.size();j++)
+            cout<< " " << e_clo[j];
+        cout<< endl;
+
     }
 
     Generate(trans_nfa , eClouser , input_map.size() , finalState , token_type);
@@ -145,7 +157,7 @@ void DFA_Genrator::Generate (vector < vector < int > > NFA , vector < vector <in
                 for (int j =0 ; j<currentStateNumber.size(); j++)
                 {
                     int tempState =  currentStateNumber[j];
-                    if (NFA[tempState][0]!=-1 && NFA[tempState][1]==i+1)
+                    if (NFA[tempState][0]!=-1 && NFA[tempState][1]==i)
                     {
                         finished_states ++ ;
                         element.set_state(NFA[tempState][0],finalState[NFA[tempState][0]]);
