@@ -1,1 +1,2 @@
-{ if int }
+digit = a-b
+digits = digit*
