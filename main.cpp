@@ -5,7 +5,6 @@
 #include <unordered_map>
 #include "TransitionTable.h"
 #include "Lexical_Analyzer.h"
-<<<<<<< HEAD
 #include "graph_package/Node.h"
 #include "graph_package/Graph.h"
 #include "test_package/DFATest.h"
@@ -16,8 +15,6 @@
 #include "lexical_analyzer_package/NFA_Generator.h"
 #include "lexical_analyzer_package/DFA_Minimization.h"
 #include "lexical_analyzer_package/ExpressionEvaluator.h"
-=======
->>>>>>> 042b4763c1f1a3e82332f195f59c3658af9110bf
 
 using namespace std;
 
@@ -378,7 +375,7 @@ int main(int arg , char* args[])
 //            cout << DFA[i][j].get_state_number ()<<"\t" <<DFA[i][j].is_final () << endl;
 //        }
 //    }
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //
 //    mini = DFA_Minimization ();
 //    MDFA = mini.minimize(DFA,new_states);
@@ -391,8 +388,8 @@ int main(int arg , char* args[])
 //                cout << MDFA[i][j]<<"\t\t\t"<<finals[MDFA[i][j]]<< endl;
 //            else
 //                cout << MDFA[i][j]<< endl;
-=======
->>>>>>> 042b4763c1f1a3e82332f195f59c3658af9110bf
+//=======
+//>>>>>>> 042b4763c1f1a3e82332f195f59c3658af9110bf
 
         /******************* END OF AHMED TEST  ******************/
 
@@ -401,26 +398,14 @@ int main(int arg , char* args[])
 
     /* **************************************************/
     cout<< endl<< endl<<"--------------*-----------* Bushra Test *-----------*----------*" <<endl ;
-    vector< vector<char> > symbol_table;
+    vector<vector<char> > symbol_table;
     ifstream inputFile ;
     ofstream outputFile;
     ofstream errorFile ;
 
-    /* ***** For Test ******/
-    vector<string> Type;
-    vector < vector <int> > MDFA ;
-    vector <bool> finals ;
-    unordered_map <char,int> in ;
-    in.insert(make_pair('d',0));
-    in.insert(make_pair('o',1));
-    in.insert(make_pair('u',2));
-    in.insert(make_pair('b',3));
-    in.insert(make_pair('l',4));
-    in.insert(make_pair('e',5));
-    /* ***********/
     TokenManager *token;
-   //  TransitionTable *t ;
-//    TransitionTable *t =new TransitionTable(MDFA, in , finals,Type);
+//  TransitionTable *t ;
+//  TransitionTable *t =new TransitionTable(MDFA, in , finals,Type);
     token = new TokenManager();
     token->printTransitionTable();
 
@@ -439,18 +424,27 @@ int main(int arg , char* args[])
             cout<< "Unable to open error file";
          while (! inputFile.eof())
         {
-            if(token->tempState != -1)
-               {
+            if(token->tempState != -1 || inputChar == ' ') /* * to re-read the same char when Next state = -1 **/
+            {
                     inputFile >> noskipws >> inputChar;
                     cout << endl<< "Input Read: " ;
-                    cout << inputChar<<endl << endl;;
-               }
+                    cout << inputChar<<endl << endl;
+            }
 //                    if(token->tempState == -1)
 //                    returnState = token->GetNextState(inputChar);
             if(inputFile.eof())
             {
                 token->transTableIndex = 0;
                 returnState = token->GetNextState('\0');
+
+                if(token->tempState == -2)
+                {
+                    token->states.insert( token->states.begin() , token->Character.begin() + token->store.size(), token->Character.end());
+                    token->seq.insert( token->seq.begin() , token->seq.begin() + token->store.size(), token->seq.end());
+                    returnState = token->GetNextState(token->seq.back());
+                }
+
+
             }
             else
             {
@@ -461,51 +455,49 @@ int main(int arg , char* args[])
                 returnState = token->GetNextState(inputChar);
             }
 
-            if(token->is_Token)
+       if(token->is_Token)
             {
                 //token_type = t->type(token->states[token->states.size()]);
-
                 token_type = "Identifier";
 
                 if(token_type == "Identifier")
                 {
                     outputFile << /*token_type*/ "id" << endl;
-                    symbol_table.push_back(token->seq);
-
+                    cout << token->states.back() ;
+                    if(token->states.back() == -1){ token->seq.pop_back(); }
+                     vector<char> temp;
+                     for (int i = 0 ; i < token->store.size(); i++)
+                        temp.push_back(token->seq[i]);
+                    symbol_table.push_back(temp);
                 }
                 if(token_type == "operator")
                 {
-                    for (int i = 0 ; i < token->seq.size(); i++)
+                    for (int i = 0 ; i < token->store.size(); i++)
                     {
                           outputFile << token->seq[i] ;
                     }
                 }
                 if(token_type == "punc")
-                    outputFile << "\t" << token->seq[0] << endl;
+                        outputFile << "\t" << token->seq[0] << endl;
                 if(token_type == "digit")
                 {
-                    for (int i = 0 ; i < token->seq.size(); i++)
+                    for (int i = 0 ; i < token->store.size(); i++)
                     {
                           outputFile << token->seq[i] ;
                     }
                 }
                 if(token_type == "keyword")
                 {
-                    for (int i = 0 ; i < token->seq.size(); i++)
+                    for (int i = 0 ; i < token->store.size(); i++)
                     {
                         outputFile << token->seq[i] ;
                     }
                 }
-//                int newSize = token->Character.size() - token->seq.size() ;
-//                if(newSize != 0)
-//                {
-//                    for (int i = newSize ; i < token->Character.size() ; i ++)
-//                        token->seq.insert(token->seq.begin(),token->Character[i]);
-//                    returnState = token->GetNextState(token->seq.front());
-//                }
+                token->tempState = -1;
+
 
             }
-            if(token->isError)
+        if(token->isError)
             {
                 for(int i = 0 ; i < token->discardChar.size(); i++)
                     errorFile << token->discardChar[i] << endl;

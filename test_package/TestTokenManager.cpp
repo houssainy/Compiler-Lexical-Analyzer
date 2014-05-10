@@ -38,7 +38,7 @@ void TestTokenManager::isFinal()
 {
     tokenType.push_back(false);
     tokenType.push_back(false);
-    tokenType.push_back(true);
+    tokenType.push_back(false);
     tokenType.push_back(true);
 }
 

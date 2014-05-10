@@ -26,14 +26,14 @@ int TokenManager::GetNextState(char inputChar)
        // transTableIndex = transTable-> Get_Input(inputChar);
 
     /********************** white Spaces ********************************/
-    if (inputChar == ' ' || inputChar == '/t' || inputChar == '/n' )
+    if (inputChar == ' ' || inputChar == '\t' || inputChar == '\n' )
     {
-        is_Token = isToken(tempState);/* *tempState: the previous return*/
-        cout << "isToken :" << is_Token << endl;
-
+        cout<< tempState << "tempStatee";
+        if(tempState != -1) is_Token = isToken(tempState); /* *tempState: the previous return*/
         if(is_Token)
-            {tempState = -1;}
+            {tempState = -1; return tempState;}
         return tempState;
+
     }
 
     /*********** Input not Exist in our language alphabets**************/
@@ -58,9 +58,7 @@ int TokenManager::GetNextState(char inputChar)
    /************************** End of file ***************************/
     if ((inputChar == '\0') && (seq.size()!= 0))
     {
-        int n = seq.size();
         is_Token = isToken(tempState); /* *tempState: the previous return*/
-
         if(is_Token)
             return tempState;
         else
@@ -72,12 +70,30 @@ int TokenManager::GetNextState(char inputChar)
         }
     }
     /********************************************************************/
+    if(tempState == -2)
+    {
+        do
+        {
+            is_Token = isToken(tempState);
+            if(is_Token)
+                break;
+            else
+            {
+                isError = true;
+                discardChar.push_back(tempState);
+                seq.erase(seq.begin());
+                states.erase(states.begin());
+                tempState = states.back();
+            }
+
+        }while(seq.size() != 0);
+        return tempState;
+    }
+
+    /********************************************************************/
+
     if (tempState != -1 )
     {
-        /**There is accepted path -->
-        1. add inputChar to sequence vector
-        2. get Next State **/
-
         cout << "Current State:" << tempState << "\t \t";
         tempState = transition_table[tempState][transTableIndex];
 
@@ -89,37 +105,37 @@ int TokenManager::GetNextState(char inputChar)
     }
     else
     {
-        /**There is no accepted path -->
-        1. if the last chars accepted **/
-
-        Character = seq;
+        Character = states;
         store = seq;
         store.pop_back(); states.pop_back();
-        if (isToken(states.back())){
-            is_Token = true;  seq = store; return tempState;}
+         cout << "test here"<<endl <<store.size() << "store::"<< endl;
+        cout << states.size() << "states::"<< endl;
         while (seq.size() != 0 )
         {
             while(store.size() != 0 )
             {
+                cout << states.size() << "state:::"<< endl;
                 tempState = states.back();
-                cout<< tempState;
-                if (isToken(tempState)){
-                    is_Token = true; return tempState;}
-                else {
-                        store.pop_back();  }
-            }
 
+                if (isToken(tempState)){/////////////////////
+                    is_Token = true; tempState = -2; return tempState;}
+                else {
+                        store.pop_back();states.pop_back();}
+            }
             if (store.size() == 0) {
                     isError = true; discardChar.push_back(seq.front());
-                    if(seq.size() != 0 ) seq.erase(seq.begin()); states.erase(states.begin()); }
+                    if(seq.size() != 0 ) seq.erase(seq.begin()); Character.erase(Character.begin()); }
+
             store = seq;
+            states = Character;
         }
-        if(seq.size() == 0 ) {isError = true; discardChar.push_back(inputChar);///////////////////////
+        if(seq.size() == 0 ) {isError = true; discardChar.push_back(inputChar);
         }
     }
 
         /********************************************************************/
     states.push_back(tempState);
+
     return tempState;
 }
 
