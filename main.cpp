@@ -5,19 +5,6 @@
 #include <unordered_map>
 #include "TransitionTable.h"
 #include "Lexical_Analyzer.h"
-<<<<<<< HEAD
-#include "graph_package/Node.h"
-#include "graph_package/Graph.h"
-#include "test_package/DFATest.h"
-#include "lexical_analyzer_package/DFA_State.h"
-#include "test_package/TestSimpsonGraphBuilder.h"
-#include "lexical_analyzer_package/TokenManager.h"
-#include "lexical_analyzer_package/DFA_Genrator.h"
-#include "lexical_analyzer_package/NFA_Generator.h"
-#include "lexical_analyzer_package/DFA_Minimization.h"
-#include "lexical_analyzer_package/ExpressionEvaluator.h"
-=======
->>>>>>> 042b4763c1f1a3e82332f195f59c3658af9110bf
 
 using namespace std;
 
@@ -378,21 +365,6 @@ int main(int arg , char* args[])
 //            cout << DFA[i][j].get_state_number ()<<"\t" <<DFA[i][j].is_final () << endl;
 //        }
 //    }
-<<<<<<< HEAD
-//
-//    mini = DFA_Minimization ();
-//    MDFA = mini.minimize(DFA,new_states);
-//    finals.clear();
-//    finals =mini.Is_final();
-//    cout <<"\n\n\n"<<"Minimization"<<endl;
-//    for (int i=0 ; i<MDFA.size() ; i++)
-//        for (int j=0; j<MDFA[i].size() ; j++)
-//            if (MDFA[i][j]!=-1)
-//                cout << MDFA[i][j]<<"\t\t\t"<<finals[MDFA[i][j]]<< endl;
-//            else
-//                cout << MDFA[i][j]<< endl;
-=======
->>>>>>> 042b4763c1f1a3e82332f195f59c3658af9110bf
 
         /******************* END OF AHMED TEST  ******************/
 
