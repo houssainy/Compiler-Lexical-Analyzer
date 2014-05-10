@@ -31,9 +31,6 @@ TokenManager::TokenManager(TransitionTable *transTable)
 
 int TokenManager::GetNextState(char inputChar)
 {
-    /********************************************************************/
-    if(inputChar != '\0')
-        transTableIndex = transTable-> Get_Input(inputChar);
 
     /********************** white Spaces ********************************/
     if (inputChar == ' ' || inputChar == '\t' || inputChar == '\n' )
@@ -49,13 +46,10 @@ int TokenManager::GetNextState(char inputChar)
 
     }
 
-    /*********** Input not Exist in our language alphabets**************/
-    if (transTableIndex == -1)
-    {
-        isError = true;
-        is_Token = false;
-        discardChar.push_back(inputChar);
-        return tempState;
+    /********************************************************************/
+    if(inputChar != '\0'){
+        transTableIndex = transTable-> Get_Input(inputChar);
+        cout<< transTableIndex << "test";
     }
 
     /************************** New Token ****************************/
@@ -67,6 +61,16 @@ int TokenManager::GetNextState(char inputChar)
         states.clear();
         Character.clear();
     }
+
+    /*********** Input not Exist in our language alphabets**************/
+    if (transTableIndex == -1)
+    {
+        isError = true;
+        is_Token = false;
+        discardChar.push_back(inputChar);
+        return tempState;
+    }
+
 
     /************************** End of file ***************************/
     if ((inputChar == '\0') && (seq.size()!= 0))
@@ -106,6 +110,7 @@ int TokenManager::GetNextState(char inputChar)
     {
         tempState = transition_table[tempState][transTableIndex];
         seq.push_back(inputChar);
+        states.push_back(tempState);
     }
     else
     {
@@ -118,7 +123,7 @@ int TokenManager::GetNextState(char inputChar)
         {
             while(store.size() != 0 )
             {
-                cout << states.size() << "state:::"<< endl;
+                cout << states.size()  ;
                 tempState = states.back();
 
                 if (isToken(tempState)) /////////////////////
@@ -144,15 +149,15 @@ int TokenManager::GetNextState(char inputChar)
             store = seq;
             states = Character;
         }
-        if(seq.size() == 0 )
+        if(seq.size() == 0 && store.size() !=0 )
         {
             isError = true;
-            discardChar.push_back(inputChar);
+           // discardChar.push_back(inputChar);
         }
     }
 
     /********************************************************************/
-    states.push_back(tempState);
+
     return tempState;
 }
 
@@ -189,22 +194,46 @@ string TokenManager::getToken()
         }
         if(inputFile.eof())
         {
+
+
             transTableIndex = 0;
             returnState = GetNextState('\0');
         }
-        if(tempState == -2)
-        {
-            states.insert(states.begin() , Character.begin() + store.size(), Character.end());
-            seq.insert(seq.begin() , seq.begin() + store.size(),seq.end());
-            returnState = GetNextState(seq.back());
-        }
         else
             returnState = GetNextState(inputChar);
+        if(tempState == -2)
+        {
+            if (seq.size() > store.size())
+            {
+                seq.clear(); states.clear();
+                cout<< "Before"<<endl;
+                for ( int i = 0 ; i < seq.size() ; i++)
+                    cout << seq[i] << endl;
+
+                states.insert(states.begin() , Character.begin(),  Character.begin() + Character.size());
+                seq.insert(seq.begin() , store.begin() ,  store.begin() + store.size() );
+//
+      cout<< "After"<<endl;
+                for ( int i = 0 ; i < seq.size() ; i++)
+                    cout << seq[i] << endl;
+
+            }
+            else
+            {
+                seq.clear(); states.clear();
+                states.insert(states.begin() , states.begin() + Character.size() ,  Character.end());
+                seq.insert(seq.begin() , seq.begin() + store.size() , store.end());
+                returnState = GetNextState(seq.back());
+            }
+
+
+        }
+
         if(is_Token)
         {
             token_type = transTable->type(states[states.size()]);
-            if(states.back() == -1)
-                seq.pop_back();
+           // if(states.back() == -1)
+             //   seq.pop_back();
 
             Token token ;
             token.type = token_type;
@@ -222,6 +251,7 @@ string TokenManager::getToken()
         {
             for(int i = 0 ; i < discardChar.size(); i++)
                 errorFile << discardChar[i] << endl;
+            discardChar.clear();
             isError = false;
         }
     }

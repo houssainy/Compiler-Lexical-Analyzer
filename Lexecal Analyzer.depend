@@ -857,7 +857,7 @@
 1399624430 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\simpsongraphbuilder.cpp
 	"SimpsonGraphBuilder.h"
 
-1399714947 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\tokenmanager.cpp
+1399734719 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\tokenmanager.cpp
 	"TokenManager.h"
 	<string.h>
 	"TransitionTable.h"
@@ -887,8 +887,9 @@
 
 1399381762 c:\users\mohamed\google drive\my workspace\c++\compiler-lexical-analyzer-master\lexical_analyzer_package\transitiontable.h
 
-1399674814 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\transitiontable.cpp
+1399730217 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\transitiontable.cpp
 	"TransitionTable.h"
+	<iostream>
 
 1399715934 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\main.cpp
 	<string.h>
@@ -1040,7 +1041,7 @@
 1399603393 source:c:\users\mohamed\google drive\myworkspace\c++\compiler-lexical-analyzer-master\test_package\dfatest.cpp
 	"DFATest.h"
 
-1399722728 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\lexical_analyzer.cpp
+1399727675 source:c:\codeblocks_workspace\compiler_lexical_analysis_phase1\lexical_analyzer_package\lexical_analyzer.cpp
 	"Lexical_Analyzer.h"
 	"NFA_Generator.h"
 	"DFA_Genrator.h"

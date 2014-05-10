@@ -25,9 +25,7 @@ void Lexical_Analyzer::init_transition_table(string file_path){
     vector< vector<int> > m_dfa = min_dfa.minimize(dfa.Get_DFA() , dfa.Get_New_States() );
     vector< bool > final_states = min_dfa.Is_final();
 
-    TransitionTable trans_table(m_dfa , nfa.get_input_map() ,final_states , dfa.get_token_type());
-
-    token_man = new TokenManager(&trans_table);
+    token_man = new TokenManager(new TransitionTable(m_dfa , nfa.get_input_map() ,final_states , dfa.get_token_type()) );
 
     delete nfa_graph;
 }
