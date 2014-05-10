@@ -1,2 +1,1 @@
-digit = a
-digits: digit*
+{ if int }

@@ -1,2 +1,3 @@
-digit = a-b
-digits: digit*
+T_DO= d.o
+T_DOUBLE = d.o.u.b.l.e
+T_MYS = a-z | A-Z

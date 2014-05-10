@@ -1,6 +1,6 @@
 #include "TransitionTable.h"
 
-
+#include <iostream>
 TransitionTable::TransitionTable( vector < vector <int> > MDFA ,
                                   unordered_map <char,int> input,
                                   vector <bool> finalState ,
@@ -19,13 +19,9 @@ vector < vector <int> > TransitionTable::Get_MDFA ()
 
 int TransitionTable::Get_Input (char input)
 {
-    unordered_map<char,int>::const_iterator it =input_map.find(input);
-
-    if (it!=input_map.end())
-    {
-        return it->second;
-    }
-    return -1;
+    if( input_map.find(input) == input_map.end())
+        return -1;
+    return input_map[input];
 }
 
 bool TransitionTable::is_final (int state )

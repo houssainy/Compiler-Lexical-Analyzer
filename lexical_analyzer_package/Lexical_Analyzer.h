@@ -1,7 +1,7 @@
 #ifndef LEXICAL_ANALYZER_H
 #define LEXICAL_ANALYZER_H
 
-#include "TokenManager.h"
+#include "GetToken.h"
 #include <iostream>
 
 using namespace std;
@@ -13,11 +13,8 @@ class Lexical_Analyzer
         virtual ~Lexical_Analyzer();
     protected:
     private:
-<<<<<<< HEAD
-     //   TokenManager token_man = NULL;
-=======
-        TokenManager token_man;
->>>>>>> 042b4763c1f1a3e82332f195f59c3658af9110bf
+        GetToken * token_man;
+
         void init_transition_table(string file_path);
 };
 

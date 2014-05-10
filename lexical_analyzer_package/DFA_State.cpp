@@ -17,6 +17,8 @@ void DFA_State::set_state (int stateNumber,bool isFinal)
     isEmpty = false;
     if (!this->isFinal)
         this->isFinal = isFinal;
+    if (states[stateNumber])
+        return ;
     states.at(stateNumber) = true;
     statesNumber.push_back (stateNumber);
 }
