@@ -1,4 +1,4 @@
-Compiler-Lexical-Analyzer
+Lexical Analyzer and Syntax Analyzer Tools
 =========================
 Implementation of the first two phases of Analysis Part (Front end) of the compiler using C++.
 
